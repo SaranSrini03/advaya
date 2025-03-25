@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/NavBar";
 import Noise from "@/app/animations/Noise";
 
@@ -7,19 +8,22 @@ export default function EventPage() {
     const [dots, setDots] = useState([]);
     const [moved, setMoved] = useState(false);
     const [showBoxes, setShowBoxes] = useState(false);
+    const router = useRouter();
 
     const events = [
         { id: 1, title: "24-Hour Hackathon", img: "/tech.jpg" },
-        { id: 2, title: "Webathon / Mobilathon", img: "/workshop.jpg" },
+        { id: 2, title: "Webathon", img: "/workshop.jpg" },
         { id: 3, title: "UI/UX Design Challenge", img: "/hack.jpg" },
-        { id: 4, title: "Social Media Contest", img: "/network.jpg" },
+        { id: 4, title: "Mobilathon", img: "/network.jpg" },
         { id: 5, title: "Connections", img: "/exhibit.jpg" },
-        { id: 6, title: "Debugging", img: "/awards.jpg" },
+        { id: 6, title: "C Debugging", img: "/awards.jpg" },
+        { id: 7, title: "Chatbot", img: "/awards.jpg" },
     ];
+
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setMoved(true);
+            setMoved(true); 
             setTimeout(() => setShowBoxes(true), 1000);
         }, 200);
 
@@ -34,12 +38,17 @@ export default function EventPage() {
         })));
     }, []);
 
+    const handleReadMore = (title) => {
+        const formattedTitle = title.toLowerCase().replace(/[-/]/g, "").replace(/\s+/g, "-");
+        router.push(`/events/${formattedTitle}`);
+    };
+
     return (
         <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00]">
             <Navbar />
             <Noise />
 
-            {/* Animated background elements */}
+            {/* Animated background elements */}    
             <div className="absolute inset-0 opacity-20">
                 {dots.map((dot, i) => (
                     <div
@@ -68,7 +77,7 @@ export default function EventPage() {
                             "--before-shadow": "8px 0 #ffcc00",
                             textShadow: '0 0 10px rgba(255,140,0,0.5)'
                         }}
-                    >
+                    >   
                         Events
                     </span>
                 </div>
@@ -90,7 +99,10 @@ export default function EventPage() {
                                         <h3 className="text-lg md:text-xl font-mono mb-3 md:mb-4 text-orange-300 text-center">
                                             {event.title}
                                         </h3>
-                                        <button className="w-full py-2 bg-orange-500/80 hover:bg-orange-600 text-xs md:text-sm font-mono rounded-md transition-all hover:scale-[1.02]">
+                                        <button
+                                            className="w-full py-2 bg-orange-500/80 hover:bg-orange-600 text-xs md:text-sm font-mono rounded-md transition-all hover:scale-[1.02]"
+                                            onClick={() => handleReadMore(event.title)} // Navigate on click
+                                        >
                                             Know More
                                         </button>
                                     </div>

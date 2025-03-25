@@ -13,11 +13,11 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/events", label: "Events" },
-    { href: "/timeline", label: "Timeline" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Home." },
+    { href: "/events", label: "Events." },
+    { href: "/timeline", label: "Timeline." },
+    { href: "/about", label: "About." },
+    { href: "/contact", label: "Contact." },
   ];
 
   useEffect(() => {
@@ -177,7 +177,7 @@ const Navbar = () => {
               className="md:hidden absolute top-full w-full bg-white/70 dark:bg-gray-900/70 backdrop-filter backdrop-blur-lg border-b border-white/20 dark:border-gray-700/30 shadow-lg"
             >
               <div className="px-4 py-4">
-                <ul className="space-y-4">
+                <ul className="space-y-4 ">
                   {links.map((link) => (
                     <li key={link.href}>
                       <Link
