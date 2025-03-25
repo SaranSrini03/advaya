@@ -1,8 +1,8 @@
 "use client"
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from "next/navigation";
-import Navbar from "./components/Navbar";
-import Noise from "./animations/Noise";
+import Navbar from "@/app/components/NavBar";
+import Noise from "@/app/animations/Noise";
 
 export default function HomePage() {
   const [dots, setDots] = useState([]);
