@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiSearch, FiMoon, FiSun, FiX, FiMenu } from "react-icons/fi";
+import { FaGamepad } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +12,7 @@ const Navbar = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   const links = [
     { href: "/", label: "Home." },
@@ -56,8 +58,8 @@ const Navbar = () => {
         variants={navVariants}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className={`fixed top-0 w-full z-50 backdrop-blur-xl ${isScrolled
-            ? "bg-white/20 dark:bg-gray-900/30 border-b border-white/20 dark:border-gray-700/30 shadow-lg backdrop-filter backdrop-blur-lg"
-            : "bg-white/10 dark:bg-gray-900/20 backdrop-filter backdrop-blur-md"
+          ? "bg-white/20 dark:bg-gray-900/30 border-b border-white/20 dark:border-gray-700/30 shadow-lg backdrop-filter backdrop-blur-lg"
+          : "bg-white/10 dark:bg-gray-900/20 backdrop-filter backdrop-blur-md"
           }`}
         style={{
           boxShadow: isScrolled ? "0 10px 30px -10px rgba(0, 0, 0, 0.1)" : "none",
@@ -86,8 +88,8 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       className={`relative px-2 py-1.5 font-medium transition-colors ${pathname === link.href
-                          ? "text-gray-900 dark:text-white"
-                          : "text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
+                        ? "text-gray-900 dark:text-white"
+                        : "text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
                         }`}
                     >
                       {link.label}
@@ -112,16 +114,8 @@ const Navbar = () => {
                   <FiSearch className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                 </button>
 
-                <button
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="p-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/30 transition-colors"
-                  aria-label="Toggle dark mode"
-                >
-                  {darkMode ? (
-                    <FiSun className="w-5 h-5 text-orange-400 dark:text-orange-300" />
-                  ) : (
-                    <FiMoon className="w-5 h-5 text-orange-600 dark:text-orange-300" />
-                  )}
+                <button onClick={() => router.push('/game')} className="p-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/30 transition-colors" aria-label="Go to Game">
+                  <FaGamepad className="w-5 h-5 text-orange-600 dark:text-orange-300" />
                 </button>
 
                 <motion.button
@@ -183,8 +177,8 @@ const Navbar = () => {
                       <Link
                         href={link.href}
                         className={`block py-2 px-3 rounded-lg transition-colors ${pathname === link.href
-                            ? "bg-orange-100/80 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400"
-                            : "text-gray-700 hover:bg-white/30 dark:text-gray-200 dark:hover:bg-gray-800/30"
+                          ? "bg-orange-100/80 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400"
+                          : "text-gray-700 hover:bg-white/30 dark:text-gray-200 dark:hover:bg-gray-800/30"
                           }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
