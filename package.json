@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.5.0",
+    "html2canvas": "^1.4.1",
     "next": "15.2.3",
     "react": "^19.0.0",
     "react-bits": "^1.0.5",

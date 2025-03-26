@@ -30,13 +30,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
+
 
   const navVariants = {
     hidden: { y: -100 },
@@ -121,7 +115,8 @@ const Navbar = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-orange-500 text-black px-6 py-1.5 rounded-full font-medium hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg"
+                  onClick={() => (window.location.href = "/gettickets")}
+                  className="bg-orange-500 text-black px-6 py-1.5 rounded-full font-medium hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg cursor-pointer"
                 >
                   Get Tickets
                 </motion.button>
@@ -189,7 +184,10 @@ const Navbar = () => {
                 </ul>
 
                 <div className="mt-6 pt-4 border-t border-white/20 dark:border-gray-700/30">
-                  <button className="w-full bg-orange-500 text-white py-2.5 rounded-lg font-medium hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg cursor-pointer">
+                  <button
+                    onClick={() => (window.location.href = "/gettickets")}
+                    className="w-full bg-orange-500 text-white py-2.5 rounded-lg font-medium hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                  >
                     Get Tickets
                   </button>
                 </div>
