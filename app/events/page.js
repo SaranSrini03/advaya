@@ -11,15 +11,14 @@ export default function EventPage() {
     const router = useRouter();
 
     const events = [
-        { id: 1, title: "24-Hour Hackathon", img: "/tech.jpg" },
-        { id: 2, title: "Webathon", img: "/workshop.jpg" },
-        { id: 3, title: "UI/UX Design Challenge", img: "/hack.jpg" },
-        { id: 4, title: "Mobilathon", img: "/network.jpg" },
-        { id: 5, title: "Connections", img: "/exhibit.jpg" },
-        { id: 6, title: "C Debugging", img: "/awards.jpg" },
-        { id: 7, title: "Chatbot", img: "/awards.jpg" },
+        { id: 1, title: "24-Hour Hackathon", img: "/hack24img.jpg" },
+        { id: 2, title: "Webathon", img: "/webathon.jpeg" },
+        { id: 3, title: "UI/UX Design Challenge", img: "/uiux.jpeg" },
+        { id: 4, title: "Mobilathon", img: "/mobilathon.jpeg" },
+        { id: 5, title: "Connections", img: "/connection.jpeg" },
+        { id: 6, title: "C Debugging", img: "/debug.jpeg" },
+        { id: 7, title: "Chatbot", img: "/chatbot.jpg" },
     ];
-
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -29,7 +28,6 @@ export default function EventPage() {
 
         return () => clearTimeout(timer);
     }, []);
-
 
     useEffect(() => {
         setDots([...Array(20)].map(() => ({
@@ -48,7 +46,6 @@ export default function EventPage() {
             <Navbar />
             <Noise />
 
-            {/* Animated background elements */}    
             <div className="absolute inset-0 opacity-20">
                 {dots.map((dot, i) => (
                     <div
@@ -63,10 +60,7 @@ export default function EventPage() {
                 ))}
             </div>
 
-
-
             <div className="relative z-10 h-full text-white">
-                {/* Animated title */}
                 <div className={`absolute w-full transition-all duration-1000 ${moved ? 'top-6 md:top-8' : 'top-1/2 -translate-y-1/2'}`}>
                     <span
                         className="glitch font-black sm:mt-0 mt-8 font-mono block text-center mx-auto"
@@ -82,7 +76,6 @@ export default function EventPage() {
                     </span>
                 </div>
 
-                {/* Scrollable event boxes container */}
                 {showBoxes && (
                     <div className="pt-32 mt-10 md:pt-40 h-full">
                         <div className="h-[70vh] overflow-y-auto scrollbar-hide px-4 pb-8">
@@ -94,14 +87,18 @@ export default function EventPage() {
                                         style={{ animationDelay: `${index * 0.2}s` }}
                                     >
                                         <div className="aspect-video bg-orange-900/30 rounded-lg mb-3 md:mb-4 overflow-hidden">
-                                            <div className="w-full h-full bg-orange-200/10 animate-pulse" />
+                                            <img 
+                                                src={event.img}
+                                                alt={event.title}
+                                                className="w-full h-full object-cover"
+                                            />
                                         </div>
                                         <h3 className="text-lg md:text-xl font-mono mb-3 md:mb-4 text-orange-300 text-center">
                                             {event.title}
                                         </h3>
                                         <button
                                             className="w-full py-2 bg-orange-500/80 hover:bg-orange-600 text-xs md:text-sm font-mono rounded-md transition-all hover:scale-[1.02]"
-                                            onClick={() => handleReadMore(event.title)} // Navigate on click
+                                            onClick={() => handleReadMore(event.title)}
                                         >
                                             Know More
                                         </button>
@@ -114,65 +111,65 @@ export default function EventPage() {
             </div>
 
             <style jsx global>{`
-        .glitch {
-          position: relative;
-          color: #fff;
-          white-space: nowrap;
-        }
-        
-        .glitch::before,
-        .glitch::after {
-          content: attr(data-text);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          clip-path: inset(0 0 0 0);
-        }
+                .glitch {
+                    position: relative;
+                    color: #fff;
+                    white-space: nowrap;
+                }
+                
+                .glitch::before,
+                .glitch::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    clip-path: inset(0 0 0 0);
+                }
 
-        .glitch::after {
-          left: 8px;
-          text-shadow: var(--after-shadow);
-          animation: animate-glitch 3s infinite linear alternate-reverse;
-        }
+                .glitch::after {
+                    left: 8px;
+                    text-shadow: var(--after-shadow);
+                    animation: animate-glitch 3s infinite linear alternate-reverse;
+                }
 
-        .glitch::before {
-          left: -8px;
-          text-shadow: var(--before-shadow);
-          animation: animate-glitch 2s infinite linear alternate-reverse;
-        }
+                .glitch::before {
+                    left: -8px;
+                    text-shadow: var(--before-shadow);
+                    animation: animate-glitch 2s infinite linear alternate-reverse;
+                }
 
-        @keyframes animate-glitch {
-          0%   { clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
-          10%  { clip-path: polygon(0 50%, 100% 50%, 100% 60%, 0 60%); }
-          20%  { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
-          30%  { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
-          40%  { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
-          50%  { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); }
-          60%  { clip-path: polygon(0 15%, 100% 15%, 100% 25%, 0 25%); }
-          70%  { clip-path: polygon(0 65%, 100% 65%, 100% 75%, 0 75%); }
-          80%  { clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); }
-          90%  { clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%); }
-          100% { clip-path: polygon(0 35%, 100% 35%, 100% 45%, 0 45%); }
-        }
+                @keyframes animate-glitch {
+                    0%   { clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
+                    10%  { clip-path: polygon(0 50%, 100% 50%, 100% 60%, 0 60%); }
+                    20%  { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
+                    30%  { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
+                    40%  { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+                    50%  { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); }
+                    60%  { clip-path: polygon(0 15%, 100% 15%, 100% 25%, 0 25%); }
+                    70%  { clip-path: polygon(0 65%, 100% 65%, 100% 75%, 0 75%); }
+                    80%  { clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); }
+                    90%  { clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%); }
+                    100% { clip-path: polygon(0 35%, 100% 35%, 100% 45%, 0 45%); }
+                }
 
-        @keyframes fade-in-up {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
+                @keyframes fade-in-up {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
 
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease-out forwards;
-        }
-      `}</style>
+                .animate-fade-in-up {
+                    animation: fade-in-up 0.8s ease-out forwards;
+                }
+            `}</style>
         </div>
     );
 }
