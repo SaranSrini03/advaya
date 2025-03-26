@@ -88,8 +88,8 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       className={`relative px-2 py-1.5 font-medium transition-colors ${pathname === link.href
-                        ? "text-gray-900 dark:text-white"
-                        : "text-gray-700 hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
+                        ? "text-white dark:text-white"
+                        : "text-white hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
                         }`}
                     >
                       {link.label}

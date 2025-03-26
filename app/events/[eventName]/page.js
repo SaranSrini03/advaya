@@ -1,24 +1,61 @@
 "use client";
 import { useParams } from "next/navigation";
 import Navbar from "@/app/components/NavBar";
+import Image from "next/image";
 
 // Event data object
 const eventData = {
     "24hour-hackathon": {
+        imagePath: "/hack24img.jpg",
         title: "24-Hour Hackathon",
         about: "Join the ultimate 24-hour coding marathon where innovation meets endurance! Compete in a fast-paced, high-energy event with expert mentorship and networking opportunities.",
         prizes: ["1st Place: $5,000 + Internship Opportunity", "2nd Place: $2,500 + Tech Gadgets", "3rd Place: $1,000 + Swag Pack"],
         venue: "Tech Arena, 456 Coding Street, San Francisco, CA",
         rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Presentation"],
     },
+    "webathon": {
+        imagePath: "/webathon.jpeg",
+        title: "Webathon",
+        about: "Join the ultimate 24-hour coding marathon where innovation meets endurance! Compete in a fast-paced, high-energy event with expert mentorship and networking opportunities.",
+        prizes: ["1st Place: $5,000 + Internship Opportunity", "2nd Place: $2,500 + Tech Gadgets", "3rd Place: $1,000 + Swag Pack"],
+        venue: "Tech Arena, 456 Coding Street, San Francisco, CA",
+        rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Presentation"],
+    },
     "uiux-design-challenge": {
-        title:"UI / UX Design Challenge",
+        imagePath: "/uiux.jpeg",
+        title: "UI / UX Design Challenge",
         about: "Unleash your creativity in this design sprint! Compete with top designers to create intuitive and visually stunning UI/UX experiences.",
         prizes: ["1st Place: $3,000 + Adobe Subscription", "2nd Place: $1,500 + Wacom Tablet", "3rd Place: $750 + Design Swag"],
         venue: "Design Hub, 789 Creative Lane, New York, NY",
         rules: ["Solo or duo participation", "Must use Figma/Adobe XD", "Judging criteria: Aesthetics, User Experience, Innovation"],
     },
-    "debugging": {
+    "mobilathon": {
+        imagePath: "/mobilathon.jpeg",
+        title: "Mobilathon",
+        about: "Unleash your creativity in this design sprint! Compete with top designers to create intuitive and visually stunning UI/UX experiences.",
+        prizes: ["1st Place: $3,000 + Adobe Subscription", "2nd Place: $1,500 + Wacom Tablet", "3rd Place: $750 + Design Swag"],
+        venue: "Design Hub, 789 Creative Lane, New York, NY",
+        rules: ["Solo or duo participation", "Must use Figma/Adobe XD", "Judging criteria: Aesthetics, User Experience, Innovation"],
+    },
+    "connections": {
+        imagePath: "/connection.jpeg",
+        title: "Connections",
+        about: "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+        prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
+        venue: "Tech Labs, 321 Code City, Austin, TX",
+        rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
+    },
+    "c-debugging": {
+        imagePath: "/debug.jpeg",
+        title: "C Debugging",
+        about: "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+        prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
+        venue: "Tech Labs, 321 Code City, Austin, TX",
+        rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
+    },
+    "chatbot": {
+        imagePath: "/chatbot.jpg",
+        title: "ChatBot",
         about: "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
         prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
         venue: "Tech Labs, 321 Code City, Austin, TX",
@@ -29,6 +66,8 @@ const eventData = {
 // Function to handle missing events
 const getEventDetails = (eventName) => {
     return eventData[eventName] || {
+        imagePath: "/default-event-banner.jpg",
+        title: "Coming Soon",
         about: "Details will be available soon. Stay tuned!",
         prizes: ["TBD"],
         venue: "Venue details coming soon!",
@@ -47,23 +86,23 @@ export default function EventDetails() {
 
             {/* Banner Section */}
             <div className="relative h-96 w-full overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-amber-600/10" />
-                <div
-                    className="h-full w-full bg-gray-800 animate-pulse"
-                    style={{
-                        backgroundImage: "url('/placeholder-event.jpg')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                    }}
-                >
-                    <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black to-transparent">
-                        <h1 className="text-4xl md:text-6xl font-bold text-orange-400 drop-shadow-xl">
-                            {eventDetails.title}
-                        </h1>
-                    </div>
+                <div className="absolute inset-0 z-10" />
+                <Image
+                    src={eventDetails.imagePath}
+                    alt={eventDetails.title}
+                    fill
+                    className="object-cover object-center"
+                    quality={80}
+                    priority
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black to-transparent z-10">
+                    <h1 className="text-4xl md:text-6xl font-bold inline-block bg-black/80 px-4 py-2 text-orange-400 drop-shadow-xl">
+                        {eventDetails.title}
+                    </h1>
                 </div>
             </div>
 
+            {/* Rest of the component remains the same */}
             {/* Main Content */}
             <div className="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Left Column */}
