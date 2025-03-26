@@ -197,11 +197,9 @@ export default function GetTickets() {
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
                                             <div>
                                                 <div className="text-gray-400">Event Dates</div>
-                                                <div className="text-gray-200">24-26 Oct 2024</div>
+                                                <div className="text-gray-200">06 - 07 May 2025</div>
                                             </div>
                                             <div>
-                                                <div className="text-gray-400">Pass Type</div>
-                                                <div className="text-amber-400">All-Access</div>
                                             </div>
                                         </div>
                                     </div>
