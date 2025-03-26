@@ -156,7 +156,7 @@ export default function GetTickets() {
                             <div className="relative z-10">
                                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
                                     <div className="space-y-1">
-                                        <div className="text-xs sm:text-sm text-gray-400">ADVAYA 2024</div>
+                                        <div className="text-xs sm:text-sm text-gray-400">ADVAYA 2025</div>
                                         <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
                                             #{Math.floor(100000 + Math.random() * 900000)}
                                         </div>
@@ -197,12 +197,9 @@ export default function GetTickets() {
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
                                             <div>
                                                 <div className="text-gray-400">Event Dates</div>
-                                                <div className="text-gray-200">24-26 Oct 2024</div>
+                                                <div className="text-gray-200">06-07 May 2025</div>
                                             </div>
-                                            <div>
-                                                <div className="text-gray-400">Pass Type</div>
-                                                <div className="text-amber-400">All-Access</div>
-                                            </div>
+                                       
                                         </div>
                                     </div>
                                 </div>
