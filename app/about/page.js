@@ -72,7 +72,7 @@ export default function HomePage() {
         {/* Animated title */}
         <div className={`absolute w-full transition-all duration-1000 ${moved ? 'top-8' : 'top-1/2 -translate-y-1/2'}`}>
           <span
-            className="glitch font-black mt-36 lg:mt-26 font-mono block text-center mx-auto"
+            className="glitch font-black  mt-20  lg:mt-28 font-mono block text-center mx-auto"
             data-text="About"
             style={{
               fontSize: "clamp(3rem, 8vw, 10rem)",
