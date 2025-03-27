@@ -92,6 +92,64 @@ export default function HomePage() {
         .animate-fade-in-up {
           animation: fade-in 0.8s ease-out forwards;
         }
+          .glitch {
+          position: relative;
+          color: #fff;
+          white-space: nowrap;
+        }
+
+        .glitch::before,
+        .glitch::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          clip-path: inset(0 0 0 0);
+        }
+
+        .glitch::after {
+          left: 8px;
+          text-shadow: var(--after-shadow);
+          animation: animate-glitch 3s infinite linear alternate-reverse;
+        }
+
+        .glitch::before {
+          left: -8px;
+          text-shadow: var(--before-shadow);
+          animation: animate-glitch 2s infinite linear alternate-reverse;
+        }
+
+        @keyframes animate-glitch {
+          0%   { clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%); }
+          10%  { clip-path: polygon(0 50%, 100% 50%, 100% 60%, 0 60%); }
+          20%  { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
+          30%  { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
+          40%  { clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%); }
+          50%  { clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%); }
+          60%  { clip-path: polygon(0 15%, 100% 15%, 100% 25%, 0 25%); }
+          70%  { clip-path: polygon(0 65%, 100% 65%, 100% 75%, 0 75%); }
+          80%  { clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); }
+          90%  { clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%); }
+          100% { clip-path: polygon(0 35%, 100% 35%, 100% 45%, 0 45%); }
+        }
+
+        @keyframes fade-in-up {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
       `}</style>
     </div>
   );
