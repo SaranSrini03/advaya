@@ -81,90 +81,95 @@ export default function EventDetails() {
     const eventDetails = getEventDetails(eventName);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black to-zinc-900 text-white">
-            <Navbar />
-
+        <div className="min-h-screen bg-black text-white flex flex-col">
+          <Navbar />
+          {/* Scrollable Content Container */}
+          <div className="flex-1 overflow-y-auto touch-pan-y">
             {/* Banner Section */}
-            <div className="relative h-96 w-full overflow-hidden">
-                <div className="absolute inset-0 z-10" />
-                <Image
-                    src={eventDetails.imagePath}
-                    alt={eventDetails.title}
-                    fill
-                    className="object-cover object-center"
-                    quality={80}
-                    priority
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black to-transparent z-10">
-                    <h1 className="text-4xl md:text-6xl font-bold inline-block bg-black/80 px-4 py-2 text-orange-400 drop-shadow-xl">
-                        {eventDetails.title}
-                    </h1>
-                </div>
+            <div className="relative h-64 md:h-96 w-full overflow-hidden">
+              <div className="absolute inset-0 z-10" />
+              <Image
+                src={eventDetails.imagePath}
+                alt={eventDetails.title}
+                fill
+                className="object-cover object-center"
+                quality={80}
+                priority
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black to-transparent z-10">
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold inline-block bg-black/90 px-4 py-2 text-orange-400 drop-shadow-xl">
+                  {eventDetails.title}
+                </h1>
+              </div>
             </div>
-
-            {/* Rest of the component remains the same */}
+    
             {/* Main Content */}
-            <div className="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Left Column */}
-                <div className="md:col-span-1 space-y-8">
-                    <div className="bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/20">
-                        <h2 className="text-2xl font-bold text-amber-300 mb-4">Event Timeline</h2>
-                        <div className="space-y-4">
-                            <div className="flex justify-between items-center">
-                                <span className="text-orange-400">Start Date:</span>
-                                <span className="text-amber-100">24 Oct 2024</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <span className="text-orange-400">End Date:</span>
-                                <span className="text-amber-100">26 Oct 2024</span>
-                            </div>
-                        </div>
+            <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {/* Left Column */}
+              <div className="md:col-span-1 space-y-6 md:space-y-8">
+                <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
+                  <h2 className="text-xl md:text-2xl font-bold text-amber-300 mb-3 md:mb-4">Event Timeline</h2>
+                  <div className="space-y-3 md:space-y-4">
+                    <div className="flex justify-between items-center text-sm md:text-base">
+                      <span className="text-orange-400">Start Date:</span>
+                      <span className="text-amber-100">24 Oct 2024</span>
                     </div>
-
-                    <button className="w-full py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-xl text-xl font-bold transition-all duration-300 shadow-[0_0_30px_rgba(255,165,0,0.3)] hover:shadow-[0_0_50px_rgba(255,165,0,0.5)] hover:scale-105">
-                        Register Now
-                    </button>
+                    <div className="flex justify-between items-center text-sm md:text-base">
+                      <span className="text-orange-400">End Date:</span>
+                      <span className="text-amber-100">26 Oct 2024</span>
+                    </div>
+                  </div>
                 </div>
-
-                {/* Right Column */}
-                <div className="md:col-span-2 space-y-8">
-                    <div className="bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-8 border border-orange-500/20">
-                        <h2 className="text-3xl font-bold text-amber-300 mb-6">About the Event</h2>
-                        <p className="text-gray-300 leading-relaxed">{eventDetails.about}</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div className="bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/20 hover:border-orange-400/40 transition-colors">
-                            <h3 className="text-xl font-bold text-amber-300 mb-4 flex items-center gap-2">
-                                <span className="text-orange-500">🏆</span> Prizes
-                            </h3>
-                            <ul className="space-y-2 text-gray-300">
-                                {eventDetails.prizes.map((prize, index) => (
-                                    <li key={index}>{prize}</li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/20 hover:border-orange-400/40 transition-colors">
-                            <h3 className="text-xl font-bold text-amber-300 mb-4 flex items-center gap-2">
-                                <span className="text-orange-500">📜</span> Rules
-                            </h3>
-                            <ul className="space-y-2 text-gray-300">
-                                {eventDetails.rules.map((rule, index) => (
-                                    <li key={index}>{rule}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="bg-zinc-800/50 backdrop-blur-sm rounded-2xl p-6 border border-orange-500/20">
-                        <h3 className="text-2xl font-bold text-amber-300 mb-4 flex items-center gap-2">
-                            <span className="text-orange-500">📍</span> Venue
-                        </h3>
-                        <p className="text-gray-300">{eventDetails.venue}</p>
-                    </div>
+    
+                <button className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95">
+                  Register Now
+                </button>
+              </div>
+    
+              {/* Right Column */}
+              <div className="md:col-span-2 space-y-6 md:space-y-8">
+                <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-orange-500/20">
+                  <h2 className="text-2xl md:text-3xl font-bold text-amber-300 mb-4 md:mb-6">About the Event</h2>
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">{eventDetails.about}</p>
                 </div>
+    
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                  {/* Prizes Card */}
+                  <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20 md:hover:border-orange-400/40 transition-colors">
+                    <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
+                      <span className="text-orange-500">🏆</span> Prizes
+                    </h3>
+                    <ul className="space-y-2 text-gray-300 text-sm md:text-base">
+                      {eventDetails.prizes.map((prize, index) => (
+                        <li key={index}>{prize}</li>
+                      ))}
+                    </ul>
+                  </div>
+    
+                  {/* Rules Card */}
+                  <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20 md:hover:border-orange-400/40 transition-colors">
+                    <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
+                      <span className="text-orange-500">📜</span> Rules
+                    </h3>
+                    <ul className="space-y-2 text-gray-300 text-sm md:text-base">
+                      {eventDetails.rules.map((rule, index) => (
+                        <li key={index}>{rule}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+    
+                {/* Venue Card */}
+                <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
+                  <h3 className="text-xl md:text-2xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
+                    <span className="text-orange-500">📍</span> Venue
+                  </h3>
+                  <p className="text-gray-300 text-sm md:text-base">{eventDetails.venue}</p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    );
+      );
+    
 }
