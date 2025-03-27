@@ -24,7 +24,7 @@ export default function EventPage() {
         const timer = setTimeout(() => {
             setMoved(true); 
             setTimeout(() => setShowBoxes(true), 1000);
-        }, 200);
+        }, 50);
 
         return () => clearTimeout(timer);
     }, []);
