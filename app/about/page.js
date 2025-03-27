@@ -36,8 +36,8 @@ export default function HomePage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setMoved(true);
-      setTimeout(() => setShowContent(true), 1000);
-    }, 1000);
+      setTimeout(() => setShowContent(true), 500);
+    }, 50);
 
     return () => clearTimeout(timer);
   }, []);
