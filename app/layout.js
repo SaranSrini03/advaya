@@ -14,8 +14,6 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Advaya 2k25",
 
-};
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
