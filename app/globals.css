@@ -27,8 +27,6 @@ body {
 .container {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  overflow: hidden;
   background: #000;
 }
 
@@ -79,4 +77,8 @@ body {
 
 .animate-pulse-slow {
   animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+/* Add this to your global CSS */
+.scroll-smooth {
+  -webkit-overflow-scrolling: touch;
 }
