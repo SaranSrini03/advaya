@@ -1,11 +1,14 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "@/app/globals.css";
+import Navbar from "@/app/components/NavBar";
+
 
 export default function Home() {
     const canvasRef = useRef(null);
     const [score, setScore] = useState(0);
     const [gameOver, setGameOver] = useState(false);
+
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -509,6 +512,7 @@ export default function Home() {
 
     return (
         <div className={styles.container}>
+            <Navbar />
             {gameOver && (
                 <div className={styles.gameOver}>
                     <h2>GAME OVER</h2>
