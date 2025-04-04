@@ -3,94 +3,96 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiSearch, FiMoon, FiSun, FiX, FiMenu } from "react-icons/fi";
+import { FiX, FiMenu } from "react-icons/fi";
 import { FaGamepad } from "react-icons/fa";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
   const links = [
-    { href: "/", label: "Home." },
-    { href: "/events", label: "Events." },
-    { href: "/timeline", label: "Timeline." },
-    { href: "/about", label: "About." },
-    { href: "/contact", label: "Contact." },
+    { href: "/", label: "Home" },
+    { href: "/events", label: "Events" },
+    { href: "/timeline", label: "Timeline" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" },
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
-
-  const navVariants = {
-    hidden: { y: -100 },
-    visible: { y: 0 },
-  };
+  const handleLogoClick = () => router.push("/");
 
   return (
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-orange-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:z-[100] transition-all"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-orange-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:z-[100]"
       >
         Skip to content
       </a>
 
       <motion.nav
-        initial="hidden"
-        animate="visible"
-        variants={navVariants}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className={`fixed top-0 w-full z-50 backdrop-blur-xl ${isScrolled
-          ? "bg-white/20 dark:bg-gray-900/30 border-b border-white/20 dark:border-gray-700/30 shadow-lg backdrop-filter backdrop-blur-lg"
-          : "bg-white/10 dark:bg-gray-900/20 backdrop-filter backdrop-blur-md"
+        className={`fixed top-0 w-full z-50 backdrop-blur-lg transition-colors duration-300 ${isScrolled
+            ? "bg-orange-500/100 border-b border-orange-200 shadow-xl"
+            : "bg-black/20 "
           }`}
-        style={{
-          boxShadow: isScrolled ? "0 10px 30px -10px rgba(0, 0, 0, 0.1)" : "none",
-        }}
       >
-        <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 ">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            {/* Left Section - Logos */}
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4">
+                <motion.img
+                  src="/cselogo.png"
+                  alt="CSE Logo"
+                  className="w-14 h-14 rounded-full cursor-pointer hover:scale-105 transition-transform border-2 border-orange-200"
+                  onClick={handleLogoClick}
+                  whileHover={{ scale: 1.05 }}
+                />
+                <img
+                  src="/CollegeLogo.png"
+                  alt="College Logo"
+                  className="h-12 w-auto hidden md:block cursor-pointer hover:scale-105 transition-transform"
+                  onClick={handleLogoClick}
+                />
+              </div>
+              <div className="h-12 w-px bg-orange-200/50 hidden md:block" />
+            </div>
+
+            {/* Center Section - Title */}
             <Link
               href="/"
-              className="flex items-center space-x-2 group"
+              className="text-3xl font-bold font-mono bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent mx-4 hover:scale-105 transition-transform"
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent"
-              >
-                Advaya
-              </motion.div>
+              ADVAYA
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center font-bold space-x-8">
-              <ul className="flex space-x-8">
+            {/* Right Section - Navigation */}
+            <div className="hidden md:flex items-center gap-8">
+              <ul className="flex gap-8 items-center">
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={`relative px-2 py-1.5 font-medium transition-colors ${pathname === link.href
-                        ? "text-white dark:text-white"
-                        : "text-white hover:text-gray-900 dark:text-gray-200 dark:hover:text-white"
+                      className={`relative px-1 py-2 font-medium transition-colors ${pathname === link.href
+                          ? "text-white"
+                          : "text-orange-100 hover:text-white"
                         }`}
                     >
                       {link.label}
                       {pathname === link.href && (
                         <motion.div
-                          className="absolute bottom-0 left-0 w-full h-0.5 bg-orange-500"
-                          layoutId="underline"
+                          className="absolute bottom-0 left-0 w-full h-0.5 bg-white"
+                          layoutId="nav-underline"
                         />
                       )}
                     </Link>
@@ -98,25 +100,19 @@ const Navbar = () => {
                 ))}
               </ul>
 
-              {/* Additional Controls */}
-              <div className="flex items-center space-x-4 ml-4">
+              <div className="flex items-center gap-4">
                 <button
-                  onClick={() => setSearchOpen(!searchOpen)}
-                  className="p-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/30 transition-colors"
-                  aria-label="Search"
+                  onClick={() => router.push('/game')}
+                  className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors"
                 >
-                  <FiSearch className="w-5 h-5 text-gray-700 dark:text-gray-200" />
-                </button>
-
-                <button onClick={() => router.push('/game')} className="p-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/30 transition-colors" aria-label="Go to Game">
-                  <FaGamepad className="w-5 h-5 text-orange-600 dark:text-orange-300" />
+                  <FaGamepad className="w-5 h-5 text-white" />
                 </button>
 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => (window.location.href = "/gettickets")}
-                  className="bg-orange-500 text-black px-6 py-1.5 rounded-full font-medium hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                  onClick={() => router.push('/gettickets')}
+                  className="bg-orange-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-orange-100 transition-colors shadow-lg"
                 >
                   Get Tickets
                 </motion.button>
@@ -125,35 +121,16 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-white/20 dark:hover:bg-gray-800/30 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-orange-500/30 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle navigation menu"
             >
               {isMenuOpen ? (
-                <FiX className="w-6 h-6 text-gray-700 dark:text-gray-200" />
+                <FiX className="w-6 h-6 text-white" />
               ) : (
-                <FiMenu className="w-6 h-6 text-gray-700 dark:text-gray-200" />
+                <FiMenu className="w-6 h-6 text-white" />
               )}
             </button>
           </div>
-
-          {/* Search Bar */}
-          <AnimatePresence>
-            {searchOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="mb-4"
-              >
-                <input
-                  type="text"
-                  placeholder="Search events..."
-                  className="w-full px-4 py-2 rounded-lg bg-white/30 dark:bg-gray-800/50 border-none focus:ring-2 focus:ring-orange-500 backdrop-blur-md placeholder-gray-500 dark:placeholder-gray-400 text-gray-800 dark:text-gray-200"
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
 
         {/* Mobile Navigation */}
@@ -163,17 +140,17 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute top-full w-full bg-white/70 dark:bg-gray-900/70 backdrop-filter backdrop-blur-lg border-b border-white/20 dark:border-gray-700/30 shadow-lg"
+              className="md:hidden absolute w-full bg-orange-100/95 backdrop-blur-lg border-b border-orange-200"
             >
               <div className="px-4 py-4">
-                <ul className="space-y-4 ">
+                <ul className="space-y-4">
                   {links.map((link) => (
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className={`block py-2 px-3 rounded-lg transition-colors ${pathname === link.href
-                          ? "bg-orange-100/80 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400"
-                          : "text-gray-700 hover:bg-white/30 dark:text-gray-200 dark:hover:bg-gray-800/30"
+                        className={`block py-2.5 px-4 rounded-lg transition-colors ${pathname === link.href
+                            ? "bg-orange-500/30 text-white"
+                            : "text-orange-600 hover:bg-orange-500/20"
                           }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -183,10 +160,18 @@ const Navbar = () => {
                   ))}
                 </ul>
 
-                <div className="mt-6 pt-4 border-t border-white/20 dark:border-gray-700/30">
+                <div className="mt-6 pt-4 border-t border-orange-200">
+                  <div className="flex justify-center gap-4 mb-4">
+                    <button
+                      onClick={() => router.push('/game')}
+                      className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors"
+                    >
+                      <FaGamepad className="w-5 h-5 text-orange-600" />
+                    </button>
+                  </div>
                   <button
-                    onClick={() => (window.location.href = "/gettickets")}
-                    className="w-full bg-orange-500 text-white py-2.5 rounded-lg font-medium hover:bg-orange-600 transition-colors shadow-md hover:shadow-lg cursor-pointer"
+                    onClick={() => router.push('/gettickets')}
+                    className="w-full bg-orange-600 text-white py-2.5 rounded-lg font-medium hover:bg-orange-700 transition-colors"
                   >
                     Get Tickets
                   </button>
