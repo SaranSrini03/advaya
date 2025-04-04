@@ -45,6 +45,19 @@ export default function EventPage() {
         <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00]">
             <Navbar />
             <Noise />
+            <div className="absolute top-20 w-full z-40 overflow-hidden bg-orange-500/20 py-2">
+                <div className="animate-marquee whitespace-nowrap">
+                    <span className="text-sm font-mono text-orange-300 mx-4">
+                        ✦ If you apply for one event, you can join 3 events ✦
+                    </span>
+                    <span className="text-sm font-mono text-orange-300 mx-4">
+                        ✦ If you apply for one event, you can join 3 events ✦
+                    </span>
+                    <span className="text-sm font-mono text-orange-300 mx-4">
+                        ✦ If you apply for one event, you can join 3 events ✦
+                    </span>
+                </div>
+            </div>
 
             <div className="absolute inset-0 opacity-20">
                 {dots.map((dot, i) => (
@@ -111,6 +124,17 @@ export default function EventPage() {
             </div>
 
             <style jsx global>{`
+
+                @keyframes marquee {
+                    0% { transform: translateX(100%); }
+                    100% { transform: translateX(-100%); }
+                }
+
+                .animate-marquee {
+                    animation: marquee 20s linear infinite;
+                    display: inline-block;
+                }
+                    
                 .glitch {
                     position: relative;
                     color: #fff;
