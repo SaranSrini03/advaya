@@ -10,22 +10,7 @@ export default function HomePage() {
   const [glitchText, setGlitchText] = useState("Advaya 2k25");
   const router = useRouter();
 
-  // useEffect(() => {
-  //   const handleMouseMove = (e) => {
-  //     if (!blobRef.current) return; // ✅ Prevents errors if blobRef is not ready
-  //     const { clientX, clientY } = e;
-  //     blobRef.current.animate(
-  //       {
-  //         left: `${clientX}px`,
-  //         top: `${clientY}px`,
-  //       },
-  //       { duration: 3000, fill: "forwards" }
-  //     );
-  //   };
 
-  //   window.addEventListener("mousemove", handleMouseMove);
-  //   return () => window.removeEventListener("mousemove", handleMouseMove);
-  // }, []);
 
   useEffect(() => {
     setDots([...Array(20)].map(() => ({
@@ -46,6 +31,19 @@ export default function HomePage() {
     <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00]">
       <Navbar />
       <Noise />
+      <div className="absolute top-20 w-full z-40 overflow-hidden bg-orange-500/20 py-2">
+        <div className="animate-marquee whitespace-nowrap">
+          <span className="text-sm font-mono text-orange-300 mx-4">
+            ✦ If you apply for one event, you can join 3 events ✦
+          </span>
+          <span className="text-sm font-mono text-orange-300 mx-4">
+            ✦ If you apply for one event, you can join 3 events ✦
+          </span>
+          <span className="text-sm font-mono text-orange-300 mx-4">
+            ✦ If you apply for one event, you can join 3 events ✦
+          </span>
+        </div>
+      </div>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
@@ -70,6 +68,12 @@ export default function HomePage() {
 
       <div className="relative z-10 flex items-center justify-center h-full text-white">
         <div className="text-center">
+          <h2
+            className="text-lg sm:text-xl font-mono md:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300 mb-3 tracking-wide drop-shadow-md animate-fade-in"
+          >
+            Sri Sairam College of Engineering presents
+          </h2>
+
           <span
             className="glitch font-black font-mono cursor-pointer select-none mx-auto hover:scale-105 transition-transform duration-300"
             data-text={glitchText}
@@ -77,7 +81,7 @@ export default function HomePage() {
               fontSize: "clamp(3rem, 8vw, 10rem)", // Responsive text size
               "--after-shadow": "-8px 0 #ff6600",
               "--before-shadow": "8px 0 #ffcc00",
-              textShadow: '0 0 10px rgba(255,140,0,0.5)'
+              textShadow: "0 0 10px rgba(255,140,0,0.5)",
             }}
           >
             Advaya 2k25
@@ -89,13 +93,16 @@ export default function HomePage() {
             onClick={goToEventPage}
             className="px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition relative overflow-hidden shadow-lg"
           >
-            <span className="relative z-10 cursor-pointer">Explore Events</span>
+            <span className="relative z-10 cursor-pointer rounded-full">
+              Explore Events
+            </span>
             <span className="absolute inset-0 bg-orange-700 opacity-20 blur-md" />
           </button>
 
           {/* Subtle animated border (hidden on very small screens) */}
           <div className="absolute inset-0 border-2 border-orange-300/20 rounded-lg animate-pulse-border hidden sm:block" />
         </div>
+
       </div>
 
       {/* Scroll indicator (larger on mobile for better tap interaction)
@@ -112,6 +119,15 @@ export default function HomePage() {
           color: #fff;
           white-space: nowrap;
         }
+          @keyframes marquee {
+                    0% { transform: translateX(100%); }
+                    100% { transform: translateX(-100%); }
+                }
+
+                .animate-marquee {
+                    animation: marquee 20s linear infinite;
+                    display: inline-block;
+                }
         
         .glitch::before,
         .glitch::after {
