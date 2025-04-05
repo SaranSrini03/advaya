@@ -6,6 +6,10 @@ import Navbar from "@/app/components/NavBar";
 import { motion, stagger, useAnimate } from "framer-motion";
 
 // ... (imports remain same)
+const HOD = [
+    { name: "Dr. Ancykutty", role: "Faculty Coordinator", image: "/team/ancykutty.jpg" },
+
+  ];
 const faculty = [
     { name: "Dr. Ancykutty", role: "Faculty Coordinator", image: "/team/ancykutty.jpg" },
     { name: "Dr. Rajesh", role: "Faculty Coordinator", image: "/team/rajesh.jpg" },
@@ -30,7 +34,7 @@ const TeamCard = ({ name, role, image }) => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className="group relative bg-[#1e1e2f]/90 rounded-xl overflow-hidden shadow-2xl text-center text-white p-6 hover:bg-[#2a2a40]/90 transition-all duration-300 hover:-translate-y-2 hover:shadow-orange-900/30"
+    className="group relative bg-orange-800/90 rounded-xl overflow-hidden shadow-2xl text-center text-white p-6 hover:bg-orange/90 transition-all duration-300 hover:-translate-y-2 hover:shadow-orange-900/30"
   >
     {/* Animated border */}
     <div className="absolute inset-0 rounded-xl border-1 border-orange-300/10 group-hover:border-orange-300/30 transition-all duration-500" />
@@ -59,43 +63,16 @@ const TeamCard = ({ name, role, image }) => (
     </div>
 
     {/* Animated background dots */}
-    <div className="absolute inset-0 opacity-20">
-      {[...Array(10)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-1 h-1 bg-orange-300 rounded-full animate-pulse"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${i * 0.2}s`
-          }}
-        />
-      ))}
-    </div>
+    
   </motion.div>
 );
 
 export default function TeamsPage() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00] py-16 px-4 text-center">
-      <Noise />
       <Navbar />
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-15">
-        {[...Array(40)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-orange-300 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.1}s`,
-              animationDuration: `${Math.random() * 2 + 1}s`
-            }}
-          />
-        ))}
-      </div>
+      
 
       <motion.h1 
         initial={{ opacity: 0, y: -20 }}
@@ -108,6 +85,23 @@ export default function TeamsPage() {
         </span>
       </motion.h1>
 
+      <section className="mb-20 max-w-7xl mx-auto px-4">
+        <motion.h2 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-3xl text-amber-200 font-mono mb-12 glitch-parent border-b border-orange-300/20 pb-4 inline-block"
+        >
+          <span className="glitch" data-text="Faculty Coordinators">
+            Faculty Coordinators
+          </span>
+        </motion.h2>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+          {HOD.map((person, idx) => (
+            <TeamCard key={idx} {...person} />
+          ))}
+        </div>
+      </section>
       <section className="mb-20 max-w-7xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0 }}
