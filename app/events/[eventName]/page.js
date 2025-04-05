@@ -1,17 +1,49 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Navbar from "@/app/components/NavBar";
 import Image from "next/image";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Event data object
 const eventData = {
     "24hour-hackathon": {
         imagePath: "/hack24img.jpg",
         title: "24-Hour Hackathon",
-        about: "24-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory Welcome to the ultimate code-fueled chaos! For the next 24 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
-        prizes: [""],
-        venue: "Seminar Hall @ Sri Sairam College of Engineering",
-        rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Pitching"],
+        span: "24-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory ",
+        about: "Welcome to the ultimate code-fueled chaos! For the next 24 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
+        prizes: [
+            "AR in education",
+            "AI powered Health Care Applications",
+            "Development of E-learning platform",
+            "Chat bot using AI",
+            "Sentiment and Behavioural Analysis in Monitoring Applications",
+            "Enhancement of Security in E Commerce Platforms",
+            "Blockchain based Authentication Systems",
+            "Personalized recommendation systems",
+            "GenAI on ethical practices",
+            "Zero trust security model on Cloud"
+        ],
+        venue: "Seminar Hall @ Sri Sairam College of Engineering, Anekal, Bengaluru",
+        rules: [
+            // Existing rules
+            "Team size must be 3-4 members (No Individual participation and No changes in team members once registered)",
+            "No pre-written code allowed",
+            "Judging criteria: Creativity, Functionality, Pitching",
+
+            // New rules from your structure
+            "On-the-spot registration strictly prohibited",
+            "Mandatory single problem statement selection during registration",
+            "No mid-event problem statement changes allowed",
+            "3-round format with strict time enforcement",
+            "Final submission via designated GitHub repository",
+            "Project completion mandatory for evaluation",
+            "Strict ethical coding practices required",
+            "Malpractice leads to immediate disqualification",
+            "Personal devices with pre-installed software required",
+            "No time extensions under any circumstances",
+            "Food/accommodation provided only during event hours"
+        ], amount: 800,
     },
     "webathon": {
         imagePath: "/webathon.jpeg",
@@ -79,10 +111,50 @@ export default function EventDetails() {
     const { eventName } = useParams();
     const formattedTitle = eventName.replace(/-/g, " ");
     const eventDetails = getEventDetails(eventName);
+    const router = useRouter();
+
+    const HandleRegister = () => {
+        toast.error('Only team leader should register! If you are a team leader, proceed...', {
+            position: "top-left",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            style: {
+                backgroundColor: '#1a1a1a',
+                border: '1px solid #ff6600',
+                color: '#ffa500',
+                fontWeight: 'bold'
+            }
+        });
+        setTimeout(() => {
+            window.location.href = 'https://docs.google.com/forms/your-form-link';
+        }, 2000);
+    };
 
     return (
-        <div className=" bg-black text-white h-screen overflow-hidden">
+        <div className="bg-black text-white h-screen overflow-hidden">
             <Navbar />
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+                toastStyle={{
+                    backgroundColor: '#1a1a1a',
+                    border: '1px solid #ff6600',
+                    color: '#ffa500'
+                }}
+            />
 
             {/* Scrollable Container */}
             <div className="h-[calc(100dvh-4rem)] overflow-y-auto touch-pan-y scroll-smooth pb-8">
@@ -121,8 +193,8 @@ export default function EventDetails() {
                             </div>
                         </div>
 
-                        <button className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95">
-                            Register Now
+                        <button onClick={HandleRegister} className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95">
+                            Register Now ₹ {eventDetails?.amount}
                         </button>
                     </div>
 
@@ -131,18 +203,34 @@ export default function EventDetails() {
                         {/* About Section */}
                         <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-orange-500/20">
                             <h2 className="text-2xl md:text-3xl font-bold text-amber-300 mb-4 md:mb-6">About the Event</h2>
+                            <p className="text-orange-500 font-bold leading-relaxed text-sm md:text-base">{eventDetails?.span}</p>
                             <p className="text-gray-300 leading-relaxed text-sm md:text-base">{eventDetails.about}</p>
                         </div>
 
                         {/* Prizes & Rules Grid */}
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-                            <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
+                        <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
                                 <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
-                                    <span className="text-orange-500">🏆</span> Prizes
+                                    <span className="text-orange-500">📜</span> Domains
                                 </h3>
-                                <ul className="space-y-2 text-gray-300 text-sm md:text-base">
-                                    {eventDetails.prizes.map((prize, index) => (
-                                        <li key={index}>{prize}</li>
+                                <ul className="space-y-3 md:space-y-4 pl-2">
+                                    {eventDetails.prizes.map((rule, index) => (
+                                        <li
+                                            key={index}
+                                            className="flex items-start gap-3 text-gray-300 text-sm md:text-base"
+                                        >
+                                            {/* Custom bullet */}
+                                            <span className="text-orange-400 mt-0.5">▹</span>
+                                            <span className="flex-1">
+                                                {rule.split(':').map((part, i) => i === 0 ? (
+                                                    <span key={i} className="text-amber-200 font-medium">
+                                                        {part}
+                                                    </span>
+                                                ) : (
+                                                    part
+                                                ))}
+                                            </span>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>
@@ -151,9 +239,24 @@ export default function EventDetails() {
                                 <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
                                     <span className="text-orange-500">📜</span> Rules
                                 </h3>
-                                <ul className="space-y-2 text-gray-300 text-sm md:text-base">
+                                <ul className="space-y-3 md:space-y-4 pl-2">
                                     {eventDetails.rules.map((rule, index) => (
-                                        <li key={index}>{rule}</li>
+                                        <li
+                                            key={index}
+                                            className="flex items-start gap-3 text-gray-300 text-sm md:text-base"
+                                        >
+                                            {/* Custom bullet */}
+                                            <span className="text-orange-400 mt-0.5">▹</span>
+                                            <span className="flex-1">
+                                                {rule.split(':').map((part, i) => i === 0 ? (
+                                                    <span key={i} className="text-amber-200 font-medium">
+                                                        {part}
+                                                    </span>
+                                                ) : (
+                                                    part
+                                                ))}
+                                            </span>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>
