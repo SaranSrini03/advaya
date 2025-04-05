@@ -137,7 +137,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute w-full bg-orange-600/40 backdrop-blur-lg border-b border-orange-200"
+              className="md:hidden absolute w-full bg-black/90 backdrop-blur-lg border-b border-orange-200"
             >
               <div className="px-4 py-4">
                 <ul className="space-y-4">
