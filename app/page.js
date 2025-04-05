@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/NavBar";
 import Noise from "@/app/animations/Noise";
+import MarqueeBanner from "@/app/components/MarqueeBanner.js";
 
 export default function HomePage() {
   const [dots, setDots] = useState([]);
@@ -31,20 +32,8 @@ export default function HomePage() {
     <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00]">
       <Navbar />
       <Noise />
-      <div className="absolute top-20 w-full z-40 overflow-hidden bg-orange-500/20 py-2">
-        <div className="animate-marquee whitespace-nowrap">
-          <span className="text-sm font-mono text-orange-300 mx-4">
-            ✦ If you apply for one event, you can join 3 events ✦
-          </span>
-          <span className="text-sm font-mono text-orange-300 mx-4">
-            ✦ If you apply for one event, you can join 3 events ✦
-          </span>
-          <span className="text-sm font-mono text-orange-300 mx-4">
-            ✦ If you apply for one event, you can join 3 events ✦
-          </span>
-        </div>
-      </div>
-
+      <MarqueeBanner />
+     
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
         {dots.map((dot, i) => (
@@ -60,21 +49,16 @@ export default function HomePage() {
         ))}
       </div>
 
-      {/* Gradient blob follower (scales for mobile) */}
-      {/* <div
-        ref={blobRef}
-        className="absolute w-40 h-40 md:w-64 md:h-64 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full opacity-20 blur-3xl -translate-x-1/2 -translate-y-1/2"
-      /> */}
 
       <div className="relative z-10 flex items-center justify-center h-full text-white">
         <div className="text-center">
           <h2
             className="text-lg sm:text-xl font-mono md:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300 mb-3 tracking-wide drop-shadow-md animate-fade-in"
           >
-            Sri Sairam College of Engineering presents
+            Department of Computer Science and Engineering  <span className="text-white">X</span> IEEE 
           </h2>
 
-          <span
+          <span 
             className="glitch font-black font-mono cursor-pointer select-none mx-auto hover:scale-105 transition-transform duration-300"
             data-text={glitchText}
             style={{
@@ -119,15 +103,7 @@ export default function HomePage() {
           color: #fff;
           white-space: nowrap;
         }
-          @keyframes marquee {
-                    0% { transform: translateX(100%); }
-                    100% { transform: translateX(-100%); }
-                }
 
-                .animate-marquee {
-                    animation: marquee 20s linear infinite;
-                    display: inline-block;
-                }
         
         .glitch::before,
         .glitch::after {

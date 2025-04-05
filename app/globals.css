@@ -82,3 +82,17 @@ body {
 .scroll-smooth {
   -webkit-overflow-scrolling: touch;
 }
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 1000s linear infinite;
+}

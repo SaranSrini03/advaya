@@ -162,7 +162,7 @@ export default function GetTickets() {
                                         </div>
                                     </div>
                                     <div className="bg-orange-500/20 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium text-orange-400">
-                                        VIP ACCESS
+                                        Participate
                                     </div>
                                 </div>
 
