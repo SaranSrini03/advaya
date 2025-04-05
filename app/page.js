@@ -56,21 +56,6 @@ export default function HomePage() {
       <div className="relative z-10 flex items-center justify-center h-full text-white">
         <div className="text-center max-w-6xl px-4">
           {/* Enhanced Title Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-md sm:text-xl md:text-xl lg:text-xl xl:text-2xl font-mono mt-10 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500 mb-4 sm:mb-6 md:mb-8 leading-tight tracking-wide">
-              <span className="inline-block hover:text-orange-400 transition-colors duration-300">
-                Department of Computer Science And Engineering
-              </span>
-              <span className="mx-3 text-white/80">×</span>
-              <span className="inline-block hover:text-amber-400 transition-colors duration-300">
-                IEEE Student Branch Chapter - Computer Society
-              </span>
-            </h2>
-          </motion.div>
 
           {/* Enhanced Glitch Title with Hover Interaction */}
           <motion.div
@@ -92,6 +77,7 @@ export default function HomePage() {
               <span className="absolute inset-0 bg-[radial-gradient(circle,#ff8c00aa_0%,transparent_70%)] opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
             </span>
           </motion.div>
+         
 
           {/* Enhanced Animated Welcome Text */}
           <motion.h1
@@ -100,7 +86,7 @@ export default function HomePage() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-4xl sm:text-6xl md:text-7xl font-bold font-mono mb-8 mt-4 bg-gradient-to-r from-amber-200 to-orange-300 bg-clip-text text-transparent"
           >
-            Welcomes You
+            6-7 May 2025
           </motion.h1>
 
           {/* Enhanced Button with Ripple Effect */}
@@ -120,12 +106,29 @@ export default function HomePage() {
             </span>
             <span className="absolute inset-0 rounded-full border-2 border-orange-300/30 group-hover:border-orange-100/50 transition-all duration-300" />
           </motion.button>
+          {/* <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-md sm:text-xl md:text-xl lg:text-xl xl:text-2xl font-mono mt-10 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500 mb-4 sm:mb-6 md:mb-8 leading-tight tracking-wide">
+              <span className="inline-block hover:text-orange-400 transition-colors duration-300">
+                Department of Computer Science And Engineering
+              </span>
+              <span className="mx-3 text-white/80">×</span>
+              <span className="inline-block hover:text-amber-400 transition-colors duration-300">
+                IEEE Student Branch Chapter - Computer Society
+              </span>
+            </h2>
+          </motion.div> */}
 
           {/* Decorative Elements */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute left-1/4 top-1/3 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
             <div className="absolute right-1/4 bottom-1/4 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl animate-pulse delay-1000" />
           </div>
+
+
         </div>
       </div>
 

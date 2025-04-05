@@ -8,10 +8,10 @@ const eventData = {
     "24hour-hackathon": {
         imagePath: "/hack24img.jpg",
         title: "24-Hour Hackathon",
-        about: "24-Hour Hackathon -  Where Sleep Is Optional and Caffeine Is Mandatory Welcome to the ultimate chaos-coding showdown! It's 24 hours of non-stop hacking, where ideas get thrown into the fire, and somehow come out as working prototypes (mostly). Whether you're a keyboard warrior, design wizard, or just here for the snacks — this is where wild dreams meet Wi-Fi and become real. Warning: side effects may include excessive high-fiving, accidental genius, and an unhealthy love for coffee.",
-        prizes: ["1st Place: $5,000 + Internship Opportunity", "2nd Place: $2,500 + Tech Gadgets", "3rd Place: $1,000 + Swag Pack"],
+        about: "24-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory Welcome to the ultimate code-fueled chaos! For the next 24 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
+        prizes: [""],
         venue: "Seminar Hall @ Sri Sairam College of Engineering",
-        rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Presentation"],
+        rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Pitching"],
     },
     "webathon": {
         imagePath: "/webathon.jpeg",
@@ -112,11 +112,11 @@ export default function EventDetails() {
                             <div className="space-y-3 md:space-y-4">
                                 <div className="flex justify-between items-center text-sm md:text-base">
                                     <span className="text-orange-400">Start Date:</span>
-                                    <span className="text-amber-100">24 Oct 2024</span>
+                                    <span className="text-amber-100">6 May 2025</span>
                                 </div>
                                 <div className="flex justify-between items-center text-sm md:text-base">
                                     <span className="text-orange-400">End Date:</span>
-                                    <span className="text-amber-100">26 Oct 2024</span>
+                                    <span className="text-amber-100">7 May 2025</span>
                                 </div>
                             </div>
                         </div>

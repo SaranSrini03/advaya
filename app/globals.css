@@ -94,7 +94,7 @@ body {
 .animate-marquee {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 1000s linear infinite;
+  animation: marquee 100s linear infinite;
 }
 
 
