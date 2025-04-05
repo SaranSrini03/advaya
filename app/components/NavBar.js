@@ -137,7 +137,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute w-full bg-orange-600/20 backdrop-blur-lg border-b border-orange-200"
+              className="md:hidden absolute w-full bg-orange-600/40 backdrop-blur-lg border-b border-orange-200"
             >
               <div className="px-4 py-4">
                 <ul className="space-y-4">
@@ -146,7 +146,7 @@ const Navbar = () => {
                       <Link
                         href={link.href}
                         className={`block py-2.5 px-4 rounded-lg transition-colors ${pathname === link.href
-                            ? "bg-orange-500/30 text-white"
+                            ? "bg-orange-400/90 text-white"
                             : "text-white hover:bg-orange-500/50"
                           }`}
                         onClick={() => setIsMenuOpen(false)}
@@ -163,12 +163,12 @@ const Navbar = () => {
                       onClick={() => router.push('/game')}
                       className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
                     >
-                      <FaGamepad className="w-5 h-5 text-white cursor-pointer" />
+                      <FaGamepad className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
                     </button>
                   </div>
                   <button
                     onClick={() => router.push('/gettickets')}
-                    className="w-full bg-orange-600 text-white py-2.5 rounded-full font-medium hover:bg-orange-700 transition-colors"
+                    className="w-full bg-orange-600 text-white  py-2.5 rounded-full font-medium hover:bg-orange-700 transition-colors"
                   >
                     Get Tickets
                   </button>
