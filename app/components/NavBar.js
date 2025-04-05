@@ -36,7 +36,6 @@ const Navbar = () => {
       >
         Skip to content
       </a>
-
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -54,7 +53,7 @@ const Navbar = () => {
                 <motion.img
                   src="/cselogo.png"
                   alt="CSE Logo"
-                  className="w-14 h-14 rounded-full cursor-pointer hover:scale-105 transition-transform border-2 border-orange-200"
+                  className="w-14 h-14 rounded-full cursor-pointer bg-white hover:scale-105 transition-transform border-2 border-orange-200"
                   onClick={handleLogoClick}
                   whileHover={{ scale: 1.05 }}
                 />
@@ -65,10 +64,8 @@ const Navbar = () => {
                   onClick={handleLogoClick}
                 />
               </div>
-              <div className="h-12 w-px bg-orange-200/50 hidden md:block" />
+              <div className="h-12 w-px bg-orange-200/50 hidden md:block" />  
             </div>
-
-            {/* Center Section - Title */}
             <Link
               href="/"
               className="text-3xl font-bold font-mono bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent mx-4 hover:scale-105 transition-transform"
