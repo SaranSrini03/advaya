@@ -16,6 +16,7 @@ const Navbar = () => {
     { href: "/", label: "Home" },
     { href: "/events", label: "Events" },
     { href: "/timeline", label: "Timeline" },
+    { href: "/teams", label: "Teams" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
@@ -41,7 +42,7 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className={`fixed top-0 w-full z-50 backdrop-blur-lg transition-colors duration-300 ${isScrolled
-            ? "bg-orange-500/100 border-b border-orange-200 shadow-xl"
+            ? "bg-orange-600/10 border-b border-orange-200 shadow-xl"
             : "bg-black/20 "
           }`}
       >
