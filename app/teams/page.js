@@ -1,13 +1,11 @@
 "use client"
 // app/teams/page.js
 import Image from "next/image";
-import Noise from "@/app/animations/Noise";
 import Navbar from "@/app/components/NavBar";
 import { motion, stagger, useAnimate } from "framer-motion";
 
-// ... (imports remain same)
 const HOD = [
-    { name: "Dr. Ancykutty", role: "Faculty Coordinator", image: "/team/ancykutty.jpg" },
+    { name: "Dr. Smitha .JA", role: "HOD", image: "/teams/Hod.jpeg" },
 
 ];
 const faculty = [
@@ -20,12 +18,12 @@ const faculty = [
 ];
 
 const students = [
-    { name: "Raman Tulsankar", role: "Student Coordinator", image: "/team/raman.jpg" },
-    { name: "Ramesh Jawalkar", role: "Student Coordinator", image: "/team/ramesh.jpg" },
-    { name: "Ramesh Jawalkar", role: "Student Coordinator", image: "/team/ramesh.jpg" },
-    { name: "Ramesh Jawalkar", role: "Student Coordinator", image: "/team/ramesh.jpg" },
-    { name: "Ramesh Jawalkar", role: "Student Coordinator", image: "/team/ramesh.jpg" },
-    { name: "Ramesh Jawalkar", role: "Student Coordinator", image: "/team/ramesh.jpg" },
+    { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
+    { name: "TejaShree K", role: "Student Coordinator", image: "/teams/teja.jpeg" },
+    { name: "Thanuj", role: "Student Coordinator", image: "/teams/thanuj.jpeg" },
+    { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
+    { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
+    { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpg" },
     // ...add others here
 ];
 

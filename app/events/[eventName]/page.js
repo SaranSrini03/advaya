@@ -44,6 +44,7 @@ const eventData = {
             "No time extensions under any circumstances",
             "Food/accommodation provided only during event hours"
         ], amount: 800,
+        link:"www.google.com",
     },
     "webathon": {
         imagePath: "/webathon.jpeg",
@@ -52,6 +53,8 @@ const eventData = {
         prizes: ["1st Place: $5,000 + Internship Opportunity", "2nd Place: $2,500 + Tech Gadgets", "3rd Place: $1,000 + Swag Pack"],
         venue: "Tech Arena, 456 Coding Street, San Francisco, CA",
         rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Presentation"],
+        amount: "300 per/head",
+        link: "//whis.vercel.app"
     },
     "uiux-design-challenge": {
         imagePath: "/uiux.jpeg",
@@ -60,6 +63,7 @@ const eventData = {
         prizes: ["1st Place: $3,000 + Adobe Subscription", "2nd Place: $1,500 + Wacom Tablet", "3rd Place: $750 + Design Swag"],
         venue: "Design Hub, 789 Creative Lane, New York, NY",
         rules: ["Solo or duo participation", "Must use Figma/Adobe XD", "Judging criteria: Aesthetics, User Experience, Innovation"],
+        link:"//tokentrex.vercel.app"
     },
     "mobilathon": {
         imagePath: "/mobilathon.jpeg",
@@ -68,6 +72,7 @@ const eventData = {
         prizes: ["1st Place: $3,000 + Adobe Subscription", "2nd Place: $1,500 + Wacom Tablet", "3rd Place: $750 + Design Swag"],
         venue: "Design Hub, 789 Creative Lane, New York, NY",
         rules: ["Solo or duo participation", "Must use Figma/Adobe XD", "Judging criteria: Aesthetics, User Experience, Innovation"],
+        link: "//whis.vercel.app"
     },
     "connections": {
         imagePath: "/connection.jpeg",
@@ -76,6 +81,7 @@ const eventData = {
         prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
         venue: "Tech Labs, 321 Code City, Austin, TX",
         rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
+        link: "//whis.vercel.app"
     },
     "c-debugging": {
         imagePath: "/debug.jpeg",
@@ -84,6 +90,7 @@ const eventData = {
         prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
         venue: "Tech Labs, 321 Code City, Austin, TX",
         rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
+        link: "//whis.vercel.app"
     },
     "chatbot": {
         imagePath: "/chatbot.jpg",
@@ -92,6 +99,7 @@ const eventData = {
         prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
         venue: "Tech Labs, 321 Code City, Austin, TX",
         rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
+        link: "//whis.vercel.app"
     },
 };
 
@@ -113,7 +121,7 @@ export default function EventDetails() {
     const eventDetails = getEventDetails(eventName);
     const router = useRouter();
 
-    const HandleRegister = () => {
+    const HandleRegister = (link) => {
         toast.error('Only team leader should register! If you are a team leader, proceed...', {
             position: "top-left",
             autoClose: 4000,
@@ -131,7 +139,7 @@ export default function EventDetails() {
             }
         });
         setTimeout(() => {
-            window.location.href = 'https://docs.google.com/forms/your-form-link';
+            window.location.href = link;
         }, 2000);
     };
 
@@ -193,7 +201,7 @@ export default function EventDetails() {
                             </div>
                         </div>
 
-                        <button onClick={HandleRegister} className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95">
+                        <button onClick={()=> HandleRegister(eventDetails.link)} className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95">
                             Register Now ₹ {eventDetails?.amount}
                         </button>
                     </div>
