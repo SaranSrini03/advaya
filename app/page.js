@@ -53,7 +53,7 @@ export default function HomePage() {
       <div className="relative z-10 flex items-center justify-center h-full text-white">
         <div className="text-center">
           <h2
-            className="text-bold sm:text-lg md:text-sm lg:text-sm xl:text-3xl font-mono font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500 mb-4 sm:mb-6 md:mb-8 leading-tight sm:leading-snug md:leading-normal text-center px-4 animate-fade-in drop-shadow-md"
+            className="text-bold text-md sm:text-xl md:text-xl lg:text-xl xl:text-2xl font-mono mt-10 font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500 sm:mb-6 md:mb-8 leading-tight sm:leading-snug md:leading-normal text-center px-4 animate-fade-in drop-shadow-md"
           >
             Department of Computer Science And Engineering
             <span className="text-white"> X </span>
@@ -62,7 +62,7 @@ export default function HomePage() {
 
 
           <span
-            className="glitch font-black font-mono cursor-pointer select-none mx-auto hover:scale-105 transition-transform duration-300"
+            className="glitch font-black font-mono cursor-pointer select-none hover:scale-105 transition-transform duration-300"
             data-text={glitchText}
             style={{
               fontSize: "clamp(3rem, 8vw, 10rem)", // Responsive text size
