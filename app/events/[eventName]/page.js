@@ -8,9 +8,9 @@ const eventData = {
     "24hour-hackathon": {
         imagePath: "/hack24img.jpg",
         title: "24-Hour Hackathon",
-        about: "Join the ultimate 24-hour coding marathon where innovation meets endurance! Compete in a fast-paced, high-energy event with expert mentorship and networking opportunities.",
+        about: "24-Hour Hackathon -  Where Sleep Is Optional and Caffeine Is Mandatory Welcome to the ultimate chaos-coding showdown! It's 24 hours of non-stop hacking, where ideas get thrown into the fire, and somehow come out as working prototypes (mostly). Whether you're a keyboard warrior, design wizard, or just here for the snacks — this is where wild dreams meet Wi-Fi and become real. Warning: side effects may include excessive high-fiving, accidental genius, and an unhealthy love for coffee.",
         prizes: ["1st Place: $5,000 + Internship Opportunity", "2nd Place: $2,500 + Tech Gadgets", "3rd Place: $1,000 + Swag Pack"],
-        venue: "Tech Arena, 456 Coding Street, San Francisco, CA",
+        venue: "Seminar Hall @ Sri Sairam College of Engineering",
         rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Presentation"],
     },
     "webathon": {
@@ -81,7 +81,7 @@ export default function EventDetails() {
     const eventDetails = getEventDetails(eventName);
 
     return (
-        <div className=" bg-gradient-to-br from-black to-zinc-900 text-white h-screen overflow-hidden">
+        <div className=" bg-black text-white h-screen overflow-hidden">
             <Navbar />
 
             {/* Scrollable Container */}

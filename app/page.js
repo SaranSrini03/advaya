@@ -33,7 +33,7 @@ export default function HomePage() {
       <Navbar />
       <Noise />
       <MarqueeBanner />
-     
+
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-20">
         {dots.map((dot, i) => (
@@ -53,12 +53,12 @@ export default function HomePage() {
       <div className="relative z-10 flex items-center justify-center h-full text-white">
         <div className="text-center">
           <h2
-            className="text-lg sm:text-xl font-mono md:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300 mb-3 tracking-wide drop-shadow-md animate-fade-in"
+            className="text-sm sm:text-xl font-mono md:text-md font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-yellow-500 mb-3 tracking-wide drop-shadow-md animate-fade-in"
           >
-            Department of Computer Science and Engineering  <span className="text-white">X</span> IEEE 
+            Department of Computer Science And Engineering  <span className="text-white">X</span> IEEE Student Branch Chapter - Computer Society
           </h2>
 
-          <span 
+          <span
             className="glitch font-black font-mono cursor-pointer select-none mx-auto hover:scale-105 transition-transform duration-300"
             data-text={glitchText}
             style={{
@@ -75,13 +75,21 @@ export default function HomePage() {
           </h1>
           <button
             onClick={goToEventPage}
-            className="px-6 py-3 bg-orange-500 text-white font-bold text-lg rounded-lg hover:bg-orange-600 transition relative overflow-hidden shadow-lg"
+            className="group relative px-10 py-3 cursor-pointer rounded-full text-white font-bold text-lg overflow-hidden shadow-xl transition-transform duration-300 hover:scale-[1.03] bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600"
           >
-            <span className="relative z-10 cursor-pointer rounded-full">
-              Explore Events
-            </span>
-            <span className="absolute inset-0 bg-orange-700 opacity-20 blur-md" />
+            {/* Background glow on hover */}
+            <span className="absolute inset-0 bg-orange-700 opacity-10 blur-md transition-opacity duration-500 group-hover:opacity-30 z-0" />
+
+            {/* Shine effect */}
+            <span className="absolute top-0 left-[-75%] w-[200%] h-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 group-hover:left-[100%] transition-all duration-1000 z-0" />
+
+            {/* Button text */}
+            <span className="relative z-10">Explore Events</span>
+
+            {/* Border pulse */}
+            <span className="absolute inset-0 rounded-full border-2 border-orange-300/30 group-hover:border-orange-100/50 transition-all duration-300 z-0" />
           </button>
+
 
           {/* Subtle animated border (hidden on very small screens) */}
           <div className="absolute inset-0 border-2 border-orange-300/20 rounded-lg animate-pulse-border hidden sm:block" />

@@ -67,7 +67,7 @@ export default function EventPage() {
 
             <div className="relative  z-10 h-full text-white">
                 <div className={`fixed w-full mt-10 p-5 transition-all duration-1000 ${moved ? 'top-16 md:top-20' : 'top-1/2 -translate-y-1/2'} z-30`}>
-                <span
+                    <span
                         className="glitch font-black font-mono block text-center mx-auto"
                         data-text="Events"
                         style={{
@@ -76,19 +76,19 @@ export default function EventPage() {
                             "--before-shadow": "4px 0 #ffcc00",
                             textShadow: '0 0 8px rgba(255,140,0,0.5)'
                         }}
-                    >   
+                    >
                         Events
                     </span>
                 </div>
 
                 {showBoxes && (
-                    <div className="mt-38  pt-10 md:pt-32 h-full">
+                    <div className="mt-38 pt-10 md:pt-32 h-full">
                         <div className="h-[calc(100vh-14rem)] md:h-[calc(100vh-16rem)] overflow-y-auto scrollbar-hide px-4 pb-8">
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
                                 {events.map((event, index) => (
                                     <div
                                         key={event.id}
-                                        className="bg-black/40 backdrop-blur-lg rounded-xl p-4 md:p-6 border border-orange-300/20 animate-fade-in-up flex flex-col justify-between min-h-[300px]"
+                                        className="bg-black/40 backdrop-blur-lg rounded-xl p-4 md:p-6 border border-orange-300/20 animate-fade-in-up opacity-0 flex flex-col justify-between min-h-[300px]"
                                         style={{ animationDelay: `${index * 0.2}s` }}
                                     >
                                         <div className="aspect-video bg-orange-900/30 rounded-lg mb-3 md:mb-4 overflow-hidden min-h-[150px]">
@@ -114,6 +114,7 @@ export default function EventPage() {
                         </div>
                     </div>
                 )}
+
             </div>
 
             <style jsx global>{`

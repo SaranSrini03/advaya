@@ -109,7 +109,7 @@ const Navbar = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => router.push('/gettickets')}
-                  className="bg-orange-600 text-white px-6 py-2.5 rounded-full font-medium hover:bg-orange-100 transition-colors shadow-lg"
+                  className="bg-orange-600 text-white px-6 py-2.5 rounded-full font-medium cursor-pointer hover:bg-orange-900 transition-colors shadow-lg"
                 >
                   Get Tickets
                 </motion.button>
@@ -137,7 +137,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute w-full bg-orange-100/95 backdrop-blur-lg border-b border-orange-200"
+              className="md:hidden absolute w-full bg-orange-600/20 backdrop-blur-lg border-b border-orange-200"
             >
               <div className="px-4 py-4">
                 <ul className="space-y-4">
@@ -147,7 +147,7 @@ const Navbar = () => {
                         href={link.href}
                         className={`block py-2.5 px-4 rounded-lg transition-colors ${pathname === link.href
                             ? "bg-orange-500/30 text-white"
-                            : "text-orange-600 hover:bg-orange-500/20"
+                            : "text-white hover:bg-orange-500/50"
                           }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -161,14 +161,14 @@ const Navbar = () => {
                   <div className="flex justify-center gap-4 mb-4">
                     <button
                       onClick={() => router.push('/game')}
-                      className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors"
+                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
                     >
-                      <FaGamepad className="w-5 h-5 text-orange-600" />
+                      <FaGamepad className="w-5 h-5 text-white cursor-pointer" />
                     </button>
                   </div>
                   <button
                     onClick={() => router.push('/gettickets')}
-                    className="w-full bg-orange-600 text-white py-2.5 rounded-lg font-medium hover:bg-orange-700 transition-colors"
+                    className="w-full bg-orange-600 text-white py-2.5 rounded-full font-medium hover:bg-orange-700 transition-colors"
                   >
                     Get Tickets
                   </button>
