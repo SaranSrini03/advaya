@@ -16,9 +16,9 @@ const faculty = [
 const students = [
     { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
     { name: "TejaShree K", role: "Student Coordinator", image: "/teams/teja.jpeg" },
-    { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidramfacezoom.png" },
+    { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
     { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen.jpeg" },
-    { name: "Thanuj", role: "Student Coordinator", image: "/teams/thanuj.jpeg" },
+    { name: "Thanuj", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
     { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
     { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
@@ -128,7 +128,7 @@ export default function TeamsPage() {
                 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300 mb-8 xs:mb-12 md:mb-16 glitch-parent mt-4 sm:mt-6"
                 data-text="Organizing Committee"
             >
-                <span className="glitch px-3 xs:px-4" data-text="Organizing Committee">
+                <span className="glitch px-3 xs:px-5" data-text="Organizing Committee">
                     Organizing Committee
                 </span>
             </motion.h1>
