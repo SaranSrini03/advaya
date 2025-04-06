@@ -16,7 +16,7 @@ const faculty = [
 const students = [
     { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
     { name: "TejaShree K", role: "Student Coordinator", image: "/teams/teja.jpeg" },
-    { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram.jpg" },
+    { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidramfacezoom.png" },
     { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen.jpeg" },
     { name: "Thanuj", role: "Student Coordinator", image: "/teams/thanuj.jpeg" },
     { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
