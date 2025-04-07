@@ -56,11 +56,11 @@ const eventData = {
     title: "Webathon",
     about:
       "A competitive coding event where participants build dynamic websites from scratch under strict guidelines. Test your web development skills in this two-round challenge that evaluates both technical knowledge and practical implementation.",
-    prizes: [
-      "1st Place: ₹10,000 + Trophy",
-      "2nd Place: ₹7,000 + Certificate",
-      "3rd Place: ₹5,000 + Certificate",
-    ],
+    // prizes: [
+    //   "1st Place: ₹10,000 + Trophy",
+    //   "2nd Place: ₹7,000 + Certificate",
+    //   "3rd Place: ₹5,000 + Certificate",
+    // ],
     venue: "Computer Lab, Main Building",
     rules: [
       "Strictly individual participation (no teams)",
@@ -68,57 +68,48 @@ const eventData = {
       "No AI tools (e.g., ChatGPT, Copilot) for coding",
       "No copy-pasting from existing projects",
       "Internet allowed only for documentation (MDN, Stack Overflow)",
+      "Round 1: 30-minute MCQ test on web dev fundamentals and algorithms",
+      "Round 2: 3-hour on-the-spot website development from scratch",
+      "Must include dynamic functionality (user auth, DB calls, APIs)",
+      "No pre-built templates allowed - all code must be written during event",
+      "Submit both source code and hosted link (if applicable)",
+      "Judging based on: Functionality, Code quality, Creativity, and UI/UX",
+      "Registration fee: ₹300 per participant",
+      "This is a duo event, but each participant must pay ₹300",
+      "Enjoy access to two additional events with this registration!",
     ],
-    competitionStructure: [
-      {
-        round: "Round 1: Technical Quiz",
-        description:
-          "30-minute MCQ test (web dev fundamentals, algorithms, etc.)",
-        duration: "30 minutes",
-      },
-      {
-        round: "Round 2: On-the-Spot Website Development",
-        description:
-          "Build a dynamic website (frontend + backend) from scratch based on revealed theme",
-        duration: "3 hours",
-      },
-    ],
-    requirements: [
-      "Dynamic functionality (e.g., user auth, DB calls, APIs)",
-      "No pre-built templates (HTML/CSS/JS must be coded live)",
-      "Submit source code + hosted link (if applicable)",
-    ],
-    judgingCriteria: [
-      "Functionality (features working + theme adherence)",
-      "Code quality (structure, comments, efficiency)",
-      "Creativity (unique solution to theme)",
-      "UI/UX (design + responsiveness)",
-    ],
-    amount: "₹300 per participant",
+    amount: "300 per participant",
     link: "//whis.vercel.app",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
   "uiux-design-challenge": {
     imagePath: "/uiux.jpeg",
-    title: "UI / UX Design Challenge",
+    title: "UI/UX Design Challenge",
     about:
-      "Unleash your creativity in this design sprint! Compete with top designers to create intuitive and visually stunning UI/UX experiences.",
+      "A high-intensity 3-hour design sprint where teams compete to create the most innovative and user-friendly interface based on a surprise theme.",
     prizes: [
-      "1st Place: $3,000 + Adobe Subscription",
-      "2nd Place: $1,500 + Wacom Tablet",
-      "3rd Place: $750 + Design Swag",
+      "Event Timeline:",
+      " Theme Announcement",
+      " 30mins - Research & Planning",
+      " Design Phase",
+      " Prototyping",
+      " 3pm- Final Submission",
     ],
-    venue: "Design Hub, 789 Creative Lane, New York, NY",
+    venue: "Design Lab, Main Building",
     rules: [
-      "Solo or duo participation",
-      "Must use Figma/Adobe XD",
-      "Judging criteria: Aesthetics, User Experience, Innovation",
+      "Team Size: Strictly 2 members (no exceptions)",
+      "Max Capacity: First 10 registered teams only",
+      "Duration: 3 hours strictly enforced",
+      "Theme revealed at event start",
+      "Must bring your own charged laptop with design software (Figma/Adobe XD/Sketch)",
+      "Internet only allowed for: Asset downloads & cloud tool access",
     ],
+    amount: "₹300 per participant",
     link: "//tokentrex.vercel.app",
+    isAgenda: true,
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
-    amount: "300 per/head",
   },
   mobilathon: {
     imagePath: "/mobilathon.jpeg",
@@ -142,40 +133,66 @@ const eventData = {
   },
   connections: {
     imagePath: "/connection.jpeg",
-    title: "Connections",
+    title: "Technical Connections Challenge",
     about:
-      "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+      "A fast-paced technical puzzle game where teams race to find connections between technical concepts. Test your pattern recognition and technical knowledge under time pressure!",
     prizes: [
-      "1st Place: $2,000 + GitHub Pro",
-      "2nd Place: $1,000 + Mechanical Keyboard",
-      "3rd Place: $500 + Debugging Swag",
-    ],
-    venue: "Tech Labs, 321 Code City, Austin, TX",
-    rules: [
-      "Individual participation only",
-      "Time limit: 2 hours",
-      "Scoring based on number of bugs fixed",
-    ],
-    link: "//whis.vercel.app",
+      "Strict Restrictions:",
+      "  • No internet or AI tools allowed",
+      "  • Pure logical deduction only",
+      "  • No external help or references",
+      "Game Progression:",
+      "  • Multiple rounds with escalating difficulty",
+      "  • Example: 'Git, Merge, Fork' → 'Version control'",
+      "Winning Criteria:",
+      "  • Highest score after all rounds",
+      "  • Speed as tiebreaker for equal scores",
+      "Registration: ₹300 per participant (both team members must pay)",
+      "Bonus: Registration includes access to two additional events",
+      ],
+    isRule:true,
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+    venue: "Seminar Hall, Main Building",
+    rules: [
+      "Team Size: Strictly 2 members (no exceptions)",
+      "Game Format:",
+      "  • Each round presents technical hints (images/keywords/code snippets)",
+      "  • Identify the common connection between them",
+      "Time Limit: 90 seconds per round",
+      "Scoring Rules:",
+      "  • Correct answer: 1 point (exact connection phrase required)",
+      "  • Wrong/off-topic answers: 0 points",
+      "  • Ties broken by speed of correct answers",
+    ],
+    amount: "₹300 per participant",
+    link: "//whis.vercel.app",
   },
   "c-debugging": {
     imagePath: "/debug.jpeg",
-    title: "C Debugging",
+    title: "C Debugging Challenge",
     about:
-      "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+      "A competitive debugging event where participants race against time to identify and fix bugs in provided C programs. Test your problem-solving skills and attention to detail in this intense coding challenge.",
     prizes: [
-      "1st Place: $2,000 + GitHub Pro",
-      "2nd Place: $1,000 + Mechanical Keyboard",
-      "3rd Place: $500 + Debugging Swag",
+      "Provided C program with intentional errors",
+      "Must identify and fix all bugs within time limit",
+      "No AI tools (Copilot, ChatGPT, etc.)",
+      "No external help (internet/notes/discussion)",
+      "Only standard C libraries allowed",
+      "Cannot modify expected output logic (only debugging)",
+      "- Judging Criteria:",
+      "Correctness of debugged code (primary)",
+      "Efficiency in fixing errors",
+      "Time taken (tie-breaker for equal scores)",
     ],
-    venue: "Tech Labs, 321 Code City, Austin, TX",
+    venue: "Computer Lab 3, Main Building",
     rules: [
-      "Individual participation only",
-      "Time limit: 2 hours",
-      "Scoring based on number of bugs fixed",
+      "Solo participation only (no teams)",
+      "Duration: Strict 2-hour limit",
+      "Scoring: Based on number of bugs successfully fixed",
     ],
+    amount: "₹300 per participant",
+    isRule: true,
     link: "//whis.vercel.app",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
@@ -320,7 +337,6 @@ export default function EventDetails() {
 
           {/* Right Column - Full Visibility */}
           <div className="md:col-span-2 space-y-6 md:space-y-8">
-            {/* About Section */}
             <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-orange-500/20">
               <h2 className="text-2xl md:text-3xl font-bold text-amber-300 mb-4 md:mb-6">
                 About the Event
@@ -336,16 +352,24 @@ export default function EventDetails() {
             {/* Prizes & Rules Grid */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
               <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
-                <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
-                  <span className="text-orange-500">📜</span> Domains
-                </h3>
+                {eventDetails.isRule ? (
+                  <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
+                    <span className="text-orange-500">📜</span>
+                    Rules
+                  </h3>
+                ) : (
+                  <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
+                    <span className="text-orange-500">📜</span>
+                    {eventDetails?.isAgenda ? "Agenda" : "Domains"}
+                  </h3>
+                )}
+
                 <ul className="space-y-3 md:space-y-4 pl-2">
-                  {eventDetails.prizes.map((rule, index) => (
+                  {eventDetails?.prizes?.map((rule, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-3 text-gray-300 text-sm md:text-base"
                     >
-                      {/* Custom bullet */}
                       <span className="text-orange-400 mt-0.5">▹</span>
                       <span className="flex-1">
                         {rule.split(":").map((part, i) =>
