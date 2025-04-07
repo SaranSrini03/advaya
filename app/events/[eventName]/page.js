@@ -44,17 +44,19 @@ const eventData = {
             "No time extensions under any circumstances",
             "Food/accommodation provided only during event hours"
         ], amount: 800,
-        link:"www.google.com",
+        link: "www.google.com",
+        warning: "This is a team event with an entry fee of ₹800. Enjoy an overnight experience with snacks, food, and exclusive swags!"
     },
     "webathon": {
         imagePath: "/webathon.jpeg",
         title: "Webathon",
-        about: "Join the ultimate 24-hour coding marathon where innovation meets endurance! Compete in a fast-paced, high-energy event with expert mentorship and networking opportunities.",
+        about: "Calling all digital creators, code wizards, and design enthusiasts! Our college presents WebWars 2024 - an adrenaline-pumping web development marathon where participants race against time to craft stunning, functional websites from scratch.",
         prizes: ["1st Place: $5,000 + Internship Opportunity", "2nd Place: $2,500 + Tech Gadgets", "3rd Place: $1,000 + Swag Pack"],
         venue: "Tech Arena, 456 Coding Street, San Francisco, CA",
         rules: ["Team size: 3-4 members", "No pre-written code allowed", "Judging criteria: Creativity, Functionality, Presentation"],
         amount: "300 per/head",
-        link: "//whis.vercel.app"
+        link: "//whis.vercel.app",
+        warning: "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
     },
     "uiux-design-challenge": {
         imagePath: "/uiux.jpeg",
@@ -63,7 +65,9 @@ const eventData = {
         prizes: ["1st Place: $3,000 + Adobe Subscription", "2nd Place: $1,500 + Wacom Tablet", "3rd Place: $750 + Design Swag"],
         venue: "Design Hub, 789 Creative Lane, New York, NY",
         rules: ["Solo or duo participation", "Must use Figma/Adobe XD", "Judging criteria: Aesthetics, User Experience, Innovation"],
-        link:"//tokentrex.vercel.app"
+        link: "//tokentrex.vercel.app",
+        warning: "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+        amount: "300 per/head"
     },
     "mobilathon": {
         imagePath: "/mobilathon.jpeg",
@@ -72,7 +76,8 @@ const eventData = {
         prizes: ["1st Place: $3,000 + Adobe Subscription", "2nd Place: $1,500 + Wacom Tablet", "3rd Place: $750 + Design Swag"],
         venue: "Design Hub, 789 Creative Lane, New York, NY",
         rules: ["Solo or duo participation", "Must use Figma/Adobe XD", "Judging criteria: Aesthetics, User Experience, Innovation"],
-        link: "//whis.vercel.app"
+        link: "//whis.vercel.app",
+        warning: "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!"
     },
     "connections": {
         imagePath: "/connection.jpeg",
@@ -81,7 +86,8 @@ const eventData = {
         prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
         venue: "Tech Labs, 321 Code City, Austin, TX",
         rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
-        link: "//whis.vercel.app"
+        link: "//whis.vercel.app",
+        warning: "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!"
     },
     "c-debugging": {
         imagePath: "/debug.jpeg",
@@ -90,7 +96,8 @@ const eventData = {
         prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
         venue: "Tech Labs, 321 Code City, Austin, TX",
         rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
-        link: "//whis.vercel.app"
+        link: "//whis.vercel.app",
+        warning: "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!"
     },
     "chatbot": {
         imagePath: "/chatbot.jpg",
@@ -99,7 +106,8 @@ const eventData = {
         prizes: ["1st Place: $2,000 + GitHub Pro", "2nd Place: $1,000 + Mechanical Keyboard", "3rd Place: $500 + Debugging Swag"],
         venue: "Tech Labs, 321 Code City, Austin, TX",
         rules: ["Individual participation only", "Time limit: 2 hours", "Scoring based on number of bugs fixed"],
-        link: "//whis.vercel.app"
+        link: "//whis.vercel.app",
+        warning: "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!"
     },
 };
 
@@ -200,10 +208,14 @@ export default function EventDetails() {
                                 </div>
                             </div>
                         </div>
+                        <p className="text-center text-sm sm:text-md font-semibold text-white bg-red-500 border border-red-300 rounded-lg px-4 py-2 mt-4 mb-6 shadow-md animate-pulse">
+                            ⚠️ {eventDetails.warning}
+                        </p>
 
-                        <button onClick={()=> HandleRegister(eventDetails.link)} className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95">
+                        <button onClick={() => HandleRegister(eventDetails.link)} className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95">
                             Register Now ₹ {eventDetails?.amount}
                         </button>
+
                     </div>
 
                     {/* Right Column - Full Visibility */}
@@ -217,7 +229,7 @@ export default function EventDetails() {
 
                         {/* Prizes & Rules Grid */}
                         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-                        <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
+                            <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
                                 <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
                                     <span className="text-orange-500">📜</span> Domains
                                 </h3>
