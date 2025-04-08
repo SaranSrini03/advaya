@@ -84,8 +84,8 @@ const eventData = {
   "uiux-design-challenge": {
     imagePath: "/uiux.jpeg",
     title: "UI/UX Design Challenge",
-    about:
-      "A high-intensity 3-hour design sprint where teams compete to create the most innovative and user-friendly interface based on a surprise theme.",
+    isDate: true,
+    about:"Welcome to the UI/UX Challenge Event! This exciting event brings together designers, developers, and creatives to showcase their skills, solve real-world design problems, and push the boundaries of user experience and interface design Whether you're a seasoned designer or a newcomer to the world of UI/UX, this event is a unique opportunity to learn, collaborate, and grow. You'll face off against other teams to create innovative, user-centered design solutions within a set timeframe." ,
     prizes: [
       "Event Timeline:",
       " Theme Announcement",
@@ -325,7 +325,6 @@ export default function EventDetails() {
 
         {/* Main Content */}
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {/* Left Column */}
           <div className="md:col-span-1 space-y-6 md:space-y-8">
             <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
               <h2 className="text-xl md:text-2xl font-bold text-amber-300 mb-3 md:mb-4">
@@ -334,7 +333,7 @@ export default function EventDetails() {
               <div className="space-y-3 md:space-y-4">
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-orange-400">Start Date:</span>
-                  <span className="text-amber-100">6 May 2025</span>
+                  <span className="text-amber-100">{ eventDetails?.isDate? 7: 6} May 2025</span>
                 </div>
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-orange-400">End Date:</span>
@@ -354,7 +353,6 @@ export default function EventDetails() {
             </button>
           </div>
 
-          {/* Right Column - Full Visibility */}
           <div className="md:col-span-2 space-y-6 md:space-y-8">
             <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-orange-500/20">
               <h2 className="text-2xl md:text-3xl font-bold text-amber-300 mb-4 md:mb-6">
