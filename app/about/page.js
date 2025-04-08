@@ -72,9 +72,8 @@ export default function HomePage() {
       <div className="relative z-10 w-full min-h-screen flex flex-col">
         {/* Glitchy title */}
         <div
-          className={`w-full transition-all duration-1000 ${
-            moved ? "pt-20 md:pt-24" : "absolute top-1/2 -translate-y-1/2"
-          }`}
+          className={`w-full transition-all duration-1000 ${moved ? "pt-20 md:pt-24" : "absolute top-1/2 -translate-y-1/2"
+            }`}
         >
           <span
             className="glitch font-black font-mono block text-center mx-auto"
@@ -96,14 +95,14 @@ export default function HomePage() {
             <div className="w-full max-w-4xl px-4 md:px-8">
               <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-orange-300/20">
                 <p className="text-sm sm:text-base md:text-lg font-mono text-orange-200 leading-relaxed">
-                  Advayathon is a premier tech extravaganza that brings together
+                  Advaya 2k25 is a premier tech extravaganza that brings together
                   innovators, developers, designers, and tech enthusiasts from
                   around the globe for an immersive experience in cutting-edge
                   technology. This multi-faceted event goes beyond a traditional
                   hackathon, offering a diverse range of competitions and
                   activities, including:
                 </p>
-                
+
                 <ul className="mt-4 space-y-3 text-sm sm:text-base md:text-lg font-mono text-orange-200">
                   <li className="flex items-start">
                     <span className="text-orange-400 mr-2">•</span>
@@ -153,6 +152,50 @@ export default function HomePage() {
                   )}
                 </div>
               </div>
+              {showContent && (
+                <div className="flex-1 flex items-center justify-center py-2 md:py-12 animate-fade-in">
+                  {/* ... Previous content ... */}
+
+                  {/* Clubs Section */}
+                  <div className="w-full max-w-4xl px-4 md:px-8 mt-12">
+                    <h2 className="glitch font-black font-mono text-center mb-8"
+                      data-text="Clubs"
+                      style={{
+                        fontSize: "clamp(2rem, 5vw, 3rem)",
+                        "--after-shadow": "-4px 0 #ff6600",
+                        "--before-shadow": "4px 0 #ffcc00",
+                        textShadow: "0 0 8px rgba(255,140,0,0.5)"
+                      }}>
+                      Clubs
+                    </h2>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                      {[1, 2, 3, 4, 5, 6].map((club) => (
+                        <div
+                          key={club}
+                          className="group relative aspect-square bg-black/20 backdrop-blur-sm rounded-lg border border-orange-300/20 hover:border-orange-400/40 transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+                        >
+                          <div className="absolute inset-0 p-4 flex flex-col items-center justify-center text-center">
+                            {/* Club Image/Logo */}
+                            <div className="w-16 h-16 mb-4 bg-gradient-to-r from-orange-500 to-amber-500 rounded-lg transform group-hover:rotate-12 transition-transform duration-300" />
+
+                            <h3 className="font-mono text-orange-300 mb-2 text-lg">
+                              Club {club}
+                            </h3>
+                            <p className="text-sm text-orange-200 opacity-80 group-hover:opacity-100 transition-opacity">
+                              Specializing in Web Development
+                            </p>
+                          </div>
+
+                          {/* Hover Glow Effect */}
+                          <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-br from-orange-500/30 to-transpointer" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
             </div>
           </div>
         )}
