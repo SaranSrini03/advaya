@@ -24,11 +24,14 @@ const students = [
     { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
     { name: "Namitha", role: "Student Coordinator", image: "/teams/namitha.jpeg" },
-    { name: "Neha S", role: "Student Coordinator", image: "/teams/neha3.jpeg" },
+    { name: "Neha S", role: "Student Coordinator", image: "/teams/neha2.jpg" },
     { name: "Bhavani", role: "Student Coordinator", image: "/teams/bhavani.jpg" },
+    { name: "Santhosh m", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
     { name: "Sanjay", role: "Student Coordinator", image: "/teams/sanjai.jpeg" },
     { name: "Sarathi V", role: "Student Coordinator", image: "/teams/Sarathi.jpeg" },
     { name: "Nitharsin Babu", role: "Student Coordinator", image: "/teams/Babu.jpeg" },
+    { name: "Yashwanth V", role: "Student Coordinator", image: "/teams/yashwanthV.jpeg" },
+    { name: "Yeshwanth K", role: "Student Coordinator", image: "/teams/yeshwanthK.jpg" },
     // ...add others here
 ];
 
