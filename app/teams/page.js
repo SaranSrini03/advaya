@@ -17,12 +17,21 @@ const students = [
     { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
     { name: "TejaShree K", role: "Student Coordinator", image: "/teams/teja.jpeg" },
     { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
-    { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen.jpeg" },
+    { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen2.jpeg" },
+    { name: "Guruprasath M", role: "Student Coordinator", image: "/teams/gurubhai2.jpeg" },
     { name: "Thanuj", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
     { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
     { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
-    { name: "Namitha", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
+    { name: "Namitha", role: "Student Coordinator", image: "/teams/namitha.jpeg" },
+    { name: "Neha S", role: "Student Coordinator", image: "/teams/neha2.jpg" },
+    { name: "Bhavani", role: "Student Coordinator", image: "/teams/bhavani.jpg" },
+    { name: "Santhosh m", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
+    { name: "Sanjay", role: "Student Coordinator", image: "/teams/sanjai.jpeg" },
+    { name: "Sarathi V", role: "Student Coordinator", image: "/teams/Sarathi.jpeg" },
+    { name: "Nitharsin Babu", role: "Student Coordinator", image: "/teams/Babu.jpeg" },
+    { name: "Yashwanth V", role: "Student Coordinator", image: "/teams/yashwanthV.jpeg" },
+    { name: "Yeshwanth K", role: "Student Coordinator", image: "/teams/yeshwanthK.jpg" },
     // ...add others here
 ];
 
@@ -120,73 +129,75 @@ const TeamCard = ({ name, role, image }) => (
 );
 export default function TeamsPage() {
     return (
-        <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00] py-12 sm:py-16 px-4 sm:px-6 text-center">
-            <Navbar />
+        <div >
 
-            <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300 mb-8 xs:mb-12 md:mb-16 glitch-parent mt-4 sm:mt-6"
-                data-text="Organizing Committee"
-            >
-                <span className="glitch px-3 xs:px-5" data-text="Organizing Committee">
-                    Organizing Committee
-                </span>
-            </motion.h1>
+                <Navbar />
+            <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00] py-10 sm:py-16 px-2 sm:px-4 text-center">
 
-            <section className="mb-16 xs:mb-20 md:mb-24 lg:mb-32 max-w-8xl mx-auto px-2 sm:px-0">
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-xl xs:text-2xl md:text-3xl text-amber-200 font-mono mb-8 xs:mb-12 md:mb-16 glitch-parent border-b border-orange-300/20 pb-3 xs:pb-4 md:pb-6 inline-block"
+                <motion.h1
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300 mb-8 xs:mb-12 md:mb-16 glitch-parent mt-4 sm:mt-6"
+                    data-text="Organizing Committee"
                 >
-                    Head Of Department
-                </motion.h2>
-                <div className="grid grid-cols-1 justify-items-center gap-y-6 xs:gap-y-8">
-                    {HOD.map((person, idx) => (
-                        <div key={idx} className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[340px] md:max-w-[380px] px-1 xs:px-2">
-                            <TeamCard {...person} />
-                        </div>
-                    ))}
-                </div>
-            </section>
+                    <span className="glitch px-3 xs:px-5" data-text="Organizing Committee">
+                        Organizing Committee
+                    </span>
+                </motion.h1>
 
-            <section className="mb-16 xs:mb-20 md:mb-24 lg:mb-32 max-w-8xl mx-auto px-2 sm:px-0">
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-xl xs:text-2xl md:text-3xl text-amber-200 font-mono mb-8 xs:mb-12 md:mb-16 glitch-parent border-b border-orange-300/20 pb-3 xs:pb-4 md:pb-6 inline-block"
-                >
-                    Faculty Coordinators
-                </motion.h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-6 lg:gap-8 justify-items-center">
-                    {faculty.map((person, idx) => (
-                        <div key={idx} className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[340px] md:max-w-[380px] px-1 xs:px-2">
-                            <TeamCard {...person} />
-                        </div>
-                    ))}
-                </div>
-            </section>
+                <section className="mb-16 xs:mb-20 md:mb-24 lg:mb-32 max-w-8xl mx-auto px-2 sm:px-0">
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="text-xl xs:text-2xl md:text-3xl text-amber-200 font-mono mb-8 xs:mb-12 md:mb-16 glitch-parent border-b border-orange-300/20 pb-3 xs:pb-4 md:pb-6 inline-block"
+                    >
+                        Head Of Department
+                    </motion.h2>
+                    <div className="grid grid-cols-1 justify-items-center gap-y-6 xs:gap-y-8">
+                        {HOD.map((person, idx) => (
+                            <div key={idx} className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[340px] md:max-w-[380px] px-1 xs:px-2">
+                                <TeamCard {...person} />
+                            </div>
+                        ))}
+                    </div>
+                </section>
 
-            <section className="mb-16 xs:mb-20 md:mb-24 lg:mb-32 max-w-8xl mx-auto px-2 sm:px-0">
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-xl xs:text-2xl md:text-3xl text-amber-200 font-mono mb-8 xs:mb-12 md:mb-16 glitch-parent border-b border-orange-300/20 pb-3 xs:pb-4 md:pb-6 inline-block"
-                >
-                    Student Coordinators
-                </motion.h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-6 lg:gap-8 justify-items-center">
-                    {students.map((person, idx) => (
-                        <div key={idx} className="w-full  max-w-[280px] xs:max-w-[320px] sm:max-w-[340px] md:max-w-[380px] px-1 xs:px-2">
-                            <TeamCard {...person} />
-                        </div>
-                    ))}
-                </div>
-            </section>
+                <section className="mb-16 xs:mb-20 md:mb-24 lg:mb-32 max-w-8xl mx-auto px-2 sm:px-0">
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="text-xl xs:text-2xl md:text-3xl text-amber-200 font-mono mb-8 xs:mb-12 md:mb-16 glitch-parent border-b border-orange-300/20 pb-3 xs:pb-4 md:pb-6 inline-block"
+                    >
+                        Faculty Coordinators
+                    </motion.h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-6 lg:gap-8 justify-items-center">
+                        {faculty.map((person, idx) => (
+                            <div key={idx} className="w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[340px] md:max-w-[380px] px-1 xs:px-2">
+                                <TeamCard {...person} />
+                            </div>
+                        ))}
+                    </div>
+                </section>
 
-            {/* Global Styles */}
-            <style jsx global>{`
+                <section className="mb-16 xs:mb-20 md:mb-24 lg:mb-32 max-w-8xl mx-auto px-2 sm:px-0">
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="text-xl xs:text-2xl md:text-3xl text-amber-200 font-mono mb-8 xs:mb-12 md:mb-16 glitch-parent border-b border-orange-300/20 pb-3 xs:pb-4 md:pb-6 inline-block"
+                    >
+                        Student Coordinators
+                    </motion.h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xs:gap-5 sm:gap-6 md:gap-6 lg:gap-8 justify-items-center">
+                        {students.map((person, idx) => (
+                            <div key={idx} className="w-full  max-w-[280px] xs:max-w-[320px] sm:max-w-[340px] md:max-w-[380px] px-1 xs:px-2">
+                                <TeamCard {...person} />
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Global Styles */}
+                <style jsx global>{`
                 .glitch-parent {
                     position: relative;
                     display: inline-block;
@@ -256,6 +267,8 @@ export default function TeamsPage() {
                     100% { clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%); }
                 }
             `}</style>
+            </div>
         </div>
+
     );
 }
