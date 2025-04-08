@@ -22,7 +22,7 @@ const students = [
     { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
     { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
-    { name: "Namitha", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
+    { name: "Namitha", role: "Student Coordinator", image: "/teams/namitha.jpeg" },
     // ...add others here
 ];
 
