@@ -83,7 +83,8 @@ const eventData = {
     imagePath: "/uiux.jpeg",
     title: "UI/UX Design Challenge",
     isDate: true,
-    about:"Welcome to the UI/UX Challenge Event! This exciting event brings together designers, developers, and creatives to showcase their skills, solve real-world design problems, and push the boundaries of user experience and interface design Whether you're a seasoned designer or a newcomer to the world of UI/UX, this event is a unique opportunity to learn, collaborate, and grow. You'll face off against other teams to create innovative, user-centered design solutions within a set timeframe." ,
+    about:
+      "Welcome to the UI/UX Challenge Event! This exciting event brings together designers, developers, and creatives to showcase their skills, solve real-world design problems, and push the boundaries of user experience and interface design Whether you're a seasoned designer or a newcomer to the world of UI/UX, this event is a unique opportunity to learn, collaborate, and grow. You'll face off against other teams to create innovative, user-centered design solutions within a set timeframe.",
     prizes: [
       "Event Timeline:",
       " Theme Announcement",
@@ -145,8 +146,8 @@ const eventData = {
       "  • Speed as tiebreaker for equal scores",
       "Registration: ₹300 per participant (both team members must pay)",
       "Bonus: Registration includes access to two additional events",
-      ],
-    isRule:true,
+    ],
+    isRule: true,
     warning:
       "This is a solo event, pay ₹300. Enjoy access to two additional events with this registration!",
     venue: "Seminar Hall, Main Building",
@@ -199,7 +200,7 @@ const eventData = {
     isRule: true,
     amount: 300,
     about:
-      "Welcome to the Chatbot Creation Competition – a thrilling challenge designed to ignite creativity, problem-solving, and tech-savvy innovation! This event invites teams of students to craft their very own chatbots, blending imagination with functionality to create engaging digital assistants.",
+      "Welcome to the Chatbot Creation Competition - a thrilling challenge designed to ignite creativity, problem-solving, and tech-savvy innovation! This event invites teams of students to craft their very own chatbots, blending imagination with functionality to create engaging digital assistants.",
     prizes: [
       "Judging",
       "Creativity: Unique and innovative Chabot concepts.",
@@ -213,20 +214,17 @@ const eventData = {
       " Time Limit: 2 hours",
       ". Originality: Encourage creative and original Chabot designs.",
       "Appropriate Content: Ensure Chabot content is respectful and suitable for all audiences.",
-
     ],
     link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
-  paperpresentation: {
+  paper: {
     imagePath: "/paper.jpg",
     title: "Paper Presentation",
     about:
       "The Paper Presentation at Advayathon is a premier platform for researchers, innovators, and tech enthusiasts to showcase their groundbreaking ideas, theories, and technological advancements. This event encourages participants to explore cutting-edge topics, present well-researched papers, and engage in intellectual discussions with peers and Guides.",
-    prizes: [
-      "Open domain, Participant's choice"
-    ],
+    prizes: ["Open domain, Participant's choice"],
     venue: "Main block, sri sairam college of engineering",
     rules: [
       "Teams must have 2 to 4 participants; individual entries aren't allowed.Shortlisted teams will present to judges, with timing and venue details will be shared in website and WhatsApp group.Papers must follow the IEEE format, with abstracts s should be submitted within 29th April—late entries won’t be accepted. (but plagiarism more than 15% will result in disqualification)",
@@ -336,7 +334,9 @@ export default function EventDetails() {
               <div className="space-y-3 md:space-y-4">
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-orange-400">Start Date:</span>
-                  <span className="text-amber-100">{ eventDetails?.isDate? 7: 6} May 2025</span>
+                  <span className="text-amber-100">
+                    {eventDetails?.isDate ? 7 : 6} May 2025
+                  </span>
                 </div>
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-orange-400">End Date:</span>

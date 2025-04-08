@@ -20,7 +20,7 @@ export default function EventPage() {
         { id: 5, title: "Connections", img: "/connection.jpeg" },
         { id: 6, title: "C Debugging", img: "/debug.jpeg" },
         { id: 7, title: "Chatbot", img: "/chatbot.jpg" },
-        { id: 8, title: "Paper Presentation", img: "/paper.jpg" },
+        { id: 8, title: "Paper", img: "/paper.jpg" },
     ];
 
     useEffect(() => {
