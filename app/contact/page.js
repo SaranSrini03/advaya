@@ -25,7 +25,6 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Keep existing mouse and dots effects
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00]">

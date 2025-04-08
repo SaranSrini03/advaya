@@ -14,6 +14,7 @@ const faculty = [
 ];
 
 const students = [
+    { name: "Channaveera", role: "Student Coordinator", image: "/teams/channavera.png" },
     { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
     { name: "TejaShree K", role: "Student Coordinator", image: "/teams/teja.jpeg" },
     { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
@@ -24,6 +25,7 @@ const students = [
     { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
     { name: "Namitha", role: "Student Coordinator", image: "/teams/namitha.jpeg" },
+    { name: "Roshan", role: "Student Coordinator", image: "/teams/roshan1.jpeg" },
     { name: "Neha S", role: "Student Coordinator", image: "/teams/neha2.jpg" },
     { name: "Bhavani", role: "Student Coordinator", image: "/teams/bhavani.jpg" },
     { name: "Santhosh m", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
