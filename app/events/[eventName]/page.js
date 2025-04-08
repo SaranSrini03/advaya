@@ -5,12 +5,12 @@ import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Event data object
 const eventData = {
   "24hour-hackathon": {
     imagePath: "/hack24img.jpg",
     title: "24-Hour Hackathon",
     span: "24-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory ",
+    isPopUp: true,
     about:
       "Welcome to the ultimate code-fueled chaos! For the next 24 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
     prizes: [
@@ -28,12 +28,10 @@ const eventData = {
     venue:
       "Seminar Hall @ Sri Sairam College of Engineering, Anekal, Bengaluru",
     rules: [
-      // Existing rules
       "Team size must be 3-4 members (No Individual participation and No changes in team members once registered)",
       "No pre-written code allowed",
       "Judging criteria: Creativity, Functionality, Pitching",
 
-      // New rules from your structure
       "On-the-spot registration strictly prohibited",
       "Mandatory single problem statement selection during registration",
       "No mid-event problem statement changes allowed",
@@ -68,7 +66,7 @@ const eventData = {
     ],
     venue: "Computer Lab, Main Building",
     rules: [
-      "Strictly individual participation (no teams)",
+      "Strictly duo event [no team]",
       "Participants must bring their own laptop/device",
       "No AI tools (e.g., ChatGPT, Copilot) for coding",
       "No copy-pasting from existing projects",
@@ -150,7 +148,7 @@ const eventData = {
       ],
     isRule:true,
     warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+      "This is a solo event, pay ₹300. Enjoy access to two additional events with this registration!",
     venue: "Seminar Hall, Main Building",
     rules: [
       "Team Size: Strictly 2 members (no exceptions)",
@@ -193,23 +191,29 @@ const eventData = {
     isRule: true,
     link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+      "This is a solo event, pay 300 rs. Enjoy access to two additional events with this registration!",
   },
   chatbot: {
     imagePath: "/chatbot.jpg",
     title: "ChatBot",
+    isRule: true,
+    amount: 300,
     about:
-      "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+      "Welcome to the Chatbot Creation Competition – a thrilling challenge designed to ignite creativity, problem-solving, and tech-savvy innovation! This event invites teams of students to craft their very own chatbots, blending imagination with functionality to create engaging digital assistants.",
     prizes: [
-      "1st Place: $2,000 + GitHub Pro",
-      "2nd Place: $1,000 + Mechanical Keyboard",
-      "3rd Place: $500 + Debugging Swag",
+      "Judging",
+      "Creativity: Unique and innovative Chabot concepts.",
+      "User Experience: Engaging and user-friendly Chabot interactions.",
+      "Functionality: Effective and efficient Chabot performance.",
     ],
-    venue: "Tech Labs, 321 Code City, Austin, TX",
+    venue: "MainBlock, Sri sairam college of engineering",
     rules: [
-      "Individual participation only",
-      "Time limit: 2 hours",
-      "Scoring based on number of bugs fixed",
+      ". Team Size: 2-3 students per team.",
+      "Platform Usage: Use designated Chabot development platforms",
+      " Time Limit: 2 hours",
+      ". Originality: Encourage creative and original Chabot designs.",
+      "Appropriate Content: Ensure Chabot content is respectful and suitable for all audiences.",
+
     ],
     link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
@@ -230,11 +234,10 @@ const eventData = {
     link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     amount: 300,
     warning:
-      "This can be a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+      "This is a team event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
 };
 
-// Function to handle missing events
 const getEventDetails = (eventName) => {
   return (
     eventData[eventName] || {
@@ -255,28 +258,32 @@ export default function EventDetails() {
   const router = useRouter();
 
   const HandleRegister = (link) => {
-    toast.error(
-      "Only team leader should register! If you are a team leader, proceed...",
-      {
-        position: "top-left",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        style: {
-          backgroundColor: "#1a1a1a",
-          border: "1px solid #ff6600",
-          color: "#ffa500",
-          fontWeight: "bold",
-        },
-      }
-    );
-    setTimeout(() => {
+    if (eventDetails.isPopUp) {
+      toast.error(
+        "Only team leader should register! If you are a team leader, proceed...",
+        {
+          position: "top-left",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          style: {
+            backgroundColor: "#1a1a1a",
+            border: "1px solid #ff6600",
+            color: "#ffa500",
+            fontWeight: "bold",
+          },
+        }
+      );
+      setTimeout(() => {
+        window.location.href = link;
+      }, 2000);
+    } else {
       window.location.href = link;
-    }, 2000);
+    }
   };
 
   return (
