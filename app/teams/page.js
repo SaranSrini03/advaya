@@ -14,7 +14,7 @@ const faculty = [
 ];
 
 const students = [
-    { name: "Channaveera", role: "Student Coordinator", image: "/teams/channavera.png" },
+    { name: "Channaveera", role: "Student Coordinator", image: "/teams/channavera1.png" },
     { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
     { name: "TejaShree K", role: "Student Coordinator", image: "/teams/teja.jpeg" },
     { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
