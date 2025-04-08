@@ -5,12 +5,12 @@ import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-// Event data object
 const eventData = {
   "24hour-hackathon": {
     imagePath: "/hack24img.jpg",
     title: "24-Hour Hackathon",
     span: "24-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory ",
+    isPopUp: true,
     about:
       "Welcome to the ultimate code-fueled chaos! For the next 24 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
     prizes: [
@@ -28,12 +28,10 @@ const eventData = {
     venue:
       "Seminar Hall @ Sri Sairam College of Engineering, Anekal, Bengaluru",
     rules: [
-      // Existing rules
       "Team size must be 3-4 members (No Individual participation and No changes in team members once registered)",
       "No pre-written code allowed",
       "Judging criteria: Creativity, Functionality, Pitching",
 
-      // New rules from your structure
       "On-the-spot registration strictly prohibited",
       "Mandatory single problem statement selection during registration",
       "No mid-event problem statement changes allowed",
@@ -47,7 +45,7 @@ const eventData = {
       "Food/accommodation provided only during event hours",
     ],
     amount: 800,
-    link: "www.google.com",
+    link: "https://forms.gle/4iUy1uXv8LnWZHoeA",
     warning:
       "This is a team event with an entry fee of ₹800. Enjoy an overnight experience with snacks, food, and exclusive swags!",
   },
@@ -68,7 +66,7 @@ const eventData = {
     ],
     venue: "Computer Lab, Main Building",
     rules: [
-      "Strictly individual participation (no teams)",
+      "Strictly duo event [no team]",
       "Participants must bring their own laptop/device",
       "No AI tools (e.g., ChatGPT, Copilot) for coding",
       "No copy-pasting from existing projects",
@@ -77,15 +75,15 @@ const eventData = {
       "Round 2: 3-hour on-the-spot website development from scratch",
     ],
     amount: "300 per participant",
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
   "uiux-design-challenge": {
     imagePath: "/uiux.jpeg",
     title: "UI/UX Design Challenge",
-    about:
-      "A high-intensity 3-hour design sprint where teams compete to create the most innovative and user-friendly interface based on a surprise theme.",
+    isDate: true,
+    about:"Welcome to the UI/UX Challenge Event! This exciting event brings together designers, developers, and creatives to showcase their skills, solve real-world design problems, and push the boundaries of user experience and interface design Whether you're a seasoned designer or a newcomer to the world of UI/UX, this event is a unique opportunity to learn, collaborate, and grow. You'll face off against other teams to create innovative, user-centered design solutions within a set timeframe." ,
     prizes: [
       "Event Timeline:",
       " Theme Announcement",
@@ -104,7 +102,7 @@ const eventData = {
       "Internet only allowed for: Asset downloads & cloud tool access",
     ],
     amount: "300 per participant",
-    link: "//tokentrex.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     isAgenda: true,
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
@@ -125,7 +123,7 @@ const eventData = {
       "Must use Figma/Adobe XD",
       "Judging criteria: Aesthetics, User Experience, Innovation",
     ],
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -150,7 +148,7 @@ const eventData = {
       ],
     isRule:true,
     warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+      "This is a solo event, pay ₹300. Enjoy access to two additional events with this registration!",
     venue: "Seminar Hall, Main Building",
     rules: [
       "Team Size: Strictly 2 members (no exceptions)",
@@ -164,7 +162,7 @@ const eventData = {
       "  • Ties broken by speed of correct answers",
     ],
     amount: "300 per participant",
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
   },
   "c-debugging": {
     imagePath: "/debug.jpeg",
@@ -191,27 +189,33 @@ const eventData = {
     ],
     amount: "300 per participant",
     isRule: true,
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+      "This is a solo event, pay 300 rs. Enjoy access to two additional events with this registration!",
   },
   chatbot: {
     imagePath: "/chatbot.jpg",
     title: "ChatBot",
+    isRule: true,
+    amount: 300,
     about:
-      "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+      "Welcome to the Chatbot Creation Competition – a thrilling challenge designed to ignite creativity, problem-solving, and tech-savvy innovation! This event invites teams of students to craft their very own chatbots, blending imagination with functionality to create engaging digital assistants.",
     prizes: [
-      "1st Place: $2,000 + GitHub Pro",
-      "2nd Place: $1,000 + Mechanical Keyboard",
-      "3rd Place: $500 + Debugging Swag",
+      "Judging",
+      "Creativity: Unique and innovative Chabot concepts.",
+      "User Experience: Engaging and user-friendly Chabot interactions.",
+      "Functionality: Effective and efficient Chabot performance.",
     ],
-    venue: "Tech Labs, 321 Code City, Austin, TX",
+    venue: "MainBlock, Sri sairam college of engineering",
     rules: [
-      "Individual participation only",
-      "Time limit: 2 hours",
-      "Scoring based on number of bugs fixed",
+      ". Team Size: 2-3 students per team.",
+      "Platform Usage: Use designated Chabot development platforms",
+      " Time Limit: 2 hours",
+      ". Originality: Encourage creative and original Chabot designs.",
+      "Appropriate Content: Ensure Chabot content is respectful and suitable for all audiences.",
+
     ],
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -219,26 +223,21 @@ const eventData = {
     imagePath: "/paper.jpg",
     title: "Paper Presentation",
     about:
-      "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+      "The Paper Presentation at Advayathon is a premier platform for researchers, innovators, and tech enthusiasts to showcase their groundbreaking ideas, theories, and technological advancements. This event encourages participants to explore cutting-edge topics, present well-researched papers, and engage in intellectual discussions with peers and Guides.",
     prizes: [
-      "1st Place: $2,000 + GitHub Pro",
-      "2nd Place: $1,000 + Mechanical Keyboard",
-      "3rd Place: $500 + Debugging Swag",
+      "Open domain, Participant's choice"
     ],
-    venue: "Tech Labs, 321 Code City, Austin, TX",
+    venue: "Main block, sri sairam college of engineering",
     rules: [
-      "Individual participation only",
-      "Time limit: 2 hours",
-      "Scoring based on number of bugs fixed",
+      "Teams must have 2 to 4 participants; individual entries aren't allowed.Shortlisted teams will present to judges, with timing and venue details will be shared in website and WhatsApp group.Papers must follow the IEEE format, with abstracts s should be submitted within 29th April—late entries won’t be accepted. (but plagiarism more than 15% will result in disqualification)",
     ],
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     amount: 300,
     warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+      "This is a team event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
 };
 
-// Function to handle missing events
 const getEventDetails = (eventName) => {
   return (
     eventData[eventName] || {
@@ -259,28 +258,32 @@ export default function EventDetails() {
   const router = useRouter();
 
   const HandleRegister = (link) => {
-    toast.error(
-      "Only team leader should register! If you are a team leader, proceed...",
-      {
-        position: "top-left",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        style: {
-          backgroundColor: "#1a1a1a",
-          border: "1px solid #ff6600",
-          color: "#ffa500",
-          fontWeight: "bold",
-        },
-      }
-    );
-    setTimeout(() => {
+    if (eventDetails.isPopUp) {
+      toast.error(
+        "Only team leader should register! If you are a team leader, proceed...",
+        {
+          position: "top-left",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          style: {
+            backgroundColor: "#1a1a1a",
+            border: "1px solid #ff6600",
+            color: "#ffa500",
+            fontWeight: "bold",
+          },
+        }
+      );
+      setTimeout(() => {
+        window.location.href = link;
+      }, 2000);
+    } else {
       window.location.href = link;
-    }, 2000);
+    }
   };
 
   return (
@@ -325,7 +328,6 @@ export default function EventDetails() {
 
         {/* Main Content */}
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {/* Left Column */}
           <div className="md:col-span-1 space-y-6 md:space-y-8">
             <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
               <h2 className="text-xl md:text-2xl font-bold text-amber-300 mb-3 md:mb-4">
@@ -334,7 +336,7 @@ export default function EventDetails() {
               <div className="space-y-3 md:space-y-4">
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-orange-400">Start Date:</span>
-                  <span className="text-amber-100">6 May 2025</span>
+                  <span className="text-amber-100">{ eventDetails?.isDate? 7: 6} May 2025</span>
                 </div>
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-orange-400">End Date:</span>
@@ -354,7 +356,6 @@ export default function EventDetails() {
             </button>
           </div>
 
-          {/* Right Column - Full Visibility */}
           <div className="md:col-span-2 space-y-6 md:space-y-8">
             <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-orange-500/20">
               <h2 className="text-2xl md:text-3xl font-bold text-amber-300 mb-4 md:mb-6">
