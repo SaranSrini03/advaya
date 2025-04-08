@@ -101,7 +101,7 @@ export default function HomePage() {
             className="mt-4 text-xs text-orange-300 hover:text-orange-100 transition-colors cursor-pointer underline underline-offset-4"
             onClick={goToEventPage}
           >
-            Learn more about Advaya
+            Register Now
           </p>
 
           <div className="absolute inset-0 pointer-events-none">

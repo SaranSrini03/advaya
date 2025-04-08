@@ -4,8 +4,15 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiMenu, FiGlobe } from "react-icons/fi";
-import { FaDiscord, FaGamepad, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import {
+  FaDiscord,
+  FaDownload,
+  FaGamepad,
+  FaInstagram,
+  FaWhatsapp,
+} from "react-icons/fa";
 import Socials from "./Socials.json";
+import { RiDownload2Line, RiDownloadCloud2Line } from 'react-icons/ri';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,13 +25,28 @@ const Navbar = () => {
   const Handlesocials = (type) => {
     switch (type) {
       case "discord":
-        window.open(Socials.discord, "_blank");
+        window.open(
+          "https://discord.com/channels/1347084703588552806/1347084703588552809",
+          "_blank"
+        );
         break;
       case "whatsapp":
         setWhatsappOptions(true);
         break;
       case "instagram":
-        window.open(Socials.instagram, "_blank");
+        window.open(
+          "https://www.instagram.com/advaya2k25?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+          "_blank"
+        );
+        break;
+
+      case "download":
+        const link = document.createElement("a");
+        link.href = "/agenda.pdf";
+        link.download = "ADVAYA_AGENDA.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         break;
     }
     setShowSocials(false);
@@ -125,6 +147,15 @@ const Navbar = () => {
                     className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors"
                   >
                     <FaGamepad className="w-5 h-5 text-white" />
+                  </button>
+                  <button
+                    onClick={() => Handlesocials("download")}
+                    className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors relative group"
+                  >
+                    <RiDownloadCloud2Line className="w-5 h-5 text-white" />
+                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                      agenda
+                    </span>
                   </button>
                   <button
                     onClick={() => setShowSocials(!showSocials)}
@@ -236,12 +267,36 @@ const Navbar = () => {
                 </ul>
 
                 <div className="mt-6 pt-4 border-t border-orange-200">
-                  <div className="flex justify-center gap-4 mb-4">
+                  <div className="flex justify-center items-center gap-4 mb-4">
                     <button
                       onClick={() => router.push("/game")}
                       className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
                     >
                       <FaGamepad className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                    </button>
+                    <button
+                      onClick={() => Handlesocials("whatsapp")}
+                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                    >
+                      <FaWhatsapp className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                    </button>
+                    <button
+                      onClick={() => Handlesocials("discord")}
+                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                    >
+                      <FaDiscord className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                    </button>
+                    <button
+                      onClick={() => Handlesocials("instagram")}
+                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                    >
+                      <FaInstagram className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                    </button>
+                    <button
+                      onClick={() => Handlesocials("download")}
+                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                    >
+                      <FaDownload className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
                     </button>
                   </div>
                   <button

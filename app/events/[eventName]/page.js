@@ -54,13 +54,18 @@ const eventData = {
   webathon: {
     imagePath: "/webathon.jpeg",
     title: "Webathon",
+    isRule: true,
     about:
       "A competitive coding event where participants build dynamic websites from scratch under strict guidelines. Test your web development skills in this two-round challenge that evaluates both technical knowledge and practical implementation.",
-    // prizes: [
-    //   "1st Place: ₹10,000 + Trophy",
-    //   "2nd Place: ₹7,000 + Certificate",
-    //   "3rd Place: ₹5,000 + Certificate",
-    // ],
+    prizes: [
+      "Must include dynamic functionality (user auth, DB calls, APIs)",
+      "No pre-built templates allowed - all code must be written during event",
+      "Submit both source code and hosted link (if applicable)",
+      "Judging based on: Functionality, Code quality, Creativity, and UI/UX",
+      "Registration fee: ₹300 per participant",
+      "This is a duo event, but each participant must pay ₹300",
+      "Enjoy access to two additional events with this registration!",
+    ],
     venue: "Computer Lab, Main Building",
     rules: [
       "Strictly individual participation (no teams)",
@@ -70,13 +75,6 @@ const eventData = {
       "Internet allowed only for documentation (MDN, Stack Overflow)",
       "Round 1: 30-minute MCQ test on web dev fundamentals and algorithms",
       "Round 2: 3-hour on-the-spot website development from scratch",
-      "Must include dynamic functionality (user auth, DB calls, APIs)",
-      "No pre-built templates allowed - all code must be written during event",
-      "Submit both source code and hosted link (if applicable)",
-      "Judging based on: Functionality, Code quality, Creativity, and UI/UX",
-      "Registration fee: ₹300 per participant",
-      "This is a duo event, but each participant must pay ₹300",
-      "Enjoy access to two additional events with this registration!",
     ],
     amount: "300 per participant",
     link: "//whis.vercel.app",
@@ -105,7 +103,7 @@ const eventData = {
       "Must bring your own charged laptop with design software (Figma/Adobe XD/Sketch)",
       "Internet only allowed for: Asset downloads & cloud tool access",
     ],
-    amount: "₹300 per participant",
+    amount: "300 per participant",
     link: "//tokentrex.vercel.app",
     isAgenda: true,
     warning:
@@ -165,7 +163,7 @@ const eventData = {
       "  • Wrong/off-topic answers: 0 points",
       "  • Ties broken by speed of correct answers",
     ],
-    amount: "₹300 per participant",
+    amount: "300 per participant",
     link: "//whis.vercel.app",
   },
   "c-debugging": {
@@ -191,7 +189,7 @@ const eventData = {
       "Duration: Strict 2-hour limit",
       "Scoring: Based on number of bugs successfully fixed",
     ],
-    amount: "₹300 per participant",
+    amount: "300 per participant",
     isRule: true,
     link: "//whis.vercel.app",
     warning:
@@ -214,6 +212,27 @@ const eventData = {
       "Scoring based on number of bugs fixed",
     ],
     link: "//whis.vercel.app",
+    warning:
+      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+  },
+  paperpresentation: {
+    imagePath: "/paper.jpg",
+    title: "Paper Presentation",
+    about:
+      "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+    prizes: [
+      "1st Place: $2,000 + GitHub Pro",
+      "2nd Place: $1,000 + Mechanical Keyboard",
+      "3rd Place: $500 + Debugging Swag",
+    ],
+    venue: "Tech Labs, 321 Code City, Austin, TX",
+    rules: [
+      "Individual participation only",
+      "Time limit: 2 hours",
+      "Scoring based on number of bugs fixed",
+    ],
+    link: "//whis.vercel.app",
+    amount: 300,
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
