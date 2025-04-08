@@ -47,7 +47,7 @@ const eventData = {
       "Food/accommodation provided only during event hours",
     ],
     amount: 800,
-    link: "www.google.com",
+    link: "https://forms.gle/4iUy1uXv8LnWZHoeA",
     warning:
       "This is a team event with an entry fee of ₹800. Enjoy an overnight experience with snacks, food, and exclusive swags!",
   },
@@ -77,7 +77,7 @@ const eventData = {
       "Round 2: 3-hour on-the-spot website development from scratch",
     ],
     amount: "300 per participant",
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -104,7 +104,7 @@ const eventData = {
       "Internet only allowed for: Asset downloads & cloud tool access",
     ],
     amount: "300 per participant",
-    link: "//tokentrex.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     isAgenda: true,
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
@@ -125,7 +125,7 @@ const eventData = {
       "Must use Figma/Adobe XD",
       "Judging criteria: Aesthetics, User Experience, Innovation",
     ],
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -164,7 +164,7 @@ const eventData = {
       "  • Ties broken by speed of correct answers",
     ],
     amount: "300 per participant",
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
   },
   "c-debugging": {
     imagePath: "/debug.jpeg",
@@ -191,7 +191,7 @@ const eventData = {
     ],
     amount: "300 per participant",
     isRule: true,
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -211,7 +211,7 @@ const eventData = {
       "Time limit: 2 hours",
       "Scoring based on number of bugs fixed",
     ],
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -219,22 +219,18 @@ const eventData = {
     imagePath: "/paper.jpg",
     title: "Paper Presentation",
     about:
-      "Find and fix the most bugs in record time! Show off your debugging skills and win exciting rewards.",
+      "The Paper Presentation at Advayathon is a premier platform for researchers, innovators, and tech enthusiasts to showcase their groundbreaking ideas, theories, and technological advancements. This event encourages participants to explore cutting-edge topics, present well-researched papers, and engage in intellectual discussions with peers and Guides.",
     prizes: [
-      "1st Place: $2,000 + GitHub Pro",
-      "2nd Place: $1,000 + Mechanical Keyboard",
-      "3rd Place: $500 + Debugging Swag",
+      "Open domain, Participant's choice"
     ],
-    venue: "Tech Labs, 321 Code City, Austin, TX",
+    venue: "Main block, sri sairam college of engineering",
     rules: [
-      "Individual participation only",
-      "Time limit: 2 hours",
-      "Scoring based on number of bugs fixed",
+      "Teams must have 2 to 4 participants; individual entries aren't allowed.Shortlisted teams will present to judges, with timing and venue details will be shared in website and WhatsApp group.Papers must follow the IEEE format, with abstracts s should be submitted within 29th April—late entries won’t be accepted. (but plagiarism more than 15% will result in disqualification)",
     ],
-    link: "//whis.vercel.app",
+    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     amount: 300,
     warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
+      "This can be a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
 };
 
