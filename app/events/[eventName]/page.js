@@ -111,19 +111,29 @@ const eventData = {
   mobilathon: {
     imagePath: "/mobilathon.jpeg",
     title: "Mobilathon",
-    about:
-      "Unleash your creativity in this design sprint! Compete with top designers to create intuitive and visually stunning UI/UX experiences.",
-    prizes: [
-      "1st Place: $3,000 + Adobe Subscription",
-      "2nd Place: $1,500 + Wacom Tablet",
-      "3rd Place: $750 + Design Swag",
+    about: [
+      "Mobilathon is an exciting mobile app development hackathon that challenges participants to showcase their coding skills, creativity, and problem-solving abilities. Designed for budding developers and tech enthusiasts, the event unfolds in two dynamic rounds — a fast-paced technical quiz followed by an intense theme-based app building session. Participants will compete in teams of two, working under pressure to deliver innovative mobile app solutions using platforms like Android (Java/Kotlin), iOS (Swift), or cross-platform tools like Flutter and React Native. Whether you're a student or a passionate coder, Mobilathon is your chance to turn ideas into impactful prototypes and gain hands-on experience in real-world mobile development.",
+      "Unleash your creativity in this design sprint! Compete with top designers to create intuitive and visually stunning UI/UX experiences."
     ],
-    venue: "Design Hub, 789 Creative Lane, New York, NY",
+
+    domain: [
+      "Android (Java/Kotlin/XML)",
+      "iOS (Swift)",
+      "Cross-platform (Flutter, React Native)"
+    ],
+
+    venue: "Sri Sairam College Of Engineering, Anekal , Bengaluru",
     rules: [
-      "Solo or duo participation",
-      "Must use Figma/Adobe XD",
-      "Judging criteria: Aesthetics, User Experience, Innovation",
+      "Each team must consist of 2 members only.",
+      "Participants can register either in advance or on the spot by providing complete details.",
+      "No pre-built code or templates are allowed.",
+      "The competition will be conducted in two rounds:",
+      "Round 1: Technical Quiz\n• Format: Offline multiple-choice quiz\n• No. of Questions: 30\n• Duration: 30 minutes\n• Topics: Basic programming, mobile app development (Android/iOS), UI/UX, databases, logic & algorithms",
+      "Round 2: Theme-Based Mobile App Development\n• Duration: 3 hours\n• Task: Build a functional mobile app (prototype or MVP) based on the given theme",
+      "Each team must submit:\n• APK or source code\n• Short demo or explanation (if time permits)"
     ],
+
+
     link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
@@ -385,7 +395,7 @@ export default function EventDetails() {
                 )}
 
                 <ul className="space-y-3 md:space-y-4 pl-2">
-                  {eventDetails?.prizes?.map((rule, index) => (
+                  {eventDetails?.domain?.map((rule, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-3 text-gray-300 text-sm md:text-base"
