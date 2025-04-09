@@ -20,7 +20,7 @@ const students = [
     { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
     { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen2.jpeg" },
     { name: "Guruprasath M", role: "Student Coordinator", image: "/teams/gurubhai2.jpeg" },
-    { name: "Thanuj", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
+    { name: "Thanuj V", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
     { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
     { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
