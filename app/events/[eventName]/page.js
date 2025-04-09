@@ -425,7 +425,7 @@ export default function EventDetails() {
                   <span className="text-orange-500">📜</span> Rules
                 </h3>
                 <ul className="space-y-3 md:space-y-4 pl-2">
-                  {eventDetails.rules.map((rule, index) => (
+                  {eventDetails?.rules?.map((rule, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-3 text-gray-300 text-sm md:text-base"

@@ -2,7 +2,7 @@
 import React from "react";
 
 const MarqueeBanner = () => {
-  const message = "✦ If you apply for one event, you can join 3 events ✦ ";
+  const message = "✦ If you apply for one event, you get to join two more events ✦ ";
 
   return (
     <div className="absolute top-20 w-full z-40 overflow-hidden bg-orange-500/20 py-2">
