@@ -82,11 +82,10 @@ const Navbar = () => {
         initial={{ y: -200 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className={`fixed top-0 w-full z-50 backdrop-blur-lg transition-colors duration-300 ${
-          isScrolled
+        className={`fixed top-0 w-full z-50 backdrop-blur-lg transition-colors duration-300 ${isScrolled
             ? "bg-orange-600/10 border-b border-orange-200 shadow-xl"
             : "bg-black/20"
-        }`}
+          }`}
       >
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="flex justify-between items-center h-16 md:h-20">
@@ -109,6 +108,16 @@ const Navbar = () => {
               <div className="h-8 md:h-12 w-px bg-orange-200/50 hidden md:block" />
             </div>
 
+            <div className="flex items-center gap-2 md:gap-4">
+              
+              <img
+                src="/cselogo2.jpeg"
+                alt="College Logo"
+                className="h-10 w-auto hidden md:block cursor-pointer hover:scale-105 transition-transform"
+                onClick={handleLogoClick}
+              />
+            </div>
+
             <Link
               href="/"
               className="text-2xl md:text-3xl font-bold font-mono bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent mx-2 md:mx-4 hover:scale-105 transition-transform"
@@ -122,11 +131,10 @@ const Navbar = () => {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className={`relative px-1 py-2 font-medium transition-colors ${
-                        pathname === link.href
+                      className={`relative px-1 py-2 font-medium transition-colors ${pathname === link.href
                           ? "text-white"
                           : "text-orange-100 hover:text-white"
-                      }`}
+                        }`}
                     >
                       {link.label}
                       {pathname === link.href && (
@@ -253,11 +261,10 @@ const Navbar = () => {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className={`block py-3 px-4 rounded-lg transition-colors text-lg ${
-                          pathname === link.href
+                        className={`block py-3 px-4 rounded-lg transition-colors text-lg ${pathname === link.href
                             ? "bg-orange-400/90 text-white"
                             : "text-white hover:bg-orange-500/50"
-                        }`}
+                          }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {link.label}
