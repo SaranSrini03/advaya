@@ -58,6 +58,7 @@ const Navbar = () => {
     // { href: "/timeline", label: "Timeline" },
     { href: "/teams", label: "Teams" },
     { href: "/about", label: "About" },
+    { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -87,7 +88,7 @@ const Navbar = () => {
             : "bg-black/20"
           }`}
       >
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+        <div className="max-w-[110rem] px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="flex justify-between items-center h-16 md:h-20">
             <div className="flex items-center gap-4 md:gap-6">
               <div className="flex items-center gap-2 md:gap-4">
@@ -162,7 +163,7 @@ const Navbar = () => {
                   >
                     <RiDownloadCloud2Line className="w-5 h-5 text-white" />
                     <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-                      agenda
+                      Agenda
                     </span>
                   </button>
                   <button
