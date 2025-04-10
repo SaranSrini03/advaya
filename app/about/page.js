@@ -66,13 +66,13 @@ export default function HomePage() {
     },
     {
       name: "Vairamuthu M",
-      role: "web3 fullstack developer @Polkassembly.io ",
+      role: "web3 fullstack developer @Polkassembly",
       image: "/teams/vm.webp",
     },
     {
       name: "Thirumurugan S",
       role: "Blockchain developer",
-      image: "/teams/thiru.webp",
+      image: "/teams/thiru.jpg",
     },
   ];
 
@@ -276,7 +276,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Clubs Section */}
               <div className="mt-12 bg-black/20 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-orange-300/20">
                 <h2
                   className="glitch font-black font-mono text-center mb-8"
