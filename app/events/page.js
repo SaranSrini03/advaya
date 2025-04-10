@@ -14,7 +14,7 @@ export default function EventPage() {
 
     const events = [
         { id: 1, title: "24-Hour Hackathon", img: "/hack24img.jpg" },
-        { id: 8, title: "Paper", img: "/paper.jpg" },
+        { id: 8, title: "Paper Presentation", img: "/paper.jpg" },
         { id: 2, title: "Webathon", img: "/webathon.jpeg" },
         { id: 3, title: "UI/UX Design Challenge", img: "/uiux.jpeg" },
         { id: 4, title: "Mobilathon", img: "/mobilathon.jpeg" },
