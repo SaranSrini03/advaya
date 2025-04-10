@@ -20,24 +20,25 @@ const faculty = [
 
 const students = [
     { name: "Channaveera", role: "Student Coordinator", image: "/teams/channavera1.png" },
+    { name: "Pushkala", role: "Student Coordinator", image: "/teams/pushkala.jpg" },
     { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
-    { name: "TejaShree K", role: "Student Coordinator", image: "/teams/teja.jpeg" },
-    { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
+    { name: "Tejashree K", role: "Student Coordinator", image: "/teams/teja2.jpeg" },
     { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen2.jpeg" },
     { name: "Guruprasath M", role: "Student Coordinator", image: "/teams/gurubhai2.jpeg" },
-    { name: "Thanuj V", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
-    { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
-    { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
-    { name: "Roshan", role: "Student Coordinator", image: "/teams/roshan1.jpeg" },
-    { name: "Vinay", role: "Student Coordinator", image: "/teams/vinay.jpeg" },
     { name: "Neha S", role: "Student Coordinator", image: "/teams/neha2.jpg" },
-    { name: "Santhosh m", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
+    { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
+    { name: "Roshan", role: "Student Coordinator", image: "/teams/roshan1.jpeg" },
     { name: "Sanjay", role: "Student Coordinator", image: "/teams/sanjai.jpeg" },
     { name: "Sarathi V", role: "Student Coordinator", image: "/teams/Sarathi.jpeg" },
     { name: "Nitharsin Babu", role: "Student Coordinator", image: "/teams/Babu.jpeg" },
     { name: "Yashwanth V", role: "Student Coordinator", image: "/teams/yashwanthV.jpeg" },
     { name: "Yeshwanth K", role: "Student Coordinator", image: "/teams/yeshwanthK.jpg" },
+    { name: "Thanuj V", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
+    { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
+    { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
+    { name: "Vinay", role: "Student Coordinator", image: "/teams/vinay.jpeg" },
+    { name: "Santhosh m", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
     // ...add others here
 ];
 

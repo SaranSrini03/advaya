@@ -104,18 +104,18 @@ const Navbar = () => {
                   className="h-10 w-auto hidden md:block cursor-pointer hover:scale-105 transition-transform"
                   onClick={handleLogoClick}
                 />
-              </div>
-              <div className="h-8 md:h-12 w-px bg-orange-200/50 hidden md:block" />
-            </div>
 
             <div className="flex items-center gap-2 md:gap-4">
               
               <img
-                src="/cselogo2.jpeg"
+                src="/cselogo3.png"
                 alt="College Logo"
                 className="h-10 w-auto hidden md:block cursor-pointer hover:scale-105 transition-transform"
                 onClick={handleLogoClick}
               />
+            </div>
+              </div>
+              <div className="h-8 md:h-12 w-px bg-orange-200/50 hidden md:block" />
             </div>
 
             <Link
@@ -133,7 +133,7 @@ const Navbar = () => {
                       href={link.href}
                       className={`relative px-1 py-2 font-medium transition-colors ${pathname === link.href
                           ? "text-white"
-                          : "text-orange-100 hover:text-white"
+                          : "text-orange-600 hover:text-white"
                         }`}
                     >
                       {link.label}
