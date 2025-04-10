@@ -38,7 +38,10 @@ const students = [
     { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
     { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
     { name: "Vinay", role: "Student Coordinator", image: "/teams/vinay.jpeg" },
-    { name: "Santhosh m", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
+    { name: "Santhosh M", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
+    { name: "Pallavi", role: "Student Coordinator", image: "/teams/pallavi.jpeg" },
+    { name: "navya", role: "Student Coordinator", image: "/teams/navya.jpeg" },
+    { name: "priya", role: "Student Coordinator", image: "/teams/priya.jpeg" },
     // ...add others here
 ];
 
