@@ -21,8 +21,8 @@ const faculty = [
 const students = [
     { name: "Channaveera", role: "Student Coordinator", image: "/teams/channavera1.png" },
     { name: "Pushkala B", role: "Student Coordinator", image: "/teams/pushkala.jpg" },
-    { name: "Madhumitha Prabhakaran", role: "Student Coordinator", image: "/teams/madhu.jpg" },
-    { name: "Mounicca Rameshbabu", role: "Student Coordinator", image: "/teams/madhu.jpg" },
+    { name: "Madhumitha Prabhakaran", role: "Student Coordinator", image: "/teams/madhu2.jpg" },
+    { name: "Mounicca Rameshbabu", role: "Student Coordinator", image: "/" },
     { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
     { name: "Tejashree K", role: "Student Coordinator", image: "/teams/teja2.jpeg" },
     { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen2.jpeg" },
