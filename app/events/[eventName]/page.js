@@ -229,7 +229,7 @@ const eventData = {
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
-  paper: {
+  "paper-presentation": {
     imagePath: "/paper.jpg",
     title: "Paper Presentation",
     about:
