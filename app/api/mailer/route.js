@@ -1,14 +1,26 @@
+import ConnectDb from "@/app/lib/connect";
 import { transporter } from "@/app/utils/transporter";
 import { NextResponse } from "next/server";
 
 export async function POST(req, res) {
   try {
-    const { email, name, events, id } = await req.json();
+    const db = await ConnectDb();
+    const { email, name, events, id, college, mobile } = await req.json();
 
-    if (!email || !name || !events || !id) {
+    if (!email || !name || !events || !id || !college || !mobile) {
       return NextResponse.json(
         {
           error: "All fields are required",
+        },
+        { status: 400 }
+      );
+    }
+
+    const userExist = await db.findOne({ email });
+    if (userExist) {
+      return NextResponse.json(
+        {
+          error: "Pass already generated for this email",
         },
         { status: 400 }
       );
@@ -18,6 +30,7 @@ export async function POST(req, res) {
       name,
       id,
       events,
+      college,
     };
 
     const qrData = encodeURIComponent(JSON.stringify(qrObject));
@@ -135,19 +148,33 @@ export async function POST(req, res) {
   `,
     };
 
-    await transporter.sendMail(mailOptions);
+    const emailResponse = await transporter.sendMail(mailOptions);
 
-    return NextResponse.json(
-      {
-        message: "Email sent successfully",
-      },
-      { status: 200 }
-    );
+    if (emailResponse.accepted.includes(email)) {
+      const newUser = await db.insertOne({
+        name,
+        email,
+        college,
+        mobile: Number(mobile),
+        events,
+      });
+
+      if (newUser.insertedId) {
+        return NextResponse.json(
+          {
+            message: "Email sent and participant registered successfully",
+          },
+          { status: 200 }
+        );
+      }
+    } else {
+      throw new Error("Email not accepted by server");
+    }
   } catch (error) {
-    console.log(error);
+    console.error("Error:", error);
     return NextResponse.json(
       {
-        error: "Internal Server Error",
+        error: error.message || "Internal Server Error",
       },
       { status: 500 }
     );
