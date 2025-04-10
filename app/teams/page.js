@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "@/app/components/NavBar";
 import { motion, stagger, useAnimate } from "framer-motion";
 
+
 const HOD = [
     { name: "Dr. Smitha .JA", role: "HOD", image: "/teams/Hod.jpeg" },
 
@@ -26,6 +27,7 @@ const students = [
     { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
     { name: "Namitha", role: "Student Coordinator", image: "/teams/namitha.jpeg" },
     { name: "Roshan", role: "Student Coordinator", image: "/teams/roshan1.jpeg" },
+    { name: "Vinay", role: "Student Coordinator", image: "/teams/vinay.jpeg" },
     { name: "Neha S", role: "Student Coordinator", image: "/teams/neha2.jpg" },
     { name: "Bhavani", role: "Student Coordinator", image: "/teams/bhavani.jpg" },
     { name: "Santhosh m", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
