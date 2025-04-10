@@ -33,7 +33,7 @@ export default function GalleryPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl md:text-5xl mt-10 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 mb-16"
         >
-          Event Gallery
+          Glimpse of Advaya 2k24
         </motion.h1>
 
         {/* Image Grid */}
