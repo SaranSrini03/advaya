@@ -128,14 +128,6 @@ export default function GetTickets() {
       />
 
       <div className="max-w-4xl mx-auto">
-        {/* Payment Confirmation Banner (replaced marquee for better mobile UX) */}
-        <div className="bg-orange-500/20 border border-orange-500/30 rounded-lg mb-8 p-4 text-center">
-          <p className="text-sm font-medium">
-            IMPORTANT: Complete payment through Google Form before generating
-            your pass.
-          </p>
-        </div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -194,7 +186,6 @@ export default function GetTickets() {
             </div>
           </div>
 
-          {/* Full-width elements below the two columns */}
           <div className="mt-5 sm:mt-6 space-y-4 sm:space-y-5">
             {/* Hackathon Checkbox */}
             <div className="flex items-start gap-3 p-3 bg-gray-800/30 rounded-lg">
@@ -312,6 +303,12 @@ export default function GetTickets() {
             >
               Generate Event Pass
             </motion.button>
+            <div className="bg-orange-500/20 border border-orange-500/30 rounded-lg mb-8 p-4 text-center">
+              <p className="text-sm font-medium">
+                IMPORTANT: Complete payment through Google Form before
+                generating your pass.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
