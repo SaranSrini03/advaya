@@ -25,6 +25,24 @@ const eventData = {
       "GenAI on ethical practices",
       "Zero trust security model on Cloud",
     ],
+    domain: [
+      "AR in Education",
+      "AI-powered Healthcare Applications",
+      "Development of E-learning Platforms",
+      "Chatbot for Women Empowerment",
+      "Sentiment and Behavioral Analysis in Monitoring Applications",
+      "Enhancement of Security in E-Commerce Platforms",
+      "Blockchain-based Societal Applications",
+      "Personalized Recommendation Systems",
+      "GenAI on Ethical Practices",
+      "Zero Trust Security Model on Cloud",
+      "AI-driven Healthcare Diagnostics and Personalized Treatment",
+      "Sustainable AI Solutions for Green Tech Applications",
+      "Advanced Data Privacy Protocols in AI/ML Systems",
+      "AI for Mental Health Support and Therapy",
+      "AI-Powered Financial Analytics and Fraud Detection"
+  ],
+  
     venue:
       "Seminar Hall @ Sri Sairam College of Engineering, Anekal, Bengaluru",
     rules: [
@@ -102,6 +120,7 @@ const eventData = {
       "Must bring your own charged laptop with design software (Figma/Adobe XD/Sketch)",
       "Internet only allowed for: Asset downloads & cloud tool access",
     ],
+    
     amount: "300 per participant",
     link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
     isAgenda: true,
