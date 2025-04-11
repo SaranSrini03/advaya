@@ -16,8 +16,13 @@ const images = [
   "/gallery/img8.JPG",
   "/gallery/img9.JPG",
   "/gallery/img10.JPG",
-  "/gallery/img10.JPG",
-  "/gallery/img10.JPG",
+  "/gallery/img11.jpeg",
+  "/gallery/img12.jpeg",
+  "/gallery/img13.jpeg",
+  "/gallery/img14.jpeg",
+  "/gallery/img15.jpeg",
+  "/gallery/img16.jpeg",
+  "/gallery/img17.jpeg",
   // add as many as you want
 ];
 
