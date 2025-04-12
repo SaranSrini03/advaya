@@ -74,6 +74,11 @@ export default function HomePage() {
       role: "Blockchain developer",
       image: "/teams/thiru.jpg",
     },
+    {
+      name: "sujay S",
+      role: "consultant @ infosys",
+      image: "/jurry/new.jpeg",
+    },
   ];
 
   const handleMouseMove = useCallback((e) => {
