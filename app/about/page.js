@@ -72,7 +72,7 @@ export default function HomePage() {
     {
       name: "Thirumurugan S",
       role: "Blockchain developer",
-      image: "/teams/thiru.webp",
+      image: "/teams/thiru.jpg",
     },
   ];
 
