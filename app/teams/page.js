@@ -33,7 +33,7 @@ const students = [
   { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen2.jpeg" },
   { name: "Guruprasath M", role: "Student Coordinator", image: "/teams/gurubhai2.jpeg" },
   { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
-  { name: "Neha S", role: "Student Coordinator", image: "/teams/neha2.jpg" },
+  { name: "Neha S", role: "Student Coordinator", image: "/teams/neha25.jpeg" },
   { name: "Kowshika V", role: "Student Coordinator", image: "/teams/kowshika.jpeg" },
   { name: "Namita R", role: "Student Coordinator", image: "/teams/namitha.jpeg" },
   { name: "Mounasri V", role: "Student Coordinator", image: "/teams/mounasri.jpeg" },
@@ -45,6 +45,7 @@ const students = [
   { name: "Nitharsin Babu", role: "Student Coordinator", image: "/teams/Babu.jpeg" },
   { name: "Yashwanth V", role: "Student Coordinator", image: "/teams/yashwanthV.jpeg" },
   { name: "Yeshwanth K", role: "Student Coordinator", image: "/teams/yeshwanthK.jpg" },
+  { name: "Niveditha Y", role: "Student Coordinator", image: "/teams/nivedita.jpeg" },
   { name: "Thanuj V", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
   { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
   { name: "Vinay", role: "Student Coordinator", image: "/teams/vinay.jpeg" },
@@ -52,7 +53,6 @@ const students = [
   { name: "Pallavi", role: "Student Coordinator", image: "/teams/pallavi.jpeg" },
   { name: "Navya Nayak", role: "Student Coordinator", image: "/teams/navya.jpeg" },
   { name: "Priya Varshini", role: "Student Coordinator", image: "/teams/priya.jpeg" },
-  // ...add others here
 ];
 
 const TeamCard = ({ name, role, image }) => (
