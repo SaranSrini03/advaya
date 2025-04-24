@@ -79,6 +79,11 @@ export default function HomePage() {
       role: "consultant @ infosys",
       image: "/jurry/new.jpeg",
     },
+    {
+      name: "Dr Srividya Ganesan",
+      role: "Associate professor @ New horizon college, bangalore",
+      image: "/jurry/srividhya.jpeg",
+    },
   ];
 
   const handleMouseMove = useCallback((e) => {
