@@ -63,7 +63,7 @@ const eventData = {
       "Food/accommodation provided only during event hours",
     ],
     amount: 800,
-    link: "https://forms.gle/4iUy1uXv8LnWZHoeA",
+    link: "/event",
     warning:
       "This is a team event with an entry fee of ₹800. Enjoy an overnight experience with snacks, food, and exclusive swags!",
   },

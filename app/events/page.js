@@ -13,7 +13,7 @@ export default function EventPage() {
     const router = useRouter();
 
     const events = [
-        { id: 1, title: "24-Hour Hackathon", img: "/hack24img.jpg" },
+        { id: 1, title: "24-Hour Hackathon", img: "/hack24img.jpg" ,isFull: true },
         { id: 8, title: "Paper Presentation", img: "/paper.jpg" },
         { id: 2, title: "Webathon", img: "/webathon.jpeg" },
         { id: 3, title: "UI/UX Design Challenge", img: "/uiux.jpeg" },
@@ -104,10 +104,17 @@ export default function EventPage() {
                                             {event.title}
                                         </h3>
                                         <button
-                                            className="w-full py-2 md:py-3 bg-orange-500/80 hover:bg-orange-600 text-sm md:text-base font-mono rounded-full cursor-pointer transition-all hover:scale-[1.02]"
-                                            onClick={() => handleReadMore(event.title)}
+                                            className={`w-full py-2 md:py-3 ${event.isFull ? 'bg-gray-500 cursor-not-allowed' : 'bg-orange-500/80 hover:bg-orange-600 hover:scale-[1.02]'} text-sm md:text-base font-mono rounded-full transition-all`}
+                                            onClick={() => {
+                                                if (event.isFull) {
+                                                    alert('Registration Full');
+                                                } else {
+                                                    handleReadMore(event.title);
+                                                }
+                                            }}
+                                            disabled={event.isFull}
                                         >
-                                            Know More
+                                            {event.isFull ? "Registration Full" : "Know More"}
                                         </button>
                                     </div>
                                 ))}
