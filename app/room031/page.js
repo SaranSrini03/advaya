@@ -58,9 +58,18 @@ export default function AdminRoom031Page() {
         setMessage(data.error || "Save failed");
         return;
       }
-      setMessage("Saved. Public events page will use these flags on next load.");
+      setMessage(
+        "Saved. Open Events tabs refresh automatically; new visits always load the latest flags."
+      );
       setPersisted(true);
       if (data.flags) setFlags(mergeEventFlags(data.flags));
+      try {
+        const bc = new BroadcastChannel("advaya-event-settings");
+        bc.postMessage({ type: "updated" });
+        bc.close();
+      } catch {
+        /* ignore */
+      }
     } catch {
       setMessage("Network error");
     } finally {

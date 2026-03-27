@@ -22,15 +22,34 @@ export default function EventPage() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/event-settings")
-      .then((r) => r.json())
-      .then((d) => {
-        if (cancelled || !d.flags) return;
-        setFlags(mergeEventFlags(d.flags));
-      })
-      .catch(() => {});
+
+    const loadFlags = () => {
+      fetch("/api/event-settings")
+        .then((r) => r.json())
+        .then((d) => {
+          if (cancelled || !d.flags) return;
+          setFlags(mergeEventFlags(d.flags));
+        })
+        .catch(() => {});
+    };
+
+    loadFlags();
+
+    let bc;
+    try {
+      bc = new BroadcastChannel("advaya-event-settings");
+      bc.onmessage = () => loadFlags();
+    } catch {
+      /* ignore */
+    }
+
     return () => {
       cancelled = true;
+      try {
+        bc?.close();
+      } catch {
+        /* ignore */
+      }
     };
   }, []);
 
