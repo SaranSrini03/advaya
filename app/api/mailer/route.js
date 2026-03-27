@@ -124,7 +124,7 @@ export async function POST(req, res) {
 
       <div class="info-row">
         <span class="label">Event Dates:</span>
-        <span class="value"> 06 - 07 May 2025</span>
+        <span class="value"> 14 - 15 April 2026</span>
       </div>
       <div class="info-row">
         <span class="label">Location:</span>

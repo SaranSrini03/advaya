@@ -11,7 +11,6 @@ const eventsList = [
   "Paper Presentation",
   "Webathon",
   "Mobilathon",
-  "UI/UX",
   "Connections",
   "C Debugging",
   "Chatbot Making",

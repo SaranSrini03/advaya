@@ -35,6 +35,9 @@
   --link-fg: #047857;
   --link-hover-fg: #10b981;
 
+  --grid-line: rgba(15, 23, 42, 0.07);
+  --grid-size: 48px;
+
   --game-container-bg: var(--background);
   --game-over-fg: #ff0000;
   --game-over-shadow: rgba(255, 0, 0, 0.65);
@@ -84,6 +87,8 @@
   --link-fg: #6ee7b7;
   --link-hover-fg: #86efac;
 
+  --grid-line: rgba(16, 185, 129, 0.12);
+
   --game-container-bg: var(--background);
   --game-over-fg: #ff3b3b;
   --game-over-shadow: rgba(255, 59, 59, 0.8);
@@ -96,10 +101,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
 .page-shell {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--page-bg-from), var(--page-bg-via), var(--page-bg-to));
   color: var(--foreground);
+  background-color: var(--page-bg-to);
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(135deg, var(--page-bg-from), var(--page-bg-via), var(--page-bg-to));
+  background-size:
+    var(--grid-size) var(--grid-size),
+    var(--grid-size) var(--grid-size),
+    100% 100%;
+  background-position: 0 0, 0 0, 0 0;
 }
 
 .section-card {

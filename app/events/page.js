@@ -11,10 +11,9 @@ export default function EventPage() {
     const router = useRouter();
 
     const events = [
-        { id: 1, title: "24-Hour Hackathon", img: "/hack24img.jpg" ,isFull: true },
-        { id: 8, title: "Paper Presentation", img: "/paper.jpg" , isFull:true},
+        { id: 1, title: "24-Hour Hackathon", img: "/hack24img.jpg" },
+        { id: 8, title: "Paper Presentation", img: "/paper.jpg" },
         { id: 2, title: "Webathon", img: "/webathon.jpeg" },
-        { id: 3, title: "UI/UX Design Challenge", img: "/uiux.jpeg" },
         { id: 4, title: "Mobilathon", img: "/mobilathon.jpeg" },
         { id: 5, title: "Connections", img: "/connection.jpeg" },
         { id: 6, title: "C Debugging", img: "/debug.jpeg" },
@@ -69,17 +68,11 @@ export default function EventPage() {
                                             {event.title}
                                         </h3>
                                         <button
-                                            className={`w-full py-2 md:py-3 ${event.isFull ? 'bg-gray-500 text-white cursor-not-allowed' : 'bg-emerald-500/80 hover:bg-emerald-600 hover:scale-[1.02] text-[color:var(--button-fg)]'} text-sm md:text-base font-mono rounded-full transition-all`}
-                                            onClick={() => {
-                                                if (event.isFull) {
-                                                    alert('Registration Full');
-                                                } else {
-                                                    handleReadMore(event.title);
-                                                }
-                                            }}
-                                            disabled={event.isFull}
+                                            type="button"
+                                            className="w-full py-2 md:py-3 bg-emerald-500/80 hover:bg-emerald-600 hover:scale-[1.02] text-[color:var(--button-fg)] text-sm md:text-base font-mono rounded-full transition-all"
+                                            onClick={() => handleReadMore(event.title)}
                                         >
-                                            {event.isFull ? "Registration Full" : "Know More"}
+                                            Know More
                                         </button>
                                     </div>
                                 ))}

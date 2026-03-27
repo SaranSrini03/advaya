@@ -97,42 +97,12 @@ const eventData = {
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
-  "uiux-design-challenge": {
-    imagePath: "/uiux.jpeg",
-    title: "UI/UX Design Challenge",
-    isDate: true,
-    about:
-      "Welcome to the UI/UX Challenge Event! This exciting event brings together designers, developers, and creatives to showcase their skills, solve real-world design problems, and push the boundaries of user experience and interface design Whether you're a seasoned designer or a newcomer to the world of UI/UX, this event is a unique opportunity to learn, collaborate, and grow. You'll face off against other teams to create innovative, user-centered design solutions within a set timeframe.",
-    prizes: [
-      "Event Timeline:",
-      " Theme Announcement",
-      " 30mins - Research & Planning",
-      " Design Phase",
-      " Prototyping",
-      " 3pm- Final Submission",
-    ],
-    venue: "Design Lab, Main Building",
-    rules: [
-      "Team Size: Strictly 2 members (no exceptions)",
-      "Max Capacity: First 10 registered teams only",
-      "Duration: 3 hours strictly enforced",
-      "Theme revealed at event start",
-      "Must bring your own charged laptop with design software (Figma/Adobe XD/Sketch)",
-      "Internet only allowed for: Asset downloads & cloud tool access",
-    ],
-    
-    amount: "300 per participant",
-    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
-    isAgenda: true,
-    warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
-  },
   mobilathon: {
     imagePath: "/mobilathon.jpeg",
     title: "Mobilathon",
     about: [
       "Mobilathon is an exciting mobile app development hackathon that challenges participants to showcase their coding skills, creativity, and problem-solving abilities. Designed for budding developers and tech enthusiasts, the event unfolds in two dynamic rounds — a fast-paced technical quiz followed by an intense theme-based app building session. Participants will compete in teams of two, working under pressure to deliver innovative mobile app solutions using platforms like Android (Java/Kotlin), iOS (Swift), or cross-platform tools like Flutter and React Native. Whether you're a student or a passionate coder, Mobilathon is your chance to turn ideas into impactful prototypes and gain hands-on experience in real-world mobile development.",
-      "Unleash your creativity in this design sprint! Compete with top designers to create intuitive and visually stunning UI/UX experiences."
+      "Unleash your creativity in this design sprint! Compete with top designers to create intuitive and visually stunning product experiences."
     ],
 
     domain: [
@@ -364,12 +334,12 @@ export default function EventDetails() {
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-emerald-400">Start Date:</span>
                   <span className="text-lime-100">
-                    {eventDetails?.isDate ? 7 : 6} May 2025
+                    {eventDetails?.isDate ? 15 : 14} April 2026
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-emerald-400">End Date:</span>
-                  <span className="text-lime-100">7 May 2025</span>
+                  <span className="text-lime-100">15 April 2026</span>
                 </div>
               </div>
             </div>

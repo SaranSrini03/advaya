@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/NavBar";
+import Aurora from "@/app/components/Aurora";
 import CountdownTimer from "@/app/components/Countdown.js";
 import { motion } from "framer-motion";
 
@@ -14,7 +15,17 @@ export default function HomePage() {
   return (
     <div className="page-shell relative w-screen min-h-screen overflow-hidden">
       <Navbar />
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 z-0 min-h-[100dvh]">
+        <div className="absolute inset-0 h-full min-h-[100dvh] w-full">
+          <Aurora
+            colorStops={["#022c22", "#10b981", "#86efac"]}
+            amplitude={1}
+            blend={0.52}
+            speed={0.9}
+          />
+        </div>
+      </div>
+      <div className="pointer-events-none absolute inset-0 z-[1]">
         <div className="absolute top-1/4 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-[color:var(--accent)]/15 blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 h-40 w-40 rounded-full bg-[color:var(--accent-soft)]/20 blur-3xl" />
       </div>
@@ -45,7 +56,7 @@ export default function HomePage() {
             transition={{ duration: 0.35, delay: 0.16 }}
             className="mt-5 text-lg sm:text-xl md:text-2xl font-mono text-[color:var(--muted-text)]"
           >
-            April 15-16, Bengaluru
+            April 14-15, Bengaluru
           </motion.p>
 
           <motion.p
