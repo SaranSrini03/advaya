@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/app/components/ThemeProvider";
+import SiteBroadcastListener from "@/app/components/SiteBroadcastListener";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="cyberpunk">
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SiteBroadcastListener />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

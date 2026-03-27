@@ -37,8 +37,10 @@ export default function EventPage() {
 
     let bc;
     try {
-      bc = new BroadcastChannel("advaya-event-settings");
-      bc.onmessage = () => loadFlags();
+      bc = new BroadcastChannel("advaya-site-settings");
+      bc.onmessage = (e) => {
+        if (e.data?.type === "events") loadFlags();
+      };
     } catch {
       /* ignore */
     }
