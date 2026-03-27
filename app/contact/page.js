@@ -22,13 +22,13 @@ export default function ContactPage() {
     },
     { 
       platform: "Instagram", 
-      handle: "@advaya2k25", 
+      handle: "@advaya2k26", 
       icon: <FaInstagram className="text-2xl"/>, 
-      action: () => window.open("https://www.instagram.com/advaya2k25", "_blank") 
+      action: () => window.open("https://www.instagram.com/advaya2k26", "_blank") 
     },
     { 
       platform: "Discord", 
-      handle: "advaya2k25", 
+      handle: "advaya2k26", 
       icon: <FaDiscord className="text-2xl"/>, 
       action: () => window.open("https://discord.com/channels/1347084703588552806/1347084703588552809", "_blank") 
     },

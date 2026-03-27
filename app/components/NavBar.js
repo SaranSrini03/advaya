@@ -36,7 +36,7 @@ const Navbar = () => {
         break;
       case "instagram":
         window.open(
-          "https://www.instagram.com/advaya2k25?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+          "https://www.instagram.com/advaya2k26?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
           "_blank"
         );
         break;

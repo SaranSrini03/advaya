@@ -37,7 +37,7 @@ export async function POST(req, res) {
     const QR_CODE = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${qrData}" alt="QR Code" />`;
 
     const mailOptions = {
-      from: '"Advaya2k25" <noreply@gmail.com>',
+      from: '"Advaya 2k26" <noreply@gmail.com>',
       to: email,
       subject: `MR/MS ${name} #${id} Registration Confirmation`,
       html: `
@@ -45,7 +45,7 @@ export async function POST(req, res) {
   <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Advaya 2025 Pass</title>
+    <title>Advaya 2026 Pass</title>
     <style>
       body {
         background-color: #0e0e25;

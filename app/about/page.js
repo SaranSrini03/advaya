@@ -114,7 +114,7 @@ export default function HomePage() {
               {/* About Section */}
               <div className="section-card rounded-xl p-6 md:p-8">
                 <p className="text-sm sm:text-base md:text-lg font-mono text-emerald-200 leading-relaxed">
-                  Advaya 2k25 is a premier tech extravaganza that brings
+                  Advaya 2k26 is a premier tech extravaganza that brings
                   together innovators, developers, designers, and tech
                   enthusiasts from around the globe for an immersive experience
                   in cutting-edge technology. This multi-faceted event goes
