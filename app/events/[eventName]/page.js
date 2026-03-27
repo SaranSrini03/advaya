@@ -299,8 +299,8 @@ export default function EventDetails() {
           theme: "dark",
           style: {
             backgroundColor: "#1a1a1a",
-            border: "1px solid #ff6600",
-            color: "#ffa500",
+            border: "1px solid #10b981",
+            color: "#34d399",
             fontWeight: "bold",
           },
         }
@@ -314,7 +314,7 @@ export default function EventDetails() {
   };
 
   return (
-    <div className="bg-black text-white h-screen overflow-hidden">
+    <div className="page-shell text-[color:var(--foreground)] h-screen overflow-hidden">
       <Navbar />
       <ToastContainer
         position="top-center"
@@ -329,8 +329,8 @@ export default function EventDetails() {
         theme="dark"
         toastStyle={{
           backgroundColor: "#1a1a1a",
-          border: "1px solid #ff6600",
-          color: "#ffa500",
+          border: "1px solid #10b981",
+          color: "#34d399",
         }}
       />
 
@@ -346,8 +346,8 @@ export default function EventDetails() {
             quality={80}
             priority
           />
-          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black to-transparent z-10">
-            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold inline-block bg-black/80 px-4 py-2 text-orange-400 drop-shadow-xl">
+          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-[color:rgba(0,0,0,0.7)] to-transparent z-10">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold inline-block bg-[color:var(--banner-title-bg)] px-4 py-2 text-[color:var(--link-fg)] drop-shadow-xl">
               {eventDetails.title}
             </h1>
           </div>
@@ -356,59 +356,59 @@ export default function EventDetails() {
         {/* Main Content */}
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <div className="md:col-span-1 space-y-6 md:space-y-8">
-            <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
-              <h2 className="text-xl md:text-2xl font-bold text-amber-300 mb-3 md:mb-4">
+            <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
+              <h2 className="text-xl md:text-2xl font-bold text-lime-300 mb-3 md:mb-4">
                 Event Timeline
               </h2>
               <div className="space-y-3 md:space-y-4">
                 <div className="flex justify-between items-center text-sm md:text-base">
-                  <span className="text-orange-400">Start Date:</span>
-                  <span className="text-amber-100">
+                  <span className="text-emerald-400">Start Date:</span>
+                  <span className="text-lime-100">
                     {eventDetails?.isDate ? 7 : 6} May 2025
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-sm md:text-base">
-                  <span className="text-orange-400">End Date:</span>
-                  <span className="text-amber-100">7 May 2025</span>
+                  <span className="text-emerald-400">End Date:</span>
+                  <span className="text-lime-100">7 May 2025</span>
                 </div>
               </div>
             </div>
-            <p className="text-center text-sm sm:text-md font-semibold text-white bg-red-500 border border-red-300 rounded-lg px-4 py-2 mt-4 mb-6 shadow-md animate-pulse">
+            <p className="text-center text-sm sm:text-md font-semibold bg-red-500 border border-red-300 rounded-lg px-4 py-2 mt-4 mb-6 shadow-md animate-pulse text-[color:var(--button-fg)]">
               ⚠️ {eventDetails.warning}
             </p>
 
             <button
               onClick={() => HandleRegister(eventDetails.link)}
-              className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(255,165,0,0.3)] hover:shadow-[0_0_30px_rgba(255,165,0,0.5)] md:hover:scale-105 active:scale-95"
+              className="w-full py-3 md:py-4 bg-gradient-to-r from-emerald-500 to-lime-600 hover:from-lime-600 hover:to-emerald-500 rounded-lg md:rounded-xl text-lg md:text-xl font-bold transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] md:hover:scale-105 active:scale-95"
             >
               Register Now ₹ {eventDetails?.amount}
             </button>
           </div>
 
           <div className="md:col-span-2 space-y-6 md:space-y-8">
-            <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-orange-500/20">
-              <h2 className="text-2xl md:text-3xl font-bold text-amber-300 mb-4 md:mb-6">
+            <div className="section-card rounded-xl md:rounded-2xl p-6 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-lime-300 mb-4 md:mb-6">
                 About the Event
               </h2>
-              <p className="text-orange-500 font-bold leading-relaxed text-sm md:text-base">
+              <p className="text-emerald-500 font-bold leading-relaxed text-sm md:text-base">
                 {eventDetails?.span}
               </p>
-              <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+              <p className="text-[color:var(--muted-text)] leading-relaxed text-sm md:text-base">
                 {eventDetails.about}
               </p>
             </div>
 
             {/* Prizes & Rules Grid */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-              <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
+              <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
                 {eventDetails.isRule ? (
-                  <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
-                    <span className="text-orange-500">📜</span>
+                  <h3 className="text-lg md:text-xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
+                    <span className="text-emerald-500">📜</span>
                     Rules
                   </h3>
                 ) : (
-                  <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
-                    <span className="text-orange-500">📜</span>
+                  <h3 className="text-lg md:text-xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
+                    <span className="text-emerald-500">📜</span>
                     {eventDetails?.isAgenda ? "Agenda" : "Domains"}
                   </h3>
                 )}
@@ -417,15 +417,15 @@ export default function EventDetails() {
                   {eventDetails?.domain?.map((rule, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 text-gray-300 text-sm md:text-base"
+                      className="flex items-start gap-3 text-[color:var(--muted-text)] text-sm md:text-base"
                     >
-                      <span className="text-orange-400 mt-0.5">▹</span>
+                      <span className="text-emerald-400 mt-0.5">▹</span>
                       <span className="flex-1">
                         {rule.split(":").map((part, i) =>
                           i === 0 ? (
                             <span
                               key={i}
-                              className="text-amber-200 font-medium"
+                              className="text-lime-200 font-medium"
                             >
                               {part}
                             </span>
@@ -439,24 +439,24 @@ export default function EventDetails() {
                 </ul>
               </div>
 
-              <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
-                <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
-                  <span className="text-orange-500">📜</span> Rules
+              <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
+                  <span className="text-emerald-500">📜</span> Rules
                 </h3>
                 <ul className="space-y-3 md:space-y-4 pl-2">
                   {eventDetails?.rules?.map((rule, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 text-gray-300 text-sm md:text-base"
+                      className="flex items-start gap-3 text-[color:var(--muted-text)] text-sm md:text-base"
                     >
                       {/* Custom bullet */}
-                      <span className="text-orange-400 mt-0.5">▹</span>
+                      <span className="text-emerald-400 mt-0.5">▹</span>
                       <span className="flex-1">
                         {rule.split(":").map((part, i) =>
                           i === 0 ? (
                             <span
                               key={i}
-                              className="text-amber-200 font-medium"
+                              className="text-lime-200 font-medium"
                             >
                               {part}
                             </span>
@@ -472,11 +472,11 @@ export default function EventDetails() {
             </div>
 
             {/* Venue Section */}
-            <div className="bg-zinc-800/50 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 border border-orange-500/20">
-              <h3 className="text-xl md:text-2xl font-bold text-amber-300 mb-3 md:mb-4 flex items-center gap-2">
-                <span className="text-orange-500">📍</span> Venue
+            <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
+              <h3 className="text-xl md:text-2xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
+                <span className="text-emerald-500">📍</span> Venue
               </h3>
-              <p className="text-gray-300 text-sm md:text-base">
+              <p className="text-[color:var(--muted-text)] text-sm md:text-base">
                 {eventDetails.venue}
               </p>
             </div>

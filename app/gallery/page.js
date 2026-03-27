@@ -32,11 +32,11 @@ export default function GalleryPage() {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-neutral-950 text-white py-16 px-4">
+      <div className="page-shell min-h-screen text-[color:var(--foreground)] py-16 px-4">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl mt-10 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 mb-16"
+          className="title-min text-4xl md:text-5xl mt-10 font-bold text-center mb-16"
         >
           Glimpse of Advaya 2k24
         </motion.h1>
@@ -50,7 +50,7 @@ export default function GalleryPage() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="w-full overflow-hidden break-inside-avoid cursor-pointer rounded-xl shadow-lg group relative"
+              className="w-full overflow-hidden break-inside-avoid cursor-pointer rounded-xl group relative section-card"
               onClick={() => setSelectedImage(src)}
             >
               <Image
@@ -61,7 +61,7 @@ export default function GalleryPage() {
                 className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
               />
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-400/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl" />
+              <div className="absolute inset-0 rounded-xl bg-[color:var(--surface-muted)] opacity-0 group-hover:opacity-100 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
@@ -71,7 +71,7 @@ export default function GalleryPage() {
           {selectedImage && (
             <motion.div
               key="modal"
-              className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-[color:rgba(0,0,0,0.75)] backdrop-blur-md z-50 flex items-center justify-center p-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -93,7 +93,7 @@ export default function GalleryPage() {
                 />
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="absolute top-4 right-4 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
+                  className="absolute top-4 right-4 bg-[color:rgba(0,0,0,0.6)] text-[color:var(--foreground)] p-2 rounded-full hover:bg-[color:rgba(0,0,0,0.8)] transition"
                 >
                   <X className="w-5 h-5" />
                 </button>

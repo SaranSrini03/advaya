@@ -2,7 +2,43 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b1220;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-border: rgba(15, 23, 42, 0.08);
+  --surface-muted: rgba(15, 23, 42, 0.04);
+
+  --page-bg-from: #f3fff7;
+  --page-bg-via: #ddfce9;
+  --page-bg-to: #f7fffb;
+
+  --panel-bg: rgba(0, 0, 0, 0.04);
+  --panel-border: rgba(16, 185, 129, 0.24);
+  --panel-text: #0b1220;
+
+  --muted-text: rgba(11, 18, 32, 0.72);
+
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --nav-bg-scrolled: rgba(221, 252, 233, 0.78);
+  --nav-border: rgba(16, 185, 129, 0.3);
+  --nav-tooltip-bg: rgba(0, 0, 0, 0.7);
+  --nav-mobile-bg: rgba(255, 255, 255, 0.96);
+
+  --banner-title-bg: rgba(255, 255, 255, 0.75);
+  --banner-title-fg: var(--foreground);
+
+  --accent: #10b981;
+  --accent-soft: #34d399;
+  --accent-neon: #86efac;
+  --danger: #ef4444;
+
+  --button-fg: #0b1220;
+  --link-fg: #047857;
+  --link-hover-fg: #10b981;
+
+  --game-container-bg: var(--background);
+  --game-over-fg: #ff0000;
+  --game-over-shadow: rgba(255, 0, 0, 0.65);
+  --game-ui-fg: #ffffff;
 }
 
 @theme inline {
@@ -12,11 +48,46 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Theme driven styles (set via ThemeProvider) */
+[data-theme="cyberpunk"] {
+  --background: #05060a;
+  --foreground: #e9eefc;
+  --surface: rgba(17, 24, 39, 0.62);
+  --surface-border: rgba(110, 231, 183, 0.18);
+  --surface-muted: rgba(255, 255, 255, 0.04);
+
+  --page-bg-from: #030b08;
+  --page-bg-via: #062016;
+  --page-bg-to: #0a2e20;
+
+  --panel-bg: rgba(255, 255, 255, 0.05);
+  --panel-border: rgba(16, 185, 129, 0.32);
+  --panel-text: #e9eefc;
+
+  --muted-text: rgba(233, 238, 252, 0.72);
+
+  --nav-bg: rgba(0, 0, 0, 0.25);
+  --nav-bg-scrolled: rgba(16, 185, 129, 0.12);
+  --nav-border: rgba(52, 211, 153, 0.32);
+  --nav-tooltip-bg: rgba(0, 0, 0, 0.75);
+  --nav-mobile-bg: rgba(0, 0, 0, 0.95);
+
+  --banner-title-bg: rgba(0, 0, 0, 0.75);
+  --banner-title-fg: var(--foreground);
+
+  --accent: #10b981;
+  --accent-soft: #34d399;
+  --accent-neon: #86efac;
+  --danger: #ff4d4d;
+
+  --button-fg: #e9eefc;
+  --link-fg: #6ee7b7;
+  --link-hover-fg: #86efac;
+
+  --game-container-bg: var(--background);
+  --game-over-fg: #ff3b3b;
+  --game-over-shadow: rgba(255, 59, 59, 0.8);
+  --game-ui-fg: #ffffff;
 }
 
 body {
@@ -24,10 +95,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.page-shell {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--page-bg-from), var(--page-bg-via), var(--page-bg-to));
+  color: var(--foreground);
+}
+
+.section-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.title-min {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
 .container {
   position: relative;
   width: 100vw;
-  background: #000;
+  background: var(--game-container-bg);
 }
 
 .gameCanvas {
@@ -41,8 +131,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #FF0000;
-  text-shadow: 0 0 10px #FF0000;
+  color: var(--game-over-fg);
+  text-shadow: 0 0 14px var(--game-over-shadow);
   z-index: 100;
 }
 
@@ -59,7 +149,7 @@ body {
 .gameOver button {
   padding: 15px 30px;
   font-size: 1.2em;
-  background: #00FF00;
+  background: #00ff00;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -95,6 +185,51 @@ body {
   display: inline-block;
   white-space: nowrap;
   animation: marquee 100s linear infinite;
+}
+
+@keyframes title-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes title-line {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scaleX(0.92);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scaleX(1);
+  }
+}
+
+.title-highlight {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 38%, transparent);
+  animation: title-float 6s ease-in-out infinite;
+}
+
+.title-highlight::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -0.12em;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-soft),
+    transparent
+  );
+  animation: title-line 4.5s ease-in-out infinite;
 }
 
 

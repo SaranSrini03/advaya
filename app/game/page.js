@@ -13,6 +13,10 @@ export default function Home() {
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
+        const getCssVar = (name) =>
+            getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+        const gameBg = getCssVar("--background");
+        const uiFg = getCssVar("--game-ui-fg");
         canvas.width = 2000;
         canvas.height = 1600;
 
@@ -145,7 +149,7 @@ export default function Home() {
             ctx.save();
 
             // Main body
-            ctx.fillStyle = "#FFFFFF";
+            ctx.fillStyle = uiFg;
             ctx.beginPath();
             ctx.moveTo(x + width * 0.3, y + height);
             ctx.lineTo(x + width * 0.7, y + height);
@@ -313,7 +317,7 @@ export default function Home() {
 
         // Game loop
         const gameLoop = () => {
-            ctx.fillStyle = "#000";
+            ctx.fillStyle = gameBg;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             // Draw stars
@@ -470,7 +474,7 @@ export default function Home() {
             });
 
             // UI
-            ctx.fillStyle = "#FFFFFF";
+            ctx.fillStyle = uiFg;
             ctx.font = '20px "Press Start 2P"';
             ctx.fillText(`SCORE: ${score}`, 20, 40);
 

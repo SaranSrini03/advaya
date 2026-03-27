@@ -1,7 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function CountdownTimer() {
+export default function CountdownTimer({
+  targetDate,
+  targetMonthIndex = 3, // April (0-based)
+  targetDay = 15,
+  targetHour = 0,
+  completedText = "Event started",
+}) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -11,7 +17,16 @@ export default function CountdownTimer() {
   });
 
   useEffect(() => {
-    const eventDate = new Date(2025, 4, 6, 11, 0); // May 6, 2025 11:00 AM
+    const now = new Date();
+    const eventDate =
+      typeof targetDate === "string" && targetDate.length > 0
+        ? new Date(targetDate)
+        : new Date(now.getFullYear(), targetMonthIndex, targetDay, targetHour, 0, 0, 0);
+
+    // If the event date already passed, count down to the next occurrence.
+    if (eventDate - now < 0) {
+      eventDate.setFullYear(eventDate.getFullYear() + 1);
+    }
 
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -49,18 +64,7 @@ export default function CountdownTimer() {
         </>
       ) : (
         <>
-          <span>Explore Events</span>
-          <svg
-            className="w-5 h-5 transition-transform group-hover:translate-x-1"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <span>{completedText}</span>
         </>
       )}
     </>

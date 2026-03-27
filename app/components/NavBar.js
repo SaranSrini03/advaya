@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 import Socials from "./Socials.json";
 import { RiDownload2Line, RiDownloadCloud2Line } from 'react-icons/ri';
+import ThemeToggle from "@/app/components/ThemeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,7 +75,7 @@ const Navbar = () => {
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-orange-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:z-[100]"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-[color:var(--accent)] focus:text-[color:var(--background)] focus:px-4 focus:py-2 focus:rounded-lg focus:z-[100]"
       >
         Skip to content
       </a>
@@ -83,9 +84,9 @@ const Navbar = () => {
         initial={{ y: -200 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className={`fixed top-0 w-full z-50 backdrop-blur-lg transition-colors duration-300 ${isScrolled
-            ? "bg-orange-600/10 border-b border-orange-200 shadow-xl"
-            : "bg-black/20"
+        className={`fixed top-0 w-full z-50 transition-colors duration-300 ${isScrolled
+            ? "bg-[color:var(--surface)] border-b border-[color:var(--surface-border)] shadow-sm backdrop-blur-md"
+            : "bg-transparent"
           }`}
       >
         <div className="max-w-[110rem] px-4 sm:px-6 lg:px-8 mx-auto">
@@ -95,7 +96,7 @@ const Navbar = () => {
                 <motion.img
                   src="/cselogo.png"
                   alt="CSE Logo"
-                  className="w-10 h-10 md:w-14 md:h-14 rounded-full cursor-pointer bg-white hover:scale-105 transition-transform border-2 border-orange-200"
+                  className="w-10 h-10 md:w-14 md:h-14 rounded-full cursor-pointer bg-white hover:scale-105 transition-transform border-2 border-emerald-200"
                   onClick={handleLogoClick}
                   whileHover={{ scale: 1.05 }}
                 />
@@ -116,12 +117,12 @@ const Navbar = () => {
               />
             </div>
               </div>
-              <div className="h-8 md:h-12 w-px bg-orange-200/50 hidden md:block" />
+              <div className="h-8 md:h-12 w-px bg-emerald-200/50 hidden md:block" />
             </div>
 
             <Link
               href="/"
-              className="text-2xl md:text-3xl font-bold font-mono bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent mx-2 md:mx-4 hover:scale-105 transition-transform"
+              className="text-xl md:text-2xl font-bold font-mono text-[color:var(--foreground)] mx-2 md:mx-4 hover:opacity-80 transition-opacity"
             >
               ADVAYA
             </Link>
@@ -133,14 +134,14 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       className={`relative px-1 py-2 font-medium transition-colors ${pathname === link.href
-                          ? "text-white"
-                          : "text-orange-600 hover:text-white"
+                          ? "text-[color:var(--foreground)]"
+                          : "text-[color:var(--link-fg)] hover:text-[color:var(--link-hover-fg)]"
                         }`}
                     >
                       {link.label}
                       {pathname === link.href && (
                         <motion.div
-                          className="absolute bottom-0 left-0 w-full h-0.5 bg-white"
+                          className="absolute bottom-0 left-0 w-full h-0.5 bg-[color:var(--accent)]"
                           layoutId="nav-underline"
                         />
                       )}
@@ -153,25 +154,25 @@ const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => router.push("/game")}
-                    className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors"
+                        className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors"
                   >
-                    <FaGamepad className="w-5 h-5 text-white" />
+                      <FaGamepad className="w-5 h-5 text-[color:var(--foreground)]" />
                   </button>
                   <button
                     onClick={() => Handlesocials("download")}
-                    className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors relative group"
+                        className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors relative group"
                   >
-                    <RiDownloadCloud2Line className="w-5 h-5 text-white" />
-                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                    <RiDownloadCloud2Line className="w-5 h-5 text-[color:var(--foreground)]" />
+                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[color:var(--nav-tooltip-bg)] text-[color:var(--foreground)] text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
                       Agenda
                     </span>
                   </button>
                   <button
                     onClick={() => setShowSocials(!showSocials)}
-                    className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors relative group"
+                        className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors relative group"
                   >
-                    <FiGlobe className="w-5 h-5 text-white" />
-                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                    <FiGlobe className="w-5 h-5 text-[color:var(--foreground)]" />
+                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[color:var(--nav-tooltip-bg)] text-[color:var(--foreground)] text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
                       Socials
                     </span>
                   </button>
@@ -182,17 +183,17 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute top-full right-0 mt-2 bg-black/80 backdrop-blur-lg rounded-lg p-2 shadow-xl"
+                        className="absolute top-full right-0 mt-2 bg-[color:var(--nav-tooltip-bg)] backdrop-blur-lg rounded-lg p-2 shadow-xl"
                       >
                         <div className="flex flex-col gap-2">
                           <motion.button
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             onClick={() => Handlesocials("discord")}
-                            className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors flex items-center gap-2 w-full"
+                            className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors flex items-center gap-2 w-full"
                           >
-                            <FaDiscord className="w-5 h-5 text-white" />
-                            <span className="text-white text-sm">Discord</span>
+                            <FaDiscord className="w-5 h-5 text-[color:var(--foreground)]" />
+                            <span className="text-[color:var(--foreground)] text-sm">Discord</span>
                           </motion.button>
 
                           <motion.button
@@ -200,10 +201,10 @@ const Navbar = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.1 }}
                             onClick={() => Handlesocials("whatsapp")}
-                            className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors flex items-center gap-2 w-full"
+                            className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors flex items-center gap-2 w-full"
                           >
-                            <FaWhatsapp className="w-5 h-5 text-white" />
-                            <span className="text-white text-sm">WhatsApp</span>
+                            <FaWhatsapp className="w-5 h-5 text-[color:var(--foreground)]" />
+                            <span className="text-[color:var(--foreground)] text-sm">WhatsApp</span>
                           </motion.button>
 
                           <motion.button
@@ -211,10 +212,10 @@ const Navbar = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
                             onClick={() => Handlesocials("instagram")}
-                            className="p-2 rounded-lg hover:bg-orange-500/30 transition-colors flex items-center gap-2 w-full"
+                            className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors flex items-center gap-2 w-full"
                           >
-                            <FaInstagram className="w-5 h-5 text-white" />
-                            <span className="text-white text-sm">
+                            <FaInstagram className="w-5 h-5 text-[color:var(--foreground)]" />
+                            <span className="text-[color:var(--foreground)] text-sm">
                               Instagram
                             </span>
                           </motion.button>
@@ -224,25 +225,20 @@ const Navbar = () => {
                   </AnimatePresence>
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => router.push("/gettickets")}
-                  className="bg-orange-600 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full font-medium cursor-pointer hover:bg-orange-700 transition-colors shadow-lg"
-                >
-                  Get Tickets
-                </motion.button>
+                <div className="ml-2">
+                  <ThemeToggle />
+                </div>
               </div>
             </div>
 
             <button
-              className="md:hidden p-2 rounded-lg hover:bg-orange-500/30 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-emerald-500/30 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <FiX className="w-6 h-6 text-white" />
+                <FiX className="w-6 h-6 text-[color:var(--foreground)]" />
               ) : (
-                <FiMenu className="w-6 h-6 text-white" />
+                <FiMenu className="w-6 h-6 text-[color:var(--foreground)]" />
               )}
             </button>
           </div>
@@ -254,7 +250,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute w-full bg-black/95 backdrop-blur-lg border-b border-orange-200"
+              className="md:hidden absolute w-full bg-[color:var(--surface)] backdrop-blur-lg border-b border-[color:var(--surface-border)]"
             >
               <div className="px-4 py-4">
                 <ul className="space-y-3">
@@ -263,8 +259,8 @@ const Navbar = () => {
                       <Link
                         href={link.href}
                         className={`block py-3 px-4 rounded-lg transition-colors text-lg ${pathname === link.href
-                            ? "bg-orange-400/90 text-white"
-                            : "text-white hover:bg-orange-500/50"
+                            ? "bg-emerald-400/90 text-[color:var(--button-fg)]"
+                            : "text-[color:var(--foreground)] hover:bg-emerald-500/50"
                           }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
@@ -274,45 +270,42 @@ const Navbar = () => {
                   ))}
                 </ul>
 
-                <div className="mt-6 pt-4 border-t border-orange-200">
+                <div className="mt-6 pt-4 border-t border-emerald-200">
                   <div className="flex justify-center items-center gap-4 mb-4">
                     <button
                       onClick={() => router.push("/game")}
-                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                      className="p-2 rounded-full hover:bg-emerald-500/30 transition-colors"
                     >
-                      <FaGamepad className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                      <FaGamepad className="w-10 h-10 border p-2 rounded-full text-[color:var(--foreground)] cursor-pointer" />
                     </button>
                     <button
                       onClick={() => Handlesocials("whatsapp")}
-                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                      className="p-2 rounded-full hover:bg-emerald-500/30 transition-colors"
                     >
-                      <FaWhatsapp className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                      <FaWhatsapp className="w-10 h-10 border p-2 rounded-full text-[color:var(--foreground)] cursor-pointer" />
                     </button>
                     <button
                       onClick={() => Handlesocials("discord")}
-                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                      className="p-2 rounded-full hover:bg-emerald-500/30 transition-colors"
                     >
-                      <FaDiscord className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                      <FaDiscord className="w-10 h-10 border p-2 rounded-full text-[color:var(--foreground)] cursor-pointer" />
                     </button>
                     <button
                       onClick={() => Handlesocials("instagram")}
-                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                      className="p-2 rounded-full hover:bg-emerald-500/30 transition-colors"
                     >
-                      <FaInstagram className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                      <FaInstagram className="w-10 h-10 border p-2 rounded-full text-[color:var(--foreground)] cursor-pointer" />
                     </button>
                     <button
                       onClick={() => Handlesocials("download")}
-                      className="p-2 rounded-full hover:bg-orange-500/30 transition-colors"
+                      className="p-2 rounded-full hover:bg-emerald-500/30 transition-colors"
                     >
-                      <FaDownload className="w-10 h-10 border p-2 rounded-full text-white cursor-pointer" />
+                      <FaDownload className="w-10 h-10 border p-2 rounded-full text-[color:var(--foreground)] cursor-pointer" />
                     </button>
                   </div>
-                  <button
-                    onClick={() => router.push("/gettickets")}
-                    className="w-full bg-orange-600 text-white py-3 rounded-full font-medium hover:bg-orange-700 transition-colors text-lg"
-                  >
-                    Get Tickets
-                  </button>
+                  <div className="mt-3 flex justify-center">
+                    <ThemeToggle />
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -333,17 +326,17 @@ const Navbar = () => {
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
-              className="bg-orange-100/90 backdrop-blur-lg rounded-xl p-6 max-w-xs md:max-w-md w-full mx-4 relative"
+              className="bg-emerald-100/90 backdrop-blur-lg rounded-xl p-6 max-w-xs md:max-w-md w-full mx-4 relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setWhatsappOptions(false)}
-                className="absolute top-3 right-3 p-1 rounded-full hover:bg-orange-200/50 transition-colors"
+                className="absolute top-3 right-3 p-1 rounded-full hover:bg-emerald-200/50 transition-colors"
               >
-                <FiX className="w-5 h-5 text-orange-900" />
+                <FiX className="w-5 h-5 text-emerald-900" />
               </button>
 
-              <h3 className="text-orange-900 text-xl font-bold mb-4">
+              <h3 className="text-emerald-900 text-xl font-bold mb-4">
                 Join WhatsApp Group
               </h3>
 
@@ -359,7 +352,7 @@ const Navbar = () => {
                       href={group.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block p-3 rounded-lg bg-gradient-to-r from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 transition-all duration-300 text-orange-900 font-medium group relative overflow-hidden"
+                      className="block p-3 rounded-lg bg-gradient-to-r from-emerald-50 to-emerald-100 hover:from-emerald-100 hover:to-emerald-200 transition-all duration-300 text-emerald-900 font-medium group relative overflow-hidden"
                     >
                       <motion.span
                         whileHover={{ scale: 1.02 }}
@@ -368,7 +361,7 @@ const Navbar = () => {
                       >
                         {group.name}
                       </motion.span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-amber-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 to-lime-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </Link>
                   </motion.div>
                 ))}

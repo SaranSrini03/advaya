@@ -1,179 +1,91 @@
 "use client";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/NavBar";
-import Noise from "@/app/animations/Noise";
-import MarqueeBanner from "@/app/components/MarqueeBanner";
 import CountdownTimer from "@/app/components/Countdown.js";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
-  const [dots, setDots] = useState([]);
-  const [glitchText, setGlitchText] = useState("Advaya 2k25");
   const router = useRouter();
-
-  useEffect(() => {
-    setDots(
-      [...Array(20)].map(() => ({
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        scale: 0.5 + Math.random(),
-      }))
-    );
-  }, []);
-
-  useEffect(() => {
-    setGlitchText("Advaya 2k25");
-  }, []);
 
   const goToEventPage = () => {
     router.push("/events");
   };
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-br from-[#2a0a00] via-[#4a1a00] to-[#7f2a00]">
+    <div className="page-shell relative w-screen min-h-screen overflow-hidden">
       <Navbar />
-      <Noise />
-      <MarqueeBanner />
-
-      <div className="absolute inset-0 opacity-20 mix-blend-soft-light">
-        {dots.map((dot, i) => (
-          <div
-            key={i}
-            className="absolute w-1.5 h-1.5 bg-orange-200 rounded-full animate-float"
-            style={{
-              left: dot.left,
-              top: dot.top,
-              animationDelay: `${i * 0.2}s`,
-              filter: "blur(1px)",
-              transform: `scale(${dot.scale})`,
-            }}
-          />
-        ))}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-1/4 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-[color:var(--accent)]/15 blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 h-40 w-40 rounded-full bg-[color:var(--accent-soft)]/20 blur-3xl" />
       </div>
 
-      <div className="relative z-10 flex items-center justify-center h-full text-white">
-        <div className="text-center max-w-6xl px-4">
-          <motion.div
-            className="relative group"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 pt-24 pb-12">
+        <div className="text-center max-w-5xl w-full px-6 py-12 md:px-12 md:py-16 bg-transparent border-none shadow-none">
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="inline-flex items-center rounded-full bg-transparent px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-wide text-[color:var(--muted-text)]"
           >
-            <span
-              className="glitch font-black font-mono cursor-pointer select-none transform transition-all duration-500 hover:filter hover:brightness-110"
-              data-text={glitchText}
-              style={{
-                fontSize: "clamp(3rem, 8vw, 10rem)",
-                "--after-shadow": "-8px 0 #ff6600",
-                "--before-shadow": "8px 0 #ffcc00",
-                textShadow: "0 0 20px rgba(255,140,0,0.3)",
-              }}
-            >
-              Advaya 2k25
-              <span className="absolute inset-0 bg-[radial-gradient(circle,#ff8c00aa_0%,transparent_70%)] opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
-            </span>
-          </motion.div>
+            Sri Sairam CSE Presents
+          </motion.p>
 
           <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-bold font-mono mb-8 mt-4 bg-gradient-to-r from-amber-200 to-orange-300 bg-clip-text text-transparent"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="title-min font-mono mt-6 text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
           >
-            6-7 May 2025
+            Advaya 2k26
           </motion.h1>
 
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            onClick={goToEventPage}
-            className="group relative px-12 py-4 cursor-pointer rounded-full text-white font-bold text-xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-[0_0_40px_5px_rgba(255,140,0,0.3)] bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600"
-            aria-label="Explore Events"
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.16 }}
+            className="mt-5 text-lg sm:text-xl md:text-2xl font-mono text-[color:var(--muted-text)]"
           >
-            <span className="absolute inset-0 bg-orange-700 opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
-            <span className="absolute top-0 left-[-75%] w-[200%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:left-[100%] transition-all duration-1000" />
-            <span className="relative z-10 flex items-center justify-center gap-2">
+            April 15-16, Bengaluru
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.22 }}
+            className="mx-auto mt-4 max-w-2xl text-sm sm:text-base text-[color:var(--muted-text)]"
+          >
+            A flagship tech fest with hackathon, design, web, mobile, and coding events.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.3 }}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
+          >
+            <button
+              onClick={goToEventPage}
+              className="w-full sm:w-auto px-10 py-3 rounded-full bg-[color:var(--accent)] text-[color:var(--button-fg)] font-semibold shadow-sm hover:opacity-90 transition-opacity"
+              aria-label="Enter Advaya"
+            >
+              Enter Advaya
+            </button>
+            <button
+              onClick={goToEventPage}
+              className="w-full sm:w-auto px-10 py-3 rounded-full bg-transparent font-semibold text-[color:var(--foreground)] hover:opacity-90 transition-opacity"
+              aria-label="View all events"
+            >
+              View Events
+            </button>
+          </motion.div>
+
+          <div className="mt-5 flex items-center justify-center">
+            <div className="px-6 py-2 rounded-full bg-transparent">
               <CountdownTimer />
-            </span>
-            <span className="absolute inset-0 rounded-full border-2 border-orange-300/30 group-hover:border-orange-100/50 transition-all duration-300" />
-          </motion.button>
-
-          <p
-            className="mt-4 text-xs text-orange-300 hover:text-orange-100 transition-colors cursor-pointer underline underline-offset-4"
-            onClick={goToEventPage}
-          >
-            Register Now
-          </p>
-
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute left-1/4 top-1/3 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute right-1/4 bottom-1/4 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl animate-pulse delay-1000" />
+            </div>
           </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        .glitch {
-          position: relative;
-          color: #fff;
-          white-space: nowrap;
-        }
-        .glitch::before,
-        .glitch::after {
-          content: attr(data-text);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          clip-path: inset(0 0 0 0);
-        }
-        .glitch::after {
-          left: 8px;
-          text-shadow: var(--after-shadow);
-          animation: animate-glitch 3s infinite linear alternate-reverse;
-        }
-        .glitch::before {
-          left: -8px;
-          text-shadow: var(--before-shadow);
-          animation: animate-glitch 2s infinite linear alternate-reverse;
-        }
-        @keyframes animate-glitch {
-          0% {
-            clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%);
-          }
-          10% {
-            clip-path: polygon(0 50%, 100% 50%, 100% 60%, 0 60%);
-          }
-          20% {
-            clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
-          }
-          30% {
-            clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
-          }
-          40% {
-            clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%);
-          }
-          50% {
-            clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
-          }
-          60% {
-            clip-path: polygon(0 15%, 100% 15%, 100% 25%, 0 25%);
-          }
-          70% {
-            clip-path: polygon(0 65%, 100% 65%, 100% 75%, 0 75%);
-          }
-          80% {
-            clip-path: polygon(0 45%, 100% 45%, 100% 55%, 0 55%);
-          }
-          90% {
-            clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%);
-          }
-          100% {
-            clip-path: polygon(0 35%, 100% 35%, 100% 45%, 0 45%);
-          }
-        }
-      `}</style>
     </div>
   );
 }
