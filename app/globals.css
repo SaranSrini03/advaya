@@ -101,6 +101,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+::selection {
+  background-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  color: var(--foreground);
+}
+
+::-moz-selection {
+  background-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  color: var(--foreground);
+}
+
 button {
   cursor: pointer;
 }
