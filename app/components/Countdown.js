@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export default function CountdownTimer({
   targetDate,
   targetMonthIndex = 3, // April (0-based)
-  targetDay = 14,
+  targetDay = 15,
   targetHour = 0,
   completedText = "Event started",
 }) {

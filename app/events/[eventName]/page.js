@@ -334,12 +334,12 @@ export default function EventDetails() {
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-emerald-400">Start Date:</span>
                   <span className="text-lime-100">
-                    {eventDetails?.isDate ? 15 : 14} April 2026
+                    {eventDetails?.isDate ? 16 : 15} April 2026
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-sm md:text-base">
                   <span className="text-emerald-400">End Date:</span>
-                  <span className="text-lime-100">15 April 2026</span>
+                  <span className="text-lime-100">16 April 2026</span>
                 </div>
               </div>
             </div>

@@ -2,7 +2,7 @@
 import React from "react";
 
 const MarqueeBanner = () => {
-  const message = "✦ On-the-spot registration will be closed at 12 PM on the 14th and 15th of April. ✦ ";
+  const message = "✦ On-the-spot registration will be closed at 12 PM on the 15th and 16th of April. ✦ ";
 
   return (
     <div className="absolute top-20 w-full z-40 overflow-hidden bg-emerald-500/20 py-2">

@@ -56,7 +56,7 @@ export default function HomePage() {
             transition={{ duration: 0.35, delay: 0.16 }}
             className="mt-5 text-lg sm:text-xl md:text-2xl font-mono text-[color:var(--muted-text)]"
           >
-            April 14-15, Bengaluru
+            April 15-16, Bengaluru
           </motion.p>
 
           <motion.p
