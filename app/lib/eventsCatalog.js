@@ -1,12 +1,12 @@
 /** Stable keys must match `/events/[slug]` from `handleEventSlug(title)`. */
 export const EVENT_CATALOG = [
-  { key: "20hour-hackathon", title: "20-Hour Hackathon", img: "/hack24img.jpg" },
-  { key: "paper-presentation", title: "Paper Presentation", img: "/paper.jpg" },
-  { key: "webathon", title: "Webathon", img: "/webathon.jpeg" },
-  { key: "mobilathon", title: "Mobilathon", img: "/mobilathon.jpeg" },
-  { key: "connections", title: "Connections", img: "/connection.jpeg" },
-  { key: "c-debugging", title: "C Debugging", img: "/debug.jpeg" },
-  { key: "chatbot", title: "Chatbot", img: "/chatbot.jpg" },
+  { key: "20hour-hackathon", title: "20-Hour Hackathon", img: "/events/20hourshackathon.png" },
+  { key: "paper-presentation", title: "Paper Presentation", img: "/events/paperpresentation.png" },
+  { key: "webathon", title: "Webathon", img: "/events/webathon.png" },
+  { key: "mobilathon", title: "Mobilathon", img: "/events/mobilathon.png" },
+  { key: "connections", title: "Connections", img: "/events/connections.png" },
+  { key: "c-debugging", title: "C Debugging", img: "/events/debug.png" },
+  { key: "chatbot", title: "Chatbot", img: "/events/chatbot.png" },
 ];
 
 const FLAG_KEYS = new Set(EVENT_CATALOG.map((e) => e.key));

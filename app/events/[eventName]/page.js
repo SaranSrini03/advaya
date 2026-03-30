@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const eventData = {
   "20hour-hackathon": {
-    imagePath: "/hack24img.jpg",
+    imagePath: "/events/20hourshackathon.png",
     title: "20-Hour Hackathon",
     span: "20-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory ",
     isPopUp: true,
