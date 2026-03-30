@@ -216,7 +216,7 @@ button:disabled {
 .animate-marquee {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 100s linear infinite;
+  animation: marquee 400s linear infinite;
 }
 
 @keyframes title-float {

@@ -90,7 +90,7 @@ const Navbar = () => {
           }`}
       >
         <div className="max-w-[110rem] px-4 sm:px-6 lg:px-8 mx-auto">
-          <div className="flex justify-between items-center h-16 md:h-20 mt-7">
+          <div className="flex justify-between items-center h-16 md:h-20">
             <div className="flex items-center gap-4 md:gap-6">
               <div className="flex items-center gap-2 md:gap-4">
                 <img
