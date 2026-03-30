@@ -6,10 +6,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const eventData = {
-  "24hour-hackathon": {
+  "20hour-hackathon": {
     imagePath: "/hack24img.jpg",
-    title: "24-Hour Hackathon",
-    span: "24-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory ",
+    title: "20-Hour Hackathon",
+    span: "20-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory ",
     isPopUp: true,
     about:
       "Welcome to the ultimate code-fueled chaos! For the next 24 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
@@ -62,8 +62,8 @@ const eventData = {
       "No time extensions under any circumstances",
       "Food/accommodation provided only during event hours",
     ],
-    amount: 800,
-    link: "/event",
+    amount: 1000,
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSd7LeC19qqhCn_wC9pCDTR5lzXhqJUDiCPB23BDJkIVj3VhoA/viewform",
     warning:
       "This is a team event with an entry fee of ₹800. Enjoy an overnight experience with snacks, food, and exclusive swags!",
   },
@@ -93,7 +93,7 @@ const eventData = {
       "Round 2: 3-hour on-the-spot website development from scratch",
     ],
     amount: "300 per participant",
-    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScsjHD6zU6mli9YblPzY2zWN-QqC7JpZgXH5tUwr89JT99SbA/viewform",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -123,7 +123,7 @@ const eventData = {
     ],
 
 
-    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScsjHD6zU6mli9YblPzY2zWN-QqC7JpZgXH5tUwr89JT99SbA/viewform",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -162,7 +162,7 @@ const eventData = {
       "  • Ties broken by speed of correct answers",
     ],
     amount: "300 per participant",
-    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScsjHD6zU6mli9YblPzY2zWN-QqC7JpZgXH5tUwr89JT99SbA/viewform",
   },
   "c-debugging": {
     imagePath: "/debug.jpeg",
@@ -189,7 +189,7 @@ const eventData = {
     ],
     amount: "300 per participant",
     isRule: true,
-    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScsjHD6zU6mli9YblPzY2zWN-QqC7JpZgXH5tUwr89JT99SbA/viewform",
     warning:
       "This is a solo event, pay 300 rs. Enjoy access to two additional events with this registration!",
   },
@@ -214,7 +214,7 @@ const eventData = {
       ". Originality: Encourage creative and original Chabot designs.",
       "Appropriate Content: Ensure Chabot content is respectful and suitable for all audiences.",
     ],
-    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScsjHD6zU6mli9YblPzY2zWN-QqC7JpZgXH5tUwr89JT99SbA/viewform",
     warning:
       "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
   },
@@ -228,7 +228,7 @@ const eventData = {
     rules: [
       "Teams must have 2 to 4 participants; individual entries aren't allowed.Shortlisted teams will present to judges, with timing and venue details will be shared in website and WhatsApp group.Papers must follow the IEEE format, with abstracts s should be submitted within 29th April—late entries won’t be accepted. (but plagiarism more than 15% will result in disqualification)",
     ],
-    link: "https://forms.gle/WwdDv9W7z1cpB8Dn7",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScsjHD6zU6mli9YblPzY2zWN-QqC7JpZgXH5tUwr89JT99SbA/viewform",
     amount: 300,
     warning:
       "This is a team event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",

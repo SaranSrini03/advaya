@@ -1,6 +1,6 @@
 /** Stable keys must match `/events/[slug]` from `handleEventSlug(title)`. */
 export const EVENT_CATALOG = [
-  { key: "24hour-hackathon", title: "24-Hour Hackathon", img: "/hack24img.jpg" },
+  { key: "20hour-hackathon", title: "20-Hour Hackathon", img: "/hack24img.jpg" },
   { key: "paper-presentation", title: "Paper Presentation", img: "/paper.jpg" },
   { key: "webathon", title: "Webathon", img: "/webathon.jpeg" },
   { key: "mobilathon", title: "Mobilathon", img: "/mobilathon.jpeg" },
