@@ -90,31 +90,31 @@ const Navbar = () => {
           }`}
       >
         <div className="max-w-[110rem] px-4 sm:px-6 lg:px-8 mx-auto">
-          <div className="flex justify-between items-center h-16 md:h-20">
+          <div className="flex justify-between items-center h-16 md:h-20 mt-7">
             <div className="flex items-center gap-4 md:gap-6">
               <div className="flex items-center gap-2 md:gap-4">
+                <img
+                  src="/logos/CollegeLogo.png"
+                  alt="College Logo"
+                  className="h-20 w-50 hidden md:block cursor-pointer hover:scale-105 transition-transform"
+                  onClick={handleLogoClick}
+                />
                 <motion.img
-                  src="/cselogo.png"
-                  alt="CSE Logo"
-                  className="w-10 h-10 md:w-14 md:h-14 rounded-full cursor-pointer bg-white hover:scale-105 transition-transform border-2 border-emerald-200"
+                  src="/logos/cse.png"
+                  alt="College Logo"
+                  className="w-10 h-10 md:w-14 md:h-14  rounded-full cursor-pointer bg-white hover:scale-105 transition-transform border-2 border-emerald-200"
                   onClick={handleLogoClick}
                   whileHover={{ scale: 1.05 }}
-                />
-                <img
-                  src="/CollegeLogo.png"
-                  alt="College Logo"
-                  className="h-10 w-auto hidden md:block cursor-pointer hover:scale-105 transition-transform"
-                  onClick={handleLogoClick}
                 />
 
             <div className="flex items-center gap-2 md:gap-4">
               
-              <img
+              {/* <img
                 src="/cselogo3.png"
                 alt="College Logo"
                 className="h-10 w-auto hidden md:block cursor-pointer hover:scale-105 transition-transform"
                 onClick={handleLogoClick}
-              />
+              /> */}
             </div>
               </div>
               <div className="h-8 md:h-12 w-px bg-emerald-200/50 hidden md:block" />
