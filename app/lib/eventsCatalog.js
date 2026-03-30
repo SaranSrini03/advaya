@@ -6,7 +6,6 @@ export const EVENT_CATALOG = [
   { key: "mobilathon", title: "Mobilathon", img: "/events/mobilathon.png" },
   { key: "connections", title: "Connections", img: "/events/connections.png" },
   { key: "c-debugging", title: "C Debugging", img: "/events/debug.png" },
-  { key: "chatbot", title: "Chatbot", img: "/events/chatbot.png" },
 ];
 
 const FLAG_KEYS = new Set(EVENT_CATALOG.map((e) => e.key));

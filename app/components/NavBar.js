@@ -85,8 +85,8 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className={`fixed top-0 w-full z-50 transition-colors duration-300 ${isScrolled
-            ? "bg-[color:var(--surface)] border-b border-[color:var(--surface-border)] shadow-sm backdrop-blur-md"
-            : "bg-transparent"
+            ? "bg-[color:var(--nav-bg-scrolled)] border-b border-[color:var(--surface-border)] shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
+            : "bg-[color:var(--nav-bg)] border-b border-[color:var(--surface-border)] shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-lg"
           }`}
       >
         <div className="max-w-[110rem] px-4 sm:px-6 lg:px-8 mx-auto">
@@ -250,7 +250,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="md:hidden absolute w-full bg-[color:var(--surface)] backdrop-blur-lg border-b border-[color:var(--surface-border)]"
+              className="md:hidden absolute w-full bg-[color:var(--nav-mobile-bg)] backdrop-blur-xl border-b border-[color:var(--surface-border)] shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
             >
               <div className="px-4 py-4">
                 <ul className="space-y-3">

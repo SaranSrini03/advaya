@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Navbar from "@/app/components/NavBar";
-import Aurora from "@/app/components/Aurora";
+import ShapeGrid from "@/app/components/ShapeGrid";
 import CountdownTimer from "@/app/components/Countdown.js";
 import { motion } from "framer-motion";
 
@@ -15,13 +15,16 @@ export default function HomePage() {
   return (
     <div className="page-shell relative w-screen min-h-screen overflow-hidden">
       <Navbar />
-      <div className="pointer-events-none absolute inset-0 z-0 min-h-[100dvh]">
+      <div className="absolute inset-0 z-0 min-h-[100dvh]">
         <div className="absolute inset-0 h-full min-h-[100dvh] w-full">
-          <Aurora
-            colorStops={["#022c22", "#10b981", "#86efac"]}
-            amplitude={1}
-            blend={0.52}
+          <ShapeGrid
+            direction="right"
             speed={0.9}
+            borderColor="rgba(134,239,172,0.22)"
+            hoverFillColor="rgba(16,185,129,0.22)"
+            squareSize={44}
+            shape="square"
+            hoverTrailAmount={10}
           />
         </div>
       </div>

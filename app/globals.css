@@ -123,15 +123,14 @@ button:disabled {
   min-height: 100vh;
   color: var(--foreground);
   background-color: var(--page-bg-to);
-  background-image:
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(135deg, var(--page-bg-from), var(--page-bg-via), var(--page-bg-to));
-  background-size:
-    var(--grid-size) var(--grid-size),
-    var(--grid-size) var(--grid-size),
-    100% 100%;
-  background-position: 0 0, 0 0, 0 0;
+  background-image: linear-gradient(
+    135deg,
+    var(--page-bg-from),
+    var(--page-bg-via),
+    var(--page-bg-to)
+  );
+  background-size: 100% 100%;
+  background-position: 0 0;
 }
 
 .section-card {

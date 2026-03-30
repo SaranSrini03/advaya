@@ -13,7 +13,6 @@ const eventsList = [
   "Mobilathon",
   "Connections",
   "C Debugging",
-  "Chatbot Making",
 ];
 
 export default function GetTickets() {

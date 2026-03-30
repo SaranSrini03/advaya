@@ -9,10 +9,10 @@ const eventData = {
   "20hour-hackathon": {
     imagePath: "/events/20hourshackathon.png",
     title: "20-Hour Hackathon",
-    span: "20-Hour Hackathon Where Sleep Is Optional and Caffeine Is Mandatory ",
+    span: "20-Hour Hackathon; SDG-focused innovation sprint",
     isPopUp: true,
     about:
-      "Welcome to the ultimate code-fueled chaos! For the next 24 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
+      "Welcome to the ultimate code-fueled chaos! For the next 20 hours, its you, your team, and a mountain of caffeine turning half-baked ideas into fully-functional prototypes (hopefully). Whether youre a code ninja, pixel-perfect designer, or just here for the snacks, this is where imagination collides with innovation. Side effects may include spontaneous breakthroughs, intense keyboard mashing, and a dangerously passionate relationship with coffee. Buckle up — its going to be a wild ride!",
     prizes: [
       "AR in education",
       "AI powered Health Care Applications",
@@ -26,22 +26,25 @@ const eventData = {
       "Zero trust security model on Cloud",
     ],
     domain: [
-      "AR in Education",
-      "AI-powered Healthcare Applications",
-      "Development of E-learning Platforms",
-      "Chatbot for Women Empowerment",
-      "Sentiment and Behavioral Analysis in Monitoring Applications",
-      "Enhancement of Security in E-Commerce Platforms",
-      "Blockchain-based Societal Applications",
-      "Personalized Recommendation Systems",
-      "GenAI on Ethical Practices",
-      "Zero Trust Security Model on Cloud",
-      "AI-driven Healthcare Diagnostics and Personalized Treatment",
-      "Sustainable AI Solutions for Green Tech Applications",
-      "Advanced Data Privacy Protocols in AI/ML Systems",
-      "AI for Mental Health Support and Therapy",
-      "AI-Powered Financial Analytics and Fraud Detection"
-  ],
+      "SDG 1: No Poverty",
+      "SDG 2: Zero Hunger",
+      "SDG 3: Good Health and Well-being",
+      "SDG 4: Quality Education",
+      "SDG 5: Gender Equality",
+      "SDG 6: Clean Water and Sanitation",
+      "SDG 7: Affordable and Clean Energy",
+      "SDG 8: Decent Work and Economic Growth",
+      "SDG 9: Industry, Innovation and Infrastructure",
+      "SDG 10: Reduced Inequalities",
+      "SDG 11: Sustainable Cities and Communities",
+      "SDG 12: Responsible Consumption and Production",
+      "SDG 13: Climate Action",
+      "SDG 14: Life Below Water",
+      "SDG 15: Life on Land",
+      "SDG 16: Peace, Justice and Strong Institutions",
+      "SDG 17: Partnerships for the Goals",
+      "Instruction: Problem title will be given on 15th April.",
+    ],
   
     venue:
       "Seminar Hall @ Sri Sairam College of Engineering, Anekal, Bengaluru",
@@ -65,7 +68,7 @@ const eventData = {
     amount: 1000,
     link: "https://docs.google.com/forms/d/e/1FAIpQLSd7LeC19qqhCn_wC9pCDTR5lzXhqJUDiCPB23BDJkIVj3VhoA/viewform",
     warning:
-      "This is a team event with an entry fee of ₹800. Enjoy an overnight experience with snacks, food, and exclusive swags!",
+      "This is a team event with an entry fee of ₹1000. Enjoy an overnight experience with snacks, food, and exclusive swags!",
   },
   webathon: {
     imagePath: "/webathon.jpeg",
@@ -193,31 +196,6 @@ const eventData = {
     warning:
       "This is a solo event, pay 300 rs. Enjoy access to two additional events with this registration!",
   },
-  chatbot: {
-    imagePath: "/chatbot.jpg",
-    title: "ChatBot",
-    isRule: true,
-    amount: 300,
-    about:
-      "Welcome to the Chatbot Creation Competition - a thrilling challenge designed to ignite creativity, problem-solving, and tech-savvy innovation! This event invites teams of students to craft their very own chatbots, blending imagination with functionality to create engaging digital assistants.",
-    prizes: [
-      "Judging",
-      "Creativity: Unique and innovative Chabot concepts.",
-      "User Experience: Engaging and user-friendly Chabot interactions.",
-      "Functionality: Effective and efficient Chabot performance.",
-    ],
-    venue: "MainBlock, Sri sairam college of engineering",
-    rules: [
-      ". Team Size: 2-3 students per team.",
-      "Platform Usage: Use designated Chabot development platforms",
-      " Time Limit: 2 hours",
-      ". Originality: Encourage creative and original Chabot designs.",
-      "Appropriate Content: Ensure Chabot content is respectful and suitable for all audiences.",
-    ],
-    link: "https://docs.google.com/forms/d/e/1FAIpQLScsjHD6zU6mli9YblPzY2zWN-QqC7JpZgXH5tUwr89JT99SbA/viewform",
-    warning:
-      "This is a duo event, but each participant must pay ₹300. Enjoy access to two additional events with this registration!",
-  },
   "paper-presentation": {
     imagePath: "/paper.jpg",
     title: "Paper Presentation",
@@ -253,6 +231,8 @@ export default function EventDetails() {
   const formattedTitle = eventName.replace(/-/g, " ");
   const eventDetails = getEventDetails(eventName);
   const router = useRouter();
+  const hasDomainData =
+    Array.isArray(eventDetails?.domain) && eventDetails.domain.length > 0;
 
   const HandleRegister = (link) => {
     if (eventDetails.isPopUp) {
@@ -284,7 +264,7 @@ export default function EventDetails() {
   };
 
   return (
-    <div className="page-shell text-[color:var(--foreground)] h-screen overflow-hidden">
+    <div className="page-shell text-white h-screen overflow-hidden">
       <Navbar />
       <ToastContainer
         position="top-center"
@@ -327,19 +307,19 @@ export default function EventDetails() {
         <div className="container mx-auto px-4 md:px-6 py-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           <div className="md:col-span-1 space-y-6 md:space-y-8">
             <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
-              <h2 className="text-xl md:text-2xl font-bold text-lime-300 mb-3 md:mb-4">
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
                 Event Timeline
               </h2>
               <div className="space-y-3 md:space-y-4">
                 <div className="flex justify-between items-center text-sm md:text-base">
-                  <span className="text-emerald-400">Start Date:</span>
-                  <span className="text-lime-100">
+                  <span className="text-white">Start Date:</span>
+                  <span className="text-white">
                     {eventDetails?.isDate ? 16 : 15} April 2026
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-sm md:text-base">
-                  <span className="text-emerald-400">End Date:</span>
-                  <span className="text-lime-100">16 April 2026</span>
+                  <span className="text-white">End Date:</span>
+                  <span className="text-white">16 April 2026</span>
                 </div>
               </div>
             </div>
@@ -357,76 +337,82 @@ export default function EventDetails() {
 
           <div className="md:col-span-2 space-y-6 md:space-y-8">
             <div className="section-card rounded-xl md:rounded-2xl p-6 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-lime-300 mb-4 md:mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
                 About the Event
               </h2>
-              <p className="text-emerald-500 font-bold leading-relaxed text-sm md:text-base">
+              <p className="text-white font-bold leading-relaxed text-sm md:text-base">
                 {eventDetails?.span}
               </p>
-              <p className="text-[color:var(--muted-text)] leading-relaxed text-sm md:text-base">
+              <p className="text-white leading-relaxed text-sm md:text-base">
                 {eventDetails.about}
               </p>
             </div>
 
             {/* Prizes & Rules Grid */}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-              <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
-                {eventDetails.isRule ? (
-                  <h3 className="text-lg md:text-xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
-                    <span className="text-emerald-500">📜</span>
-                    Rules
-                  </h3>
-                ) : (
-                  <h3 className="text-lg md:text-xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
-                    <span className="text-emerald-500">📜</span>
-                    {eventDetails?.isAgenda ? "Agenda" : "Domains"}
-                  </h3>
-                )}
+              {hasDomainData && (
+                <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
+                  {eventDetails.isRule ? (
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
+                      <span className="text-white">📜</span>
+                      Rules
+                    </h3>
+                  ) : (
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
+                      <span className="text-white">📜</span>
+                      {eventDetails?.isAgenda ? "Agenda" : "Domains"}
+                    </h3>
+                  )}
 
-                <ul className="space-y-3 md:space-y-4 pl-2">
-                  {eventDetails?.domain?.map((rule, index) => (
-                    <li
-                      key={index}
-                      className="flex items-start gap-3 text-[color:var(--muted-text)] text-sm md:text-base"
-                    >
-                      <span className="text-emerald-400 mt-0.5">▹</span>
-                      <span className="flex-1">
-                        {rule.split(":").map((part, i) =>
-                          i === 0 ? (
-                            <span
-                              key={i}
-                              className="text-lime-200 font-medium"
-                            >
-                              {part}
-                            </span>
-                          ) : (
-                            part
-                          )
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  <ul className="space-y-3 md:space-y-4 pl-2">
+                    {eventDetails.domain.map((rule, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-3 text-white text-sm md:text-base"
+                      >
+                        <span className="text-white mt-0.5">▹</span>
+                        <span className="flex-1">
+                          {rule.split(":").map((part, i) =>
+                            i === 0 ? (
+                              <span
+                                key={i}
+                                className="text-white font-medium"
+                              >
+                                {part}
+                              </span>
+                            ) : (
+                              part
+                            )
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-              <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
-                  <span className="text-emerald-500">📜</span> Rules
+              <div
+                className={`section-card rounded-xl md:rounded-2xl p-4 md:p-6 ${
+                  hasDomainData ? "" : "md:col-span-2"
+                }`}
+              >
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
+                  <span className="text-white">📜</span> Rules
                 </h3>
                 <ul className="space-y-3 md:space-y-4 pl-2">
                   {eventDetails?.rules?.map((rule, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 text-[color:var(--muted-text)] text-sm md:text-base"
+                      className="flex items-start gap-3 text-white text-sm md:text-base"
                     >
                       {/* Custom bullet */}
-                      <span className="text-emerald-400 mt-0.5">▹</span>
+                      <span className="text-white mt-0.5">▹</span>
                       <span className="flex-1">
                         {rule.split(":").map((part, i) =>
                           i === 0 ? (
                             <span
                               key={i}
-                              className="text-lime-200 font-medium"
+                              className="text-white font-medium"
                             >
                               {part}
                             </span>
@@ -443,10 +429,10 @@ export default function EventDetails() {
 
             {/* Venue Section */}
             <div className="section-card rounded-xl md:rounded-2xl p-4 md:p-6">
-              <h3 className="text-xl md:text-2xl font-bold text-lime-300 mb-3 md:mb-4 flex items-center gap-2">
-                <span className="text-emerald-500">📍</span> Venue
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
+                <span className="text-white">📍</span> Venue
               </h3>
-              <p className="text-[color:var(--muted-text)] text-sm md:text-base">
+              <p className="text-white text-sm md:text-base">
                 {eventDetails.venue}
               </p>
             </div>
