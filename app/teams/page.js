@@ -1,8 +1,13 @@
 "use client";
 // app/teams/page.js
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import Navbar from "@/app/components/NavBar";
 import { motion } from "framer-motion";
+import {
+  defaultStudentCoordinatorNames,
+  sanitizeStudentCoordinatorNames,
+} from "@/app/lib/studentCoordinatorRoster";
 
 const coop = [
   { name: "Dr. ArunKumar R", role: "COO", image: "/teams/coo.jpeg" },
@@ -21,39 +26,6 @@ const faculty = [
     role: "Faculty Coordinator",
     image: "/teams/nithyamam.jpeg",
   },
-];
-
-const studentCoordinatorNames = [
-  "Guru Prasath",
-  "Naveen",
-  "Saran",
-  "Neha",
-  "Bhavani",
-  "Tejashree",
-  "Yashwanth V",
-  "Nitharsan Babu V",
-  "Rakshitha L",
-  "Vijaya Raman",
-  "Yashwanth K",
-  "Pranathi D K",
-  "Niveditha",
-  "Anusha",
-  "Sankeerthana",
-  "Thiru Maran",
-  "Nidharsan",
-  "Ananya",
-  "Paun Kalyan",
-  "Rukmini V M",
-  "Hari Prasath",
-  "Gaurav Kumar",
-  "Imaya",
-  "Ashuthosh Raj",
-  "Rakshitha K",
-  "Sanjana",
-  "Mayur Achar",
-  "Sanjana L",
-  "Chethan",
-  "Kusuma",
 ];
 
 const studentImageByName = {
@@ -98,12 +70,6 @@ function imageForStudent(name, index) {
   if (mapped) return mapped;
   return fallbackStudentImages[index % fallbackStudentImages.length];
 }
-
-const students = studentCoordinatorNames.map((name, idx) => ({
-  name,
-  role: "Student Coordinator",
-  image: imageForStudent(name, idx),
-}));
 
 const TeamCard = ({ name, role, image }) => (
   <motion.div
@@ -157,6 +123,52 @@ const TeamCard = ({ name, role, image }) => (
 );
 
 export default function TeamsPage() {
+  const [rosterNames, setRosterNames] = useState(() => defaultStudentCoordinatorNames());
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/team-roster")
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled || !data?.names || !Array.isArray(data.names)) return;
+        setRosterNames(sanitizeStudentCoordinatorNames(data.names));
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const bc = new BroadcastChannel("advaya-site-settings");
+    const onMsg = (ev) => {
+      if (ev?.data?.type !== "team-roster") return;
+      fetch("/api/team-roster")
+        .then((r) => r.json())
+        .then((data) => {
+          if (data?.names && Array.isArray(data.names)) {
+            setRosterNames(sanitizeStudentCoordinatorNames(data.names));
+          }
+        })
+        .catch(() => {});
+    };
+    bc.addEventListener("message", onMsg);
+    return () => {
+      bc.removeEventListener("message", onMsg);
+      bc.close();
+    };
+  }, []);
+
+  const students = useMemo(
+    () =>
+      rosterNames.map((name, idx) => ({
+        name,
+        role: "Student Coordinator",
+        image: imageForStudent(name, idx),
+      })),
+    [rosterNames]
+  );
+
   return (
     <div>
       <Navbar />
@@ -235,8 +247,8 @@ export default function TeamsPage() {
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
-            {students.map((person) => (
-              <div key={person.name} className="w-full max-w-xs">
+            {students.map((person, idx) => (
+              <div key={`${idx}-${person.name}`} className="w-full max-w-xs">
                 <TeamCard {...person} />
               </div>
             ))}

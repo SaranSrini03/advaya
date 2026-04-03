@@ -3,11 +3,27 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/app/components/NavBar";
 import { EVENT_CATALOG, mergeEventFlags, defaultEventFlags } from "@/app/lib/eventsCatalog";
+import {
+  defaultStudentCoordinatorNames,
+  sanitizeStudentCoordinatorNames,
+} from "@/app/lib/studentCoordinatorRoster";
 
 const SECTIONS = [
   { id: "events", label: "Events" },
+  { id: "teams", label: "Teams" },
   { id: "shutdown", label: "Shutdown" },
 ];
+
+function newTeamRowId() {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+  return `team-row-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
+}
+
+function rowsFromNames(names) {
+  return names.map((name) => ({ id: newTeamRowId(), name }));
+}
 
 export default function AdminRoom031Page() {
   const [section, setSection] = useState("events");
@@ -21,12 +37,19 @@ export default function AdminRoom031Page() {
   const [savingMaintenance, setSavingMaintenance] = useState(false);
   const [message, setMessage] = useState("");
   const [maintenanceMessage, setMaintenanceMessage] = useState("");
+  const [teamsRows, setTeamsRows] = useState(() =>
+    rowsFromNames(defaultStudentCoordinatorNames())
+  );
+  const [teamsPersisted, setTeamsPersisted] = useState(false);
+  const [savingTeams, setSavingTeams] = useState(false);
+  const [teamsMessage, setTeamsMessage] = useState("");
 
   useEffect(() => {
     let cancelled = false;
     Promise.allSettled([
       fetch("/api/event-settings").then((r) => r.json()),
       fetch("/api/site-status").then((r) => r.json()),
+      fetch("/api/team-roster").then((r) => r.json()),
     ])
       .then((results) => {
         if (cancelled) return;
@@ -40,6 +63,11 @@ export default function AdminRoom031Page() {
         if (st.status === "fulfilled" && st.value && typeof st.value.maintenance === "boolean") {
           setMaintenanceEnabled(st.value.maintenance);
           setMaintenancePersisted(true);
+        }
+        const tr = results[2];
+        if (tr.status === "fulfilled" && tr.value && Array.isArray(tr.value.names)) {
+          setTeamsRows(rowsFromNames(sanitizeStudentCoordinatorNames(tr.value.names)));
+          setTeamsPersisted(!!tr.value.persisted);
         }
       })
       .catch(() => {})
@@ -140,6 +168,69 @@ export default function AdminRoom031Page() {
     } finally {
       setSavingMaintenance(false);
     }
+  };
+
+  const saveTeams = async () => {
+    if (!secret.trim()) {
+      setTeamsMessage("Enter the admin secret to save.");
+      return;
+    }
+    setSavingTeams(true);
+    setTeamsMessage("");
+    const names = sanitizeStudentCoordinatorNames(teamsRows.map((r) => r.name));
+    try {
+      const res = await fetch("/api/admin/team-roster", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "x-admin-secret": secret.trim(),
+        },
+        body: JSON.stringify({ names }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setTeamsMessage(data.error || "Save failed");
+        return;
+      }
+      if (Array.isArray(data.names)) {
+        setTeamsRows(rowsFromNames(sanitizeStudentCoordinatorNames(data.names)));
+      }
+      setTeamsMessage("Saved. The Teams page picks this up on load or when it receives an update.");
+      setTeamsPersisted(true);
+      try {
+        const bc = new BroadcastChannel("advaya-site-settings");
+        bc.postMessage({ type: "team-roster" });
+        bc.close();
+      } catch {
+        /* ignore */
+      }
+    } catch {
+      setTeamsMessage("Network error");
+    } finally {
+      setSavingTeams(false);
+    }
+  };
+
+  const moveTeamRow = (index, direction) => {
+    setTeamsRows((prev) => {
+      const next = [...prev];
+      const j = index + direction;
+      if (j < 0 || j >= next.length) return prev;
+      [next[index], next[j]] = [next[j], next[index]];
+      return next;
+    });
+  };
+
+  const updateTeamName = (index, value) => {
+    setTeamsRows((prev) => prev.map((row, i) => (i === index ? { ...row, name: value } : row)));
+  };
+
+  const removeTeamRow = (index) => {
+    setTeamsRows((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const addTeamRow = () => {
+    setTeamsRows((prev) => [...prev, { id: newTeamRowId(), name: "" }]);
   };
 
   return (
@@ -251,6 +342,96 @@ export default function AdminRoom031Page() {
               </button>
               {message ? (
                 <p className="text-center text-sm text-[color:var(--muted-text)]">{message}</p>
+              ) : null}
+            </div>
+          )}
+
+          {section === "teams" && (
+            <div className="section-card mt-6 space-y-4 rounded-xl p-5">
+              <div>
+                <h2 className="font-mono text-lg font-semibold text-[color:var(--foreground)]">
+                  Student coordinators (Teams page)
+                </h2>
+                <p className="mt-1 text-sm text-[color:var(--muted-text)]">
+                  Edit display names and order. Empty rows are removed when you save. Public{" "}
+                  <code className="rounded bg-[color:var(--surface-muted)] px-1 py-0.5 text-xs">
+                    /teams
+                  </code>{" "}
+                  reads this list from the database when available.
+                </p>
+              </div>
+
+              {!teamsPersisted && loaded && (
+                <p className="rounded-lg border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-sm text-amber-100">
+                  Roster is not persisted yet (database missing or no document). The Teams page uses
+                  built-in defaults until you save successfully.
+                </p>
+              )}
+
+              <ul className="divide-y divide-[color:var(--surface-border)]">
+                {teamsRows.map((row, index) => (
+                  <li
+                    key={row.id}
+                    className="flex flex-col gap-3 py-4 sm:flex-row sm:items-center"
+                  >
+                    <span className="shrink-0 font-mono text-xs text-[color:var(--muted-text)] sm:w-8">
+                      {index + 1}.
+                    </span>
+                    <input
+                      type="text"
+                      value={row.name}
+                      onChange={(e) => updateTeamName(index, e.target.value)}
+                      className="min-w-0 flex-1 rounded-lg border border-[color:var(--panel-border)] bg-[color:var(--panel-bg)] px-3 py-2 text-[color:var(--foreground)] outline-none focus:ring-2 focus:ring-[color:var(--accent)]"
+                      placeholder="Coordinator name"
+                      aria-label={`Coordinator ${index + 1} name`}
+                    />
+                    <div className="flex shrink-0 flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => moveTeamRow(index, -1)}
+                        disabled={index === 0}
+                        className="rounded-lg border border-[color:var(--surface-border)] px-3 py-2 text-sm text-[color:var(--foreground)] disabled:opacity-40"
+                      >
+                        Up
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => moveTeamRow(index, 1)}
+                        disabled={index === teamsRows.length - 1}
+                        className="rounded-lg border border-[color:var(--surface-border)] px-3 py-2 text-sm text-[color:var(--foreground)] disabled:opacity-40"
+                      >
+                        Down
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => removeTeamRow(index)}
+                        className="rounded-lg border border-rose-500/50 px-3 py-2 text-sm text-rose-200"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                type="button"
+                onClick={addTeamRow}
+                className="w-full rounded-lg border border-dashed border-[color:var(--surface-border)] py-2 text-sm text-[color:var(--muted-text)] hover:bg-[color:var(--surface-muted)]"
+              >
+                Add row
+              </button>
+
+              <button
+                type="button"
+                onClick={saveTeams}
+                disabled={savingTeams}
+                className="w-full rounded-full bg-[color:var(--accent)] py-3 font-semibold text-[color:var(--button-fg)] disabled:opacity-60"
+              >
+                {savingTeams ? "Saving…" : "Save team roster to database"}
+              </button>
+              {teamsMessage ? (
+                <p className="text-center text-sm text-[color:var(--muted-text)]">{teamsMessage}</p>
               ) : null}
             </div>
           )}
