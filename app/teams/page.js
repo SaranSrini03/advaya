@@ -2,7 +2,7 @@
 // app/teams/page.js
 import Image from "next/image";
 import Navbar from "@/app/components/NavBar";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 
 const coop = [
   { name: "Dr. ArunKumar R", role: "COO", image: "/teams/coo.jpeg" },
@@ -23,38 +23,87 @@ const faculty = [
   },
 ];
 
-const students = [
-  { name: "Channaveera", role: "Student Coordinator", image: "/teams/channavera1.png" },
-  { name: "Pushkala B", role: "Student Coordinator", image: "/teams/pushkala.jpg" },
-  { name: "Madhumitha Prabhakaran", role: "Student Coordinator", image: "/teams/madhu2.jpg" },
-  { name: "Mounicca Rameshbabu", role: "Student Coordinator", image: "/teams/mouni.jpeg" },
-  { name: "Saran Srini V", role: "Student Coordinator", image: "/teams/saran.jpeg" },
-  { name: "Tejashree K", role: "Student Coordinator", image: "/teams/teja2.jpeg" },
-  { name: "Naveen Rajan M", role: "Student Coordinator", image: "/teams/naveen2.jpeg" },
-  { name: "Guruprasath M", role: "Student Coordinator", image: "/teams/guru2.jpeg" },
-  { name: "Ayush Chand D", role: "Student Coordinator", image: "/teams/ayush.jpeg" },
-  { name: "Neha S", role: "Student Coordinator", image: "/teams/neha25.jpeg" },
-  { name: "Kowshika V", role: "Student Coordinator", image: "/teams/kowshika.jpeg" },
-  { name: "Namita R", role: "Student Coordinator", image: "/teams/namitha.jpeg" },
-  { name: "Mounasri V", role: "Student Coordinator", image: "/teams/mounasri.jpeg" },
-  { name: "Sedhuraman", role: "Student Coordinator", image: "/teams/Sedhu.jpeg" },
-  { name: "Roshan", role: "Student Coordinator", image: "/teams/roshan1.jpeg" },
-  { name: "Sunil Kumar S", role: "Student Coordinator", image: "/teams/sunil.jpeg" },
-  { name: "Sidram S", role: "Student Coordinator", image: "/teams/sidram2.png" },
-  { name: "Sanjay", role: "Student Coordinator", image: "/teams/sanjai.jpeg" },
-  { name: "Sarathi V", role: "Student Coordinator", image: "/teams/Sarathi.jpeg" },
-  { name: "Nitharsin Babu", role: "Student Coordinator", image: "/teams/Babu.jpeg" },
-  { name: "Yashwanth V", role: "Student Coordinator", image: "/teams/yashwanthV.jpeg" },
-  { name: "Yeshwanth K", role: "Student Coordinator", image: "/teams/yeshwanthK.jpg" },
-  { name: "Niveditha Y", role: "Student Coordinator", image: "/teams/nivedita.jpeg" },
-  { name: "Thanuj V", role: "Student Coordinator", image: "/teams/thanuj3.jpeg" },
-  { name: "Yogesh D", role: "Student Coordinator", image: "/teams/yogi.jpeg" },
-  { name: "Vinay", role: "Student Coordinator", image: "/teams/vinay.jpeg" },
-  { name: "Santhosh M", role: "Student Coordinator", image: "/teams/santhosh.jpeg" },
-  { name: "Pallavi", role: "Student Coordinator", image: "/teams/pallavi.jpeg" },
-  { name: "Navya Nayak", role: "Student Coordinator", image: "/teams/navya.jpeg" },
-  { name: "Priya Varshini", role: "Student Coordinator", image: "/teams/priya.jpeg" },
+const studentCoordinatorNames = [
+  "Naveen",
+  "Saran",
+  "Guru Prasath",
+  "Neha",
+  "Bhavani",
+  "Tejashree",
+  "Yashwanth V",
+  "Yashwanth K",
+  "Rakshitha L",
+  "Pranathi D K",
+  "Vijaya Raman",
+  "Niveditha",
+  "Nitharsan Babu V",
+  "Anusha",
+  "Sankeerthana",
+  "Thiru Maran",
+  "Nidharsan",
+  "Ananya",
+  "Paun Kalyan",
+  "Rukmini V M",
+  "Hari Prasath",
+  "Gaurav Kumar",
+  "Imaya",
+  "Ashuthosh Raj",
+  "Rakshitha K",
+  "Sanjana",
+  "Mayur Achar",
+  "Sanjana L",
+  "Chethan",
+  "Kusuma",
 ];
+
+const studentImageByName = {
+  Naveen: "/teams/naveen2.jpeg",
+  Saran: "/teams/saran.jpeg",
+  "Guru Prasath": "/teams/guru2.jpeg",
+  Neha: "/teams/neha25.jpeg",
+  Tejashree: "/teams/teja2.jpeg",
+  "Yashwanth V": "/teams/yashwanthV.jpeg",
+  "Yashwanth K": "/teams/yeshwanthK.jpg",
+  Niveditha: "/teams/nivedita.jpeg",
+  "Nitharsan Babu V": "/teams/Babu.jpeg",
+  "Thiru Maran": "/teams/thiru.jpg",
+};
+
+const fallbackStudentImages = [
+  "/teams/channavera1.png",
+  "/teams/pushkala.jpg",
+  "/teams/madhu2.jpg",
+  "/teams/mouni.jpeg",
+  "/teams/ayush.jpeg",
+  "/teams/kowshika.jpeg",
+  "/teams/namitha.jpeg",
+  "/teams/mounasri.jpeg",
+  "/teams/Sedhu.jpeg",
+  "/teams/roshan1.jpeg",
+  "/teams/sunil.jpeg",
+  "/teams/sidram2.png",
+  "/teams/sanjai.jpeg",
+  "/teams/Sarathi.jpeg",
+  "/teams/thanuj3.jpeg",
+  "/teams/yogi.jpeg",
+  "/teams/vinay.jpeg",
+  "/teams/santhosh.jpeg",
+  "/teams/pallavi.jpeg",
+  "/teams/navya.jpeg",
+  "/teams/priya.jpeg",
+];
+
+function imageForStudent(name, index) {
+  const mapped = studentImageByName[name];
+  if (mapped) return mapped;
+  return fallbackStudentImages[index % fallbackStudentImages.length];
+}
+
+const students = studentCoordinatorNames.map((name, idx) => ({
+  name,
+  role: "Student Coordinator",
+  image: imageForStudent(name, idx),
+}));
 
 const TeamCard = ({ name, role, image }) => (
   <motion.div
@@ -186,8 +235,8 @@ export default function TeamsPage() {
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
-            {students.map((person, idx) => (
-              <div key={idx} className="w-full max-w-xs">
+            {students.map((person) => (
+              <div key={person.name} className="w-full max-w-xs">
                 <TeamCard {...person} />
               </div>
             ))}
