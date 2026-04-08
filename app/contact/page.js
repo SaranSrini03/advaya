@@ -16,7 +16,7 @@ export default function ContactPage() {
     },
     { 
       platform: "WhatsApp", 
-      handle: "+91 8072872929", 
+      handle: "+91 9342901209", 
       icon: <FaWhatsapp className="text-2xl"/>, 
       action: () => window.open("https://wa.me/918072872929", "_blank") 
     },
