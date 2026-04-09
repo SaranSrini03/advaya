@@ -6,6 +6,7 @@ import Navbar from "@/app/components/NavBar";
 import { motion } from "framer-motion";
 import {
   defaultStudentCoordinatorNames,
+  ensureCoordinatorList,
   sanitizeStudentCoordinatorNames,
 } from "@/app/lib/studentCoordinatorRoster";
 
@@ -37,6 +38,8 @@ const coordinatorImageByName = {
   Bhavani: "/coordinators/bhavani.jpeg",
   "Naveen Rajan M": "/coordinators/naveen.jpeg",
   Neha: "/coordinators/neha.jpeg",
+  Sonu: "/coordinators/sonu.jpeg",
+  "Tejasvi Sai": "/coordinators/tejasvi%20sai.jpeg",
   "Mayur Achar": "/coordinators/mayur.jpeg",
   "Paun Kalyan": "/coordinators/paun%20kalyan.jpeg",
   "Pranathi D K": "/coordinators/pranathi%20dk.jpeg",
@@ -55,6 +58,7 @@ const coordinatorImageLegacyAlias = {
   "Vijayaraman S": "Vijaya Raman",
   "Thirumaran M": "Thiru Maran",
   "PavunKalyan S": "Paun Kalyan",
+  "V Tejasvi Sai": "Tejasvi Sai",
 };
 
 const studentImageByName = {
@@ -189,15 +193,14 @@ export default function TeamsPage() {
     };
   }, []);
 
-  const students = useMemo(
-    () =>
-      rosterNames.map((name, idx) => ({
-        name,
-        role: "Student Coordinator",
-        image: imageForStudent(name, idx),
-      })),
-    [rosterNames]
-  );
+  const students = useMemo(() => {
+    const names = ensureCoordinatorList(rosterNames);
+    return names.map((name, idx) => ({
+      name,
+      role: "Student Coordinator",
+      image: imageForStudent(name, idx),
+    }));
+  }, [rosterNames]);
 
   return (
     <div>

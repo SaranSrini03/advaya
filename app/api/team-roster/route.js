@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getAdvayaDb } from "@/app/lib/connect";
 import {
   defaultStudentCoordinatorNames,
+  ensureCoordinatorList,
   sanitizeStudentCoordinatorNames,
 } from "@/app/lib/studentCoordinatorRoster";
 
@@ -20,7 +21,7 @@ export async function GET() {
     const col = db.collection("site_settings");
     const doc = await col.findOne({ _id: DOC_ID });
     const raw = doc?.names ?? null;
-    const names = sanitizeStudentCoordinatorNames(raw);
+    const names = ensureCoordinatorList(sanitizeStudentCoordinatorNames(raw));
 
     return NextResponse.json({ names, persisted: !!doc });
   } catch (e) {
