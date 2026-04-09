@@ -28,17 +28,39 @@ const faculty = [
   },
 ];
 
+/** Student coordinator photos in /public/coordinators/ (takes precedence over /teams/). */
+const coordinatorImageByName = {
+  "Nitharsan Babu V": "/coordinators/Babu.jpeg",
+  "Rakshitha L": "/coordinators/rakshitha.png",
+  Ananya: "/coordinators/ananya.jpeg",
+  Anusha: "/coordinators/anusha.jpeg",
+  Bhavani: "/coordinators/bhavani.jpeg",
+  Naveen: "/coordinators/naveen.jpeg",
+  Neha: "/coordinators/neha.jpeg",
+  Sonu: "/coordinators/sonu.jpeg",
+  "Tejasvi Sai": "/coordinators/tejasvi%20sai.jpeg",
+  "Mayur Achar": "/coordinators/mayur.jpeg",
+  "PavunKalyan S": "/coordinators/paun%20kalyan.jpeg",
+  "Pranathi D K": "/coordinators/pranathi%20dk.jpeg",
+  "Thirumaran M": "/coordinators/thirumaran.jpeg",
+  "Vijayaraman S": "/coordinators/vihayraman.jpeg",
+};
+
+/** Old spellings still stored in /api/team-roster; map to canonical for photo lookup. */
+const coordinatorImageLegacyAlias = {
+  "Vijaya Raman": "Vijayaraman S",
+  "Thiru Maran": "Thirumaran M",
+  "Paun Kalyan": "PavunKalyan S",
+  "V Tejasvi Sai": "Tejasvi Sai",
+};
+
 const studentImageByName = {
-  Naveen: "/teams/naveen2.jpeg",
   Saran: "/teams/saran.jpeg",
   "Guru Prasath": "/teams/guru2.jpeg",
-  Neha: "/teams/neha25.jpeg",
   Tejashree: "/teams/teja2.jpeg",
   "Yashwanth V": "/teams/yashwanthV.jpeg",
   "Yashwanth K": "/teams/yeshwanthK.jpg",
   Niveditha: "/teams/nivedita.jpeg",
-  "Nitharsan Babu V": "/teams/Babu.jpeg",
-  "Thiru Maran": "/teams/thiru.jpg",
 };
 
 const fallbackStudentImages = [
@@ -66,6 +88,10 @@ const fallbackStudentImages = [
 ];
 
 function imageForStudent(name, index) {
+  const photoName = coordinatorImageLegacyAlias[name] ?? name;
+  const fromCoordinators =
+    coordinatorImageByName[photoName] ?? coordinatorImageByName[name];
+  if (fromCoordinators) return fromCoordinators;
   const mapped = studentImageByName[name];
   if (mapped) return mapped;
   return fallbackStudentImages[index % fallbackStudentImages.length];
