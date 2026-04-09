@@ -19,6 +19,7 @@ const DEFAULT_STUDENT_COORDINATOR_NAMES = [
   "Niveditha",
   "Anusha",
   "Sankeerthana",
+  "Srinidhi",
   "Thiru Maran",
   "Nidharsan",
   "Ananya",
@@ -42,7 +43,7 @@ export function defaultStudentCoordinatorNames() {
 
 /** Appends Sonu and Tejasvi Sai when missing so older saved rosters still show them on /teams. */
 export function ensureCoordinatorList(names) {
-  const required = ["Sonu", "Tejasvi Sai"];
+  const required = ["Sonu", "Tejasvi Sai", "Srinidhi"];
   const out = [...names];
   const seen = new Set(names);
   for (const name of required) {
