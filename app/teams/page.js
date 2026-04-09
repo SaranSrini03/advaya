@@ -35,28 +35,31 @@ const coordinatorImageByName = {
   Ananya: "/coordinators/ananya.jpeg",
   Anusha: "/coordinators/anusha.jpeg",
   Bhavani: "/coordinators/bhavani.jpeg",
-  Naveen: "/coordinators/naveen.jpeg",
+  "Naveen Rajan M": "/coordinators/naveen.jpeg",
   Neha: "/coordinators/neha.jpeg",
-  Sonu: "/coordinators/sonu.jpeg",
-  "Tejasvi Sai": "/coordinators/tejasvi%20sai.jpeg",
   "Mayur Achar": "/coordinators/mayur.jpeg",
-  "PavunKalyan S": "/coordinators/paun%20kalyan.jpeg",
+  "Paun Kalyan": "/coordinators/paun%20kalyan.jpeg",
   "Pranathi D K": "/coordinators/pranathi%20dk.jpeg",
-  "Thirumaran M": "/coordinators/thirumaran.jpeg",
-  "Vijayaraman S": "/coordinators/vihayraman.jpeg",
+  "Thiru Maran": "/coordinators/thirumaran.jpeg",
+  "Vijaya Raman": "/coordinators/vihayraman.jpeg",
 };
 
-/** Old spellings still stored in /api/team-roster; map to canonical for photo lookup. */
+/**
+ * Prior roster strings (or short names) -> current canonical name for photo lookup.
+ * Covers /api/team-roster and older defaults.
+ */
 const coordinatorImageLegacyAlias = {
-  "Vijaya Raman": "Vijayaraman S",
-  "Thiru Maran": "Thirumaran M",
-  "Paun Kalyan": "PavunKalyan S",
-  "V Tejasvi Sai": "Tejasvi Sai",
+  "Guru Prasath": "Guru Prasath M",
+  Naveen: "Naveen Rajan M",
+  Saran: "Saran Srinivasan V",
+  "Vijayaraman S": "Vijaya Raman",
+  "Thirumaran M": "Thiru Maran",
+  "PavunKalyan S": "Paun Kalyan",
 };
 
 const studentImageByName = {
-  Saran: "/teams/saran.jpeg",
-  "Guru Prasath": "/teams/guru2.jpeg",
+  "Guru Prasath M": "/teams/guru2.jpeg",
+  "Saran Srinivasan V": "/teams/saran.jpeg",
   Tejashree: "/teams/teja2.jpeg",
   "Yashwanth V": "/teams/yashwanthV.jpeg",
   "Yashwanth K": "/teams/yeshwanthK.jpg",
@@ -92,7 +95,8 @@ function imageForStudent(name, index) {
   const fromCoordinators =
     coordinatorImageByName[photoName] ?? coordinatorImageByName[name];
   if (fromCoordinators) return fromCoordinators;
-  const mapped = studentImageByName[name];
+  const mapped =
+    studentImageByName[photoName] ?? studentImageByName[name];
   if (mapped) return mapped;
   return fallbackStudentImages[index % fallbackStudentImages.length];
 }
