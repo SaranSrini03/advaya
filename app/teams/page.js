@@ -101,6 +101,12 @@ const coordinatorImageLegacyAlias = {
   Rukmini: "Rukmini V M",
   Sanjai: "Sanjay",
   Sarathi: "Sarathy",
+  kishore: "Kishore",
+  "Kishore S": "Kishore",
+  "Kishore R": "Kishore",
+  jeevitha: "Jeevitha",
+  "Jeevitha S": "Jeevitha",
+  "Jeevitha R": "Jeevitha",
 };
 
 const studentImageByName = {
