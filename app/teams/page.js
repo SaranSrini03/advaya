@@ -11,21 +11,38 @@ import {
 } from "@/app/lib/studentCoordinatorRoster";
 
 const coop = [
-  { name: "Dr. ArunKumar R", role: "COO", image: "/teams/coo.jpeg" },
-  
-  { name: "Dr. B Shadakshrappa", role: "Principal", image: "/teams/principal.jpeg" }
+  {
+    name: "Dr. ArunKumar R",
+    role: "COO",
+    image: "/coordinators/faculty/Arun_Kumar.png",
+    imagePosition: "top",
+  },
+
+  {
+    name: "Dr. B Shadakshrappa",
+    role: "Principal",
+    image: "/coordinators/faculty/Shadaksharappa.png",
+    imagePosition: "top",
+  }
 ];
-const HOD = [{ name: "Dr. Smitha .JA", role: "HOD", image: "/teams/Hod.jpeg" }];
+const HOD = [{
+  name: "Dr. Smitha .JA",
+  role: "HOD",
+  image: "/coordinators/faculty/Dr.Smitha.JA.png",
+  imagePosition: "top",
+}];
 const faculty = [
   {
     name: "Prof. Valarmathi",
     role: "Faculty Coordinator",
-    image: "/teams/valarmathi.jpeg",
+    image: "/coordinators/faculty/Valarmathi.png",
+    imagePosition: "top",
   },
   {
-    name: "Prof. Nithyakalyani",
+    name: "Prof. Karthika",
     role: "Faculty Coordinator",
-    image: "/teams/nithyamam.jpeg",
+    image: "/coordinators/faculty/Karthika.png",
+    imagePosition: "top",
   },
 ];
 
@@ -36,14 +53,30 @@ const coordinatorImageByName = {
   Ananya: "/coordinators/ananya.jpeg",
   Anusha: "/coordinators/anusha.jpeg",
   Bhavani: "/coordinators/bhavani.jpeg",
+  "Guru Prasath M": "/coordinators/Guru.jpg",
+  "Saran Srinivasan V": "/coordinators/Saran.jpg",
   "Naveen Rajan M": "/coordinators/naveen.jpeg",
   Neha: "/coordinators/neha.jpeg",
+  Niveditha: "/coordinators/Niveditha.jpeg",
   Sonu: "/coordinators/sonu.jpeg",
+  Sanjay: "/coordinators/Sanjay.png",
+  Sarathy: "/coordinators/Sarathi.jpeg",
   Srinidhi: "/coordinators/srinidhi.jpeg",
+  Sankeerthana: "/coordinators/Sankeerthana.png",
   "Tejasvi Sai": "/coordinators/tejasvi%20sai.jpeg",
+  "Hari Prasath": "/coordinators/Hari_Prasath.jpeg",
+  Jeevitha: "/coordinators/jeevitha.jpeg",
+  Kishore: "/coordinators/kishore.jpeg",
+  Nidharsan: "/coordinators/Nidharsan.png",
   "Mayur Achar": "/coordinators/mayur.jpeg",
+  Kusuma: "/coordinators/Kusuma.png",
+  "Sanjana L": "/coordinators/Sanjana_L.jpeg",
+  "Thrupthi Chandana G": "/coordinators/Thrupthi_Chandana_G.png",
+  "Yashwanth K": "/coordinators/Yashwanth_K.png",
+  "Yashwanth V": "/coordinators/Yashwanth_v.jpeg",
   "Paun Kalyan": "/coordinators/paun%20kalyan.jpeg",
   "Pranathi D K": "/coordinators/pranathi%20dk.jpeg",
+  "Rukmini V M": "/coordinators/Rukmini.jpg",
   "Thiru Maran": "/coordinators/thirumaran.jpeg",
   "Vijaya Raman": "/coordinators/vihayraman.jpeg",
 };
@@ -60,15 +93,14 @@ const coordinatorImageLegacyAlias = {
   "Thirumaran M": "Thiru Maran",
   "PavunKalyan S": "Paun Kalyan",
   "V Tejasvi Sai": "Tejasvi Sai",
+  "Rukmini VM": "Rukmini V M",
+  Rukmini: "Rukmini V M",
+  Sanjai: "Sanjay",
+  Sarathi: "Sarathy",
 };
 
 const studentImageByName = {
-  "Guru Prasath M": "/teams/guru2.jpeg",
-  "Saran Srinivasan V": "/teams/saran.jpeg",
-  Tejashree: "/teams/teja2.jpeg",
-  "Yashwanth V": "/teams/yashwanthV.jpeg",
-  "Yashwanth K": "/teams/yeshwanthK.jpg",
-  Niveditha: "/teams/nivedita.jpeg",
+  // Keep this as a fallback map for non-coordinator image sources when needed.
 };
 
 const fallbackStudentImages = [
@@ -106,7 +138,49 @@ function imageForStudent(name, index) {
   return fallbackStudentImages[index % fallbackStudentImages.length];
 }
 
-const TeamCard = ({ name, role, image }) => (
+const topVisibleStudentNames = new Set([
+  "Neha",
+  "Sonu",
+  "Vijaya Raman",
+  "Srinidhi",
+  "Thrupthi Chandana G",
+]);
+
+function imagePositionForStudent(name) {
+  const photoName = coordinatorImageLegacyAlias[name] ?? name;
+  return topVisibleStudentNames.has(photoName) || topVisibleStudentNames.has(name)
+    ? "top"
+    : "center";
+}
+
+function orderStudentsForGrid(names) {
+  const anchor = "Tejasvi Sai";
+  const neighbors = ["Sanjay", "Sarathy"];
+  const unique = [];
+  const seen = new Set();
+
+  for (const name of names) {
+    if (seen.has(name)) continue;
+    seen.add(name);
+    unique.push(name);
+  }
+
+  const remaining = unique.filter((name) => !neighbors.includes(name));
+  const tejasviIndex = remaining.indexOf(anchor);
+  const toInsert = neighbors.filter((name) => unique.includes(name));
+
+  if (tejasviIndex === -1) {
+    return [...remaining, ...toInsert];
+  }
+
+  return [
+    ...remaining.slice(0, tejasviIndex + 1),
+    ...toInsert,
+    ...remaining.slice(tejasviIndex + 1),
+  ];
+}
+
+const TeamCard = ({ name, role, image, imagePosition = "center" }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
@@ -126,7 +200,8 @@ const TeamCard = ({ name, role, image }) => (
           alt={name}
           fill
           sizes="(max-width: 768px) 100vw, 300px"
-          className="object-cover object-center absolute inset-0 transition-all duration-700 group-hover:scale-110 z-0"
+          style={{ objectPosition: imagePosition === "top" ? "center top" : "center" }}
+          className="object-cover absolute inset-0 transition-all duration-700 group-hover:scale-110 z-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 z-10" />
 
@@ -168,7 +243,7 @@ export default function TeamsPage() {
         if (cancelled || !data?.names || !Array.isArray(data.names)) return;
         setRosterNames(sanitizeStudentCoordinatorNames(data.names));
       })
-      .catch(() => {});
+      .catch(() => { });
     return () => {
       cancelled = true;
     };
@@ -185,7 +260,7 @@ export default function TeamsPage() {
             setRosterNames(sanitizeStudentCoordinatorNames(data.names));
           }
         })
-        .catch(() => {});
+        .catch(() => { });
     };
     bc.addEventListener("message", onMsg);
     return () => {
@@ -195,11 +270,12 @@ export default function TeamsPage() {
   }, []);
 
   const students = useMemo(() => {
-    const names = ensureCoordinatorList(rosterNames);
+    const names = orderStudentsForGrid(ensureCoordinatorList(rosterNames));
     return names.map((name, idx) => ({
       name,
       role: "Student Coordinator",
       image: imageForStudent(name, idx),
+      imagePosition: imagePositionForStudent(name),
     }));
   }, [rosterNames]);
 
@@ -223,7 +299,7 @@ export default function TeamsPage() {
             animate={{ opacity: 1 }}
             className="text-2xl text-lime-200 font-medium mb-10 pb-2 border-b border-lime-700/40 inline-block"
           >
-            
+
           </motion.h2>
 
           <div className="flex justify-center gap-8 flex-wrap">

@@ -1,5 +1,20 @@
 const MAX_COORDINATORS = 80;
 const MAX_NAME_LENGTH = 120;
+const REMOVED_COORDINATOR_NAME_KEYS = new Set([
+  "tejashree",
+  "gaurav kumar",
+  "imaya",
+  "ashuthosh raj",
+  "rakshitha k",
+  "chethan",
+]);
+
+function nameKey(name) {
+  return String(name ?? "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 const DEFAULT_STUDENT_COORDINATOR_NAMES = [
   "Nitharsan Babu V",
@@ -9,7 +24,6 @@ const DEFAULT_STUDENT_COORDINATOR_NAMES = [
   "Saran Srinivasan V",
   "Neha",
   "Bhavani",
-  "Tejashree",
   "Sonu",
   "Tejasvi Sai",
   "Yashwanth V",
@@ -19,6 +33,8 @@ const DEFAULT_STUDENT_COORDINATOR_NAMES = [
   "Niveditha",
   "Anusha",
   "Sankeerthana",
+  "Sanjay",
+  "Sarathy",
   "Srinidhi",
   "Thiru Maran",
   "Nidharsan",
@@ -26,14 +42,12 @@ const DEFAULT_STUDENT_COORDINATOR_NAMES = [
   "Paun Kalyan",
   "Rukmini V M",
   "Hari Prasath",
-  "Gaurav Kumar",
-  "Imaya",
-  "Ashuthosh Raj",
-  "Rakshitha K",
+  "Jeevitha",
+  "Kishore",
   "Sanjana",
   "Mayur Achar",
   "Sanjana L",
-  "Chethan",
+  "Thrupthi Chandana G",
   "Kusuma",
 ];
 
@@ -43,7 +57,7 @@ export function defaultStudentCoordinatorNames() {
 
 /** Appends Sonu and Tejasvi Sai when missing so older saved rosters still show them on /teams. */
 export function ensureCoordinatorList(names) {
-  const required = ["Sonu", "Tejasvi Sai", "Srinidhi"];
+  const required = ["Sonu", "Tejasvi Sai", "Srinidhi", "Sanjay", "Sarathy"];
   const out = [...names];
   const seen = new Set(names);
   for (const name of required) {
@@ -65,9 +79,11 @@ export function sanitizeStudentCoordinatorNames(input) {
     if (out.length >= MAX_COORDINATORS) break;
     const raw = typeof item === "string" ? item : String(item ?? "");
     const s = raw.trim().slice(0, MAX_NAME_LENGTH);
-    if (!s || seen.has(s)) continue;
-    seen.add(s);
-    out.push(s);
+    const normalized = s === "Sanjana" ? "Thrupthi Chandana G" : s;
+    if (REMOVED_COORDINATOR_NAME_KEYS.has(nameKey(normalized))) continue;
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    out.push(normalized);
   }
   return out.length ? out : defaultStudentCoordinatorNames();
 }

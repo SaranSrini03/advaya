@@ -58,7 +58,7 @@ const Navbar = () => {
     { href: "/events", label: "Events" },
     // { href: "/timeline", label: "Timeline" },
     { href: "/teams", label: "Teams" },
-    { href: "/about", label: "About" },
+    // { href: "/about", label: "About" },
     { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact" },
   ];
@@ -85,8 +85,8 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className={`fixed top-0 w-full z-50 transition-colors duration-300 ${isScrolled
-            ? "bg-[color:var(--nav-bg-scrolled)] border-b border-[color:var(--surface-border)] shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
-            : "bg-[color:var(--nav-bg)] border-b border-[color:var(--surface-border)] shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-lg"
+          ? "bg-[color:var(--nav-bg-scrolled)] border-b border-[color:var(--surface-border)] shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
+          : "bg-[color:var(--nav-bg)] border-b border-[color:var(--surface-border)] shadow-[0_8px_24px_rgba(0,0,0,0.12)] backdrop-blur-lg"
           }`}
       >
         <div className="max-w-[110rem] px-4 sm:px-6 lg:px-8 mx-auto">
@@ -107,15 +107,15 @@ const Navbar = () => {
                   whileHover={{ scale: 1.05 }}
                 />
 
-            <div className="flex items-center gap-2 md:gap-4">
-              
-              {/* <img
+                <div className="flex items-center gap-2 md:gap-4">
+
+                  {/* <img
                 src="/cselogo3.png"
                 alt="College Logo"
                 className="h-10 w-auto hidden md:block cursor-pointer hover:scale-105 transition-transform"
                 onClick={handleLogoClick}
               /> */}
-            </div>
+                </div>
               </div>
               <div className="h-8 md:h-12 w-px bg-emerald-200/50 hidden md:block" />
             </div>
@@ -134,8 +134,8 @@ const Navbar = () => {
                     <Link
                       href={link.href}
                       className={`relative px-1 py-2 font-medium transition-colors ${pathname === link.href
-                          ? "text-[color:var(--foreground)]"
-                          : "text-[color:var(--link-fg)] hover:text-[color:var(--link-hover-fg)]"
+                        ? "text-[color:var(--foreground)]"
+                        : "text-[color:var(--link-fg)] hover:text-[color:var(--link-hover-fg)]"
                         }`}
                     >
                       {link.label}
@@ -154,13 +154,13 @@ const Navbar = () => {
                 <div className="relative">
                   <button
                     onClick={() => router.push("/game")}
-                        className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors"
+                    className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors"
                   >
-                      <FaGamepad className="w-5 h-5 text-[color:var(--foreground)]" />
+                    <FaGamepad className="w-5 h-5 text-[color:var(--foreground)]" />
                   </button>
                   <button
                     onClick={() => Handlesocials("download")}
-                        className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors relative group"
+                    className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors relative group"
                   >
                     <RiDownloadCloud2Line className="w-5 h-5 text-[color:var(--foreground)]" />
                     <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[color:var(--nav-tooltip-bg)] text-[color:var(--foreground)] text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
@@ -169,7 +169,7 @@ const Navbar = () => {
                   </button>
                   <button
                     onClick={() => setShowSocials(!showSocials)}
-                        className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors relative group"
+                    className="p-2 rounded-lg hover:bg-[color:rgba(16,185,129,0.2)] transition-colors relative group"
                   >
                     <FiGlobe className="w-5 h-5 text-[color:var(--foreground)]" />
                     <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-[color:var(--nav-tooltip-bg)] text-[color:var(--foreground)] text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
@@ -259,8 +259,8 @@ const Navbar = () => {
                       <Link
                         href={link.href}
                         className={`block py-3 px-4 rounded-lg transition-colors text-lg ${pathname === link.href
-                            ? "bg-emerald-400/90 text-[color:var(--button-fg)]"
-                            : "text-[color:var(--foreground)] hover:bg-emerald-500/50"
+                          ? "bg-emerald-400/90 text-[color:var(--button-fg)]"
+                          : "text-[color:var(--foreground)] hover:bg-emerald-500/50"
                           }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
