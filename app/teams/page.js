@@ -74,7 +74,7 @@ const coordinatorImageByName = {
   "Thrupthi Chandana G": "/coordinators/Thrupthi_Chandana_G.png",
   "Yashwanth K": "/coordinators/Yashwanth_K.png",
   "Yashwanth V": "/coordinators/Yashwanth_v.jpeg",
-  "Paun Kalyan": "/coordinators/paun%20kalyan.jpeg",
+  "Paun Kalyan": "/coordinators/paun_kalyan.jpeg",
   "Pranathi D K": "/coordinators/pranathi%20dk.jpeg",
   "Rukmini V M": "/coordinators/Rukmini.jpg",
   "Thiru Maran": "/coordinators/thirumaran.jpeg",
