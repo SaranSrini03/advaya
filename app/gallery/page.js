@@ -16,13 +16,19 @@ const images = [
   "/gallery/img8.JPG",
   "/gallery/img9.JPG",
   "/gallery/img10.JPG",
-  "/gallery/img11.jpeg",
-  "/gallery/img12.jpeg",
-  "/gallery/img13.jpeg",
-  "/gallery/img14.jpeg",
-  "/gallery/img15.jpeg",
-  "/gallery/img16.jpeg",
-  "/gallery/img17.jpeg",
+  "/gallery/img11.jpg",
+  "/gallery/img12.jpg",
+  "/gallery/img13.jpg",
+  "/gallery/img14.jpg",
+  "/gallery/img15.jpg",
+  "/gallery/img16.jpg",
+  "/gallery/img17.jpg",
+  "/gallery/img18.JPG",
+  "/gallery/img19.JPG",
+  "/gallery/img20.JPG",
+  "/gallery/img21.jpg",
+  "/gallery/img22.jpg",
+  "/gallery/img23.jpg",
   // add as many as you want
 ];
 
@@ -38,7 +44,7 @@ export default function GalleryPage() {
           animate={{ opacity: 1, y: 0 }}
           className="title-min text-4xl md:text-5xl mt-10 font-bold text-center mb-16"
         >
-          Glimpse of Advaya 2k24
+          Glimpse of Advaya 2k25  
         </motion.h1>
 
         {/* Image Grid */}
