@@ -67,7 +67,7 @@ const coordinatorImageByName = {
   "Tejasvi Sai": "/coordinators/tejasvi%20sai.jpeg",
   "Hari Prasath": "/coordinators/Hari_Prasath.jpeg",
   Jeevitha: "/coordinators/jeevitha.jpeg",
-  "Kishor K": "/coordinators/kishore.jpeg",
+  "Kishor K": "/coordinators/Kishor_K.png",
   Nidharsan: "/coordinators/Nidharsan.png",
   "Mayur Achar": "/coordinators/mayur.jpeg",
   Kusuma: "/coordinators/Kusuma.png",
