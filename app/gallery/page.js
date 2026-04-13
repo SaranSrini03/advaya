@@ -5,32 +5,12 @@ import Navbar from "@/app/components/NavBar";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
-const images = [
-  "/gallery/img1.JPG",
-  "/gallery/img2.JPG",
-  "/gallery/img3.JPG",
-  "/gallery/img4.JPG",
-  "/gallery/img5.JPG",
-  "/gallery/img6.JPG",
-  "/gallery/img7.JPG",
-  "/gallery/img8.JPG",
-  "/gallery/img9.JPG",
-  "/gallery/img10.JPG",
-  "/gallery/img11.jpg",
-  "/gallery/img12.jpg",
-  "/gallery/img13.jpg",
-  "/gallery/img14.jpg",
-  "/gallery/img15.jpg",
-  "/gallery/img16.jpg",
-  "/gallery/img17.jpg",
-  "/gallery/img18.JPG",
-  "/gallery/img19.JPG",
-  "/gallery/img20.JPG",
-  "/gallery/img21.jpg",
-  "/gallery/img22.jpg",
-  "/gallery/img23.jpg",
-  // add as many as you want
-];
+/** Must match filenames under `public/gallery` exactly; Linux production is case-sensitive. */
+const GALLERY_IMAGE_COUNT = 23;
+const images = Array.from(
+  { length: GALLERY_IMAGE_COUNT },
+  (_, i) => `/gallery/img${i + 1}.JPG`
+);
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -64,6 +44,7 @@ export default function GalleryPage() {
                 alt={`Gallery Image ${idx + 1}`}
                 width={600}
                 height={800}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                 className="w-full h-auto object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 group-hover:brightness-110"
               />
               {/* Glow effect */}
@@ -95,6 +76,7 @@ export default function GalleryPage() {
                   alt="Full Image"
                   width={1200}
                   height={800}
+                  sizes="(max-width: 896px) 100vw, 896px"
                   className="w-full h-auto object-contain"
                 />
                 <button

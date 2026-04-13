@@ -39,11 +39,12 @@ const DEFAULT_STUDENT_COORDINATOR_NAMES = [
   "Thiru Maran",
   "Nidharsan",
   "Ananya",
+  "Madiha Mehroz M",
   "Paun Kalyan",
   "Rukmini V M",
   "Hari Prasath",
   "Jeevitha",
-  "Kishore",
+  "Kishor K",
   "Sanjana",
   "Mayur Achar",
   "Sanjana L",
@@ -63,8 +64,9 @@ export function ensureCoordinatorList(names) {
     "Srinidhi",
     "Sanjay",
     "Sarathy",
-    "Kishore",
+    "Kishor K",
     "Jeevitha",
+    "Madiha Mehroz M",
   ];
   const out = [...names];
   const seen = new Set(names);
@@ -87,7 +89,15 @@ export function sanitizeStudentCoordinatorNames(input) {
     if (out.length >= MAX_COORDINATORS) break;
     const raw = typeof item === "string" ? item : String(item ?? "");
     const s = raw.trim().slice(0, MAX_NAME_LENGTH);
-    const normalized = s === "Sanjana" ? "Thrupthi Chandana G" : s;
+    let normalized = s === "Sanjana" ? "Thrupthi Chandana G" : s;
+    const kishoreKey = nameKey(normalized);
+    if (
+      kishoreKey === "kishore" ||
+      kishoreKey === "kishore s" ||
+      kishoreKey === "kishore r"
+    ) {
+      normalized = "Kishor K";
+    }
     if (REMOVED_COORDINATOR_NAME_KEYS.has(nameKey(normalized))) continue;
     if (!normalized || seen.has(normalized)) continue;
     seen.add(normalized);
