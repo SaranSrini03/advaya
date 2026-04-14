@@ -53,7 +53,7 @@ const coordinatorImageByName = {
   Ananya: "/coordinators/ananya.jpeg",
   Anusha: "/coordinators/anusha.jpeg",
   Bhavani: "/coordinators/bhavani.jpeg",
-  "Guru Prasath M": "/coordinators/Guru.jpg",
+  "Guru Prasath M": "/coordinators/Guru.jpeg",
   "Saran Srinivasan V": "/coordinators/Saran.jpg",
   "Naveen Rajan M": "/coordinators/naveen.jpeg",
   Neha: "/coordinators/neha.jpeg",
