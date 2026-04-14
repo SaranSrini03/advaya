@@ -43,8 +43,8 @@ const Navbar = () => {
 
       case "download":
         const link = document.createElement("a");
-        link.href = "/agenda.pdf";
-        link.download = "ADVAYA_AGENDA.pdf";
+        link.href = "/agenda.jpeg";
+        link.download = "ADVAYA_AGENDA.jpeg";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
