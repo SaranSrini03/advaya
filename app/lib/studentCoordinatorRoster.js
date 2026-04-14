@@ -40,6 +40,7 @@ const DEFAULT_STUDENT_COORDINATOR_NAMES = [
   "Nidharsan",
   "Ananya",
   "Madiha Mehroz M",
+  "Nirmal",
   "Paun Kalyan",
   "Rukmini V M",
   "Hari Prasath",
@@ -67,6 +68,7 @@ export function ensureCoordinatorList(names) {
     "Kishor K",
     "Jeevitha",
     "Madiha Mehroz M",
+    "Nirmal",
   ];
   const out = [...names];
   const seen = new Set(names);
