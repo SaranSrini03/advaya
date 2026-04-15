@@ -33,8 +33,13 @@ export default function TimerPage() {
 
 
           <div className="mt-14 flex items-center justify-center">
-            <div className="w-full max-w-[110rem] overflow-x-auto rounded-3xl border border-[color:var(--accent)]/35 bg-black/20 px-14 py-10 sm:px-20 sm:py-12 md:px-24 md:py-14 text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-mono tracking-wide leading-none text-[color:var(--foreground)] backdrop-blur-sm whitespace-nowrap [font-variant-numeric:tabular-nums]">
-              <CountdownTimer />
+            <div className="w-full max-w-[110rem] overflow-x-auto rounded-3xl border border-[color:var(--accent)]/35 bg-black/20 px-16 py-12 sm:px-24 sm:py-14 md:px-28 md:py-16 text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-mono tracking-wide leading-none text-[color:var(--foreground)] backdrop-blur-sm whitespace-nowrap [font-variant-numeric:tabular-nums]">
+              <CountdownTimer
+                displayMode="hms"
+                durationHours={18}
+                durationMinutes={15}
+                durationSeconds={0}
+              />
             </div>
           </div>
         </div>
