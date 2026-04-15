@@ -56,6 +56,7 @@ const Navbar = () => {
   const links = [
     { href: "/", label: "Home" },
     { href: "/events", label: "Events" },
+    { href: "/timer", label: "Timer" },
     // { href: "/timeline", label: "Timeline" },
     { href: "/teams", label: "Teams" },
     // { href: "/about", label: "About" },
