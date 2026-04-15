@@ -36,9 +36,10 @@ export default function TimerPage() {
             <div className="w-full max-w-[110rem] overflow-x-auto rounded-3xl border border-[color:var(--accent)]/35 bg-black/20 px-16 py-12 sm:px-24 sm:py-14 md:px-28 md:py-16 text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] font-mono tracking-wide leading-none text-[color:var(--foreground)] backdrop-blur-sm whitespace-nowrap [font-variant-numeric:tabular-nums]">
               <CountdownTimer
                 displayMode="hms"
-                durationHours={18}
-                durationMinutes={15}
-                durationSeconds={0}
+                targetHour={12}
+                targetMinute={0}
+                repeatDaily
+                completedText="12:00 PM reached"
               />
             </div>
           </div>

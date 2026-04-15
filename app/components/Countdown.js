@@ -6,6 +6,8 @@ export default function CountdownTimer({
   targetMonthIndex = 3, // April (0-based)
   targetDay = 15,
   targetHour = 0,
+  targetMinute = 0,
+  repeatDaily = false,
   completedText = "Event started",
   displayMode = "full",
   durationHours,
@@ -36,11 +38,33 @@ export default function CountdownTimer({
       ? new Date(now.getTime() + durationInMs)
       : typeof targetDate === "string" && targetDate.length > 0
         ? new Date(targetDate)
-        : new Date(now.getFullYear(), targetMonthIndex, targetDay, targetHour, 0, 0, 0);
+        : repeatDaily
+          ? new Date(
+              now.getFullYear(),
+              now.getMonth(),
+              now.getDate(),
+              targetHour,
+              targetMinute,
+              0,
+              0,
+            )
+          : new Date(
+              now.getFullYear(),
+              targetMonthIndex,
+              targetDay,
+              targetHour,
+              targetMinute,
+              0,
+              0,
+            );
 
-    // If the event date already passed, count down to the next occurrence.
+    // If target time has passed, move to next valid occurrence.
     if (!hasDurationOverride && eventDate - now < 0) {
-      eventDate.setFullYear(eventDate.getFullYear() + 1);
+      if (repeatDaily) {
+        eventDate.setDate(eventDate.getDate() + 1);
+      } else {
+        eventDate.setFullYear(eventDate.getFullYear() + 1);
+      }
     }
 
     const calculateTimeLeft = () => {
@@ -66,7 +90,17 @@ export default function CountdownTimer({
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate, targetMonthIndex, targetDay, targetHour, durationHours, durationMinutes, durationSeconds]);
+  }, [
+    targetDate,
+    targetMonthIndex,
+    targetDay,
+    targetHour,
+    targetMinute,
+    repeatDaily,
+    durationHours,
+    durationMinutes,
+    durationSeconds,
+  ]);
 
   return (
     <>
